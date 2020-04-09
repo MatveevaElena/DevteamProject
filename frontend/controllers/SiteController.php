@@ -20,6 +20,7 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
+    public $layout = 'newlayout';
     /**
      * {@inheritdoc}
      */
@@ -75,6 +76,53 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionNews()
+    {
+        $api = [
+            '1'=>'Новость 1',
+            '2'=>'Новость 2',
+            '3'=>'Новость 3',
+            '4'=>'Новость 4',
+            '5'=>'Новость 5',
+            '6'=>'Новость 6',
+            '7'=>'Новость 7',
+        ];
+        return $this->render('news',[
+            'news_array' => $api
+        ]);
+    }
+
+    public function actionGetmorenews()
+    {
+        $api = Yii::$app->db->createCommand("SELECT * FROM table_news")->queryAll();
+        // $api = [
+        //     '1'=>'Новость 1',
+        //     '2'=>'Новость 2',
+        //     '3'=>'Новость 3',
+        //     '4'=>'Новость 4',
+        //     '5'=>'Новость 5',
+        //     '6'=>'Новость 6',
+        //     '7'=>'Новость 7',
+        // ];
+        return json_encode($api);
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionProjects()
+    {
+        return $this->render('news');
     }
 
     /**
