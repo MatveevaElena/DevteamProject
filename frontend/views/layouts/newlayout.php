@@ -38,13 +38,11 @@ AppAsset::register($this);
             <a class="nav_elem" href="/site/index">Главная</a>
             <a class="nav_elem" href="/news/index">Новости</a>
             <a class="nav_elem" href="/project/index">Проекты</a>
-            <a class="nav_elem" href="/site/index">О сайте</a>
+            <a class="nav_elem" href="/site/about">О сайте</a>
         </nav>
         <div class="nav_auth">
-            <a class="nav_elem" href="/site/signup">Вход</a>
-            <a class="nav_elem" href="/site/signin">Регистрация</a>
-            <!-- <button class="type_1" type="button">Вход</button>
-            <button class="type_1" type="button">Регистрация</button> -->
+            <a class="nav_elem" href="/site/login">Вход</a>
+            <a class="nav_elem" href="/site/signup">Регистрация</a>
         </div>
         </div>
     </div>
@@ -56,7 +54,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 
-
 <div class="footer bs_out">
     <div class="footer_logo">
       <img src="/icons/logo.svg" alt="Logo">
@@ -64,11 +61,10 @@ AppAsset::register($this);
     <div class="footer_nav">
       <div class="footer_nav_cont">
         <a class="footer_nav_elem" href="/site/index">Главная</a>
-        <a class="footer_nav_elem" href="/projects/index">Проекты</a>
+        <a class="footer_nav_elem" href="/project/index">Проекты</a>
         <a class="footer_nav_elem" href="/news/index">Новости</a>
-        <a class="footer_nav_elem" href="/contacts/index">Контакты</a>
-        <a class="footer_nav_elem" href="/about/index">О сайте</a>
-        <a class="footer_nav_elem" href="/signup/index">Регистрация</a>
+        <a class="footer_nav_elem" href="/site/about">О сайте</a>
+        <a class="footer_nav_elem" href="/site/signup">Регистрация</a>
       </div>
     </div>
     <div class="footer_soc">
