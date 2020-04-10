@@ -7,14 +7,13 @@ use yii\web\AssetBundle;
 /**
  * Main frontend application asset bundle.
  */
-class AppAsset extends AssetBundle
+class MainAsset extends AssetBundle
 {
-    // public $basePath = '@webroot';
-    // public $baseUrl = '@web';
+    
     public $sourcePath = __DIR__;
     public $css = [
         'css/reset.css',
-        '../web/css/site.css',
+        'css/main.css',
         'css/master.css',
         'css/fonts.css',
         'css/constants.css',
@@ -26,5 +25,4 @@ class AppAsset extends AssetBundle
         'yii\bootstrap\BootstrapAsset',
     ];
     public $publishOptions = ['forceCopy'=>true];
-
 }
