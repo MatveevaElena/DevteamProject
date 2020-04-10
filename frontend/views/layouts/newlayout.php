@@ -35,15 +35,17 @@ AppAsset::register($this);
             </h1>
         </div>
         <nav>
-            <a class="nav_elem" href="/frontend/web/site/index">Главная</a>
-            <a class="nav_elem" href="/frontend/web/site/news">Новости</a>
-            <a class="nav_elem">Проекты</a>
-            <a class="nav_elem">Контакты</a>
-            <a class="nav_elem">О сайте</a>
+            <a class="nav_elem" href="/site/index">Главная</a>
+            <a class="nav_elem" href="/news/index">Новости</a>
+            <a class="nav_elem" href="/projects/index">Проекты</a>
+            <a class="nav_elem" href="/contacts/index">Контакты</a>
+            <a class="nav_elem" href="about/index">О сайте</a>
         </nav>
         <div class="nav_auth">
-            <button class="type_1" type="button">Вход</button>
-            <button class="type_1" type="button">Регистрация</button>
+            <a class="nav_elem" href="/signup/index">Вход</a>
+            <a class="nav_elem" href="/signin/index">Регистрация</a>
+            <!-- <button class="type_1" type="button">Вход</button>
+            <button class="type_1" type="button">Регистрация</button> -->
         </div>
         </div>
     </div>
@@ -62,12 +64,12 @@ AppAsset::register($this);
     </div>
     <div class="footer_nav">
       <div class="footer_nav_cont">
-        <a class="footer_nav_elem" href="/">Главноя</a>
-        <a class="footer_nav_elem" href="/">Проекты</a>
-        <a class="footer_nav_elem" href="/">Новости</a>
-        <a class="footer_nav_elem" href="/">Контакты</a>
-        <a class="footer_nav_elem" href="/">О сайте</a>
-        <a class="footer_nav_elem" href="/">Регистрация</a>
+        <a class="footer_nav_elem" href="/site/index">Главная</a>
+        <a class="footer_nav_elem" href="/projects/index">Проекты</a>
+        <a class="footer_nav_elem" href="/news/index">Новости</a>
+        <a class="footer_nav_elem" href="/contacts/index">Контакты</a>
+        <a class="footer_nav_elem" href="/about/index">О сайте</a>
+        <a class="footer_nav_elem" href="/signup/index">Регистрация</a>
       </div>
     </div>
     <div class="footer_soc">
