@@ -37,13 +37,12 @@ AppAsset::register($this);
         <nav>
             <a class="nav_elem" href="/site/index">Главная</a>
             <a class="nav_elem" href="/news/index">Новости</a>
-            <a class="nav_elem" href="/projects/index">Проекты</a>
-            <a class="nav_elem" href="/contacts/index">Контакты</a>
-            <a class="nav_elem" href="about/index">О сайте</a>
+            <a class="nav_elem" href="/project/index">Проекты</a>
+            <a class="nav_elem" href="/site/index">О сайте</a>
         </nav>
         <div class="nav_auth">
-            <a class="nav_elem" href="/signup/index">Вход</a>
-            <a class="nav_elem" href="/signin/index">Регистрация</a>
+            <a class="nav_elem" href="/site/signup">Вход</a>
+            <a class="nav_elem" href="/site/signin">Регистрация</a>
             <!-- <button class="type_1" type="button">Вход</button>
             <button class="type_1" type="button">Регистрация</button> -->
         </div>
