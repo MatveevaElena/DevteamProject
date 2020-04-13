@@ -1,0 +1,19 @@
+/* Constants */
+.bs_out {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+.mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mid_l {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mid_r {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
