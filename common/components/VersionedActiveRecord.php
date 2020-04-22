@@ -46,13 +46,6 @@ class VersionedActiveRecord extends \yii\db\ActiveRecord
         ], $columns);
     }
 
-    public $oldRecord;
-    public function afterFind()
-    {
-        $this->oldRecord=clone $this;
-        return parent::afterFind();
-    }
-    
     public static function getAttributeName($column = 'actualityColumn') {
         $model = get_called_class();
         return $model::versionColumn()[$column];
