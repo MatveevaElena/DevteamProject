@@ -112,7 +112,7 @@ class VersionedActiveRecord extends \yii\db\ActiveRecord
 		$deletedDateColumn = $model->_deletedDateColumn;
 		$isActualColumn = $this->_actualityColumn;	
 		$model->$isActualColumn = 0;
-		$model->$deletedDateColumn = date('d.m.Y H:i:s');
+		$model->$deletedDateColumn = date('YmdHis');
     }
     
     protected function getDeleteCriteria() {
@@ -145,7 +145,7 @@ class VersionedActiveRecord extends \yii\db\ActiveRecord
 		$return = parent::updateAll(
 			[
 				$isActualColumn => 0,
-				$this->_deletedDateColumn => date('d.m.Y H:i:s'),
+				$this->_deletedDateColumn => date('YmdHis'),
 			],
 			$this->getDeleteCriteria()
 		);
@@ -219,7 +219,7 @@ class VersionedActiveRecord extends \yii\db\ActiveRecord
                 if (!$this->isChanged()) {
                     return $this->validate($attributes);//true;
                 }
-                $this->$versionDateColumn = date('d.m.Y H:i:s');
+                $this->$versionDateColumn = date('YmdHis');
                 foreach (static::primaryKey() as $column){
                     $this->$column = NULL;
                 }
@@ -230,7 +230,7 @@ class VersionedActiveRecord extends \yii\db\ActiveRecord
                 }
             }
             else{
-                $this->$versionDateColumn = trim($this->$versionDateColumn) ? date('d.m.Y H:i:s', strtotime($this->$versionDateColumn)) : date('d.m.Y H:i:s');
+                $this->$versionDateColumn = trim($this->$versionDateColumn) ? date('YmdHis', strtotime($this->$versionDateColumn)) : date('YmdHis');
             }
 
             parent::updateAll([$isActualColumn => 0], $this->getDeleteCriteria());
