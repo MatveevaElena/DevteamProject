@@ -33,4 +33,9 @@ return [
             ],
         ],
     ],
+    'modules' => [
+        'projectexchange' => [
+            'class' => 'common\modules\projectexchange\Module',
+        ],
+    ]
 ];
