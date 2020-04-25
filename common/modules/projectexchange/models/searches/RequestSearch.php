@@ -18,7 +18,7 @@ class RequestSearch extends Request
     {
         return [
             [['ID', 'PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
-            [['Tasks', 'Objective', 'Issue', 'ProductResults', 'Cost', 'RequestDate', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['Tasks', 'Objective', 'Issue', 'ProductResults', 'Cost', 'RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
 
@@ -65,7 +65,7 @@ class RequestSearch extends Request
             'ParentID' => $this->ParentID,
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
-            'DeleteDate' => $this->DeleteDate,
+            'DeletedDate' => $this->DeletedDate,
             'StatusID' => $this->StatusID,
             'TypeID' => $this->TypeID,
             'PersonParentID' => $this->PersonParentID,

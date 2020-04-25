@@ -18,7 +18,7 @@ class PersonSearch extends Person
     {
         return [
             [['ID', 'ParentID', 'IsActual'], 'integer'],
-            [['LastName', 'FirstName', 'MiddleName', 'BirthDate', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['LastName', 'FirstName', 'MiddleName', 'BirthDate', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class PersonSearch extends Person
             'ParentID' => $this->ParentID,
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
-            'DeleteDate' => $this->DeleteDate,
+            'DeletedDate' => $this->DeletedDate,
         ]);
 
         $query->andFilterWhere(['like', 'LastName', $this->LastName])

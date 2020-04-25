@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ParentID',
             'IsActual',
             'VersionDate',
-            'DeleteDate',
+            'DeletedDate',
             'StoredFileID',
             'request_entrycol',
             'ProjectParentID',

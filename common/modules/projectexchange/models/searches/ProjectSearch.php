@@ -18,7 +18,7 @@ class ProjectSearch extends Project
     {
         return [
             [['ID', 'PersonCount', 'ParentID', 'IsActual', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'integer'],
-            [['BeginDate', 'EndDate', 'Name', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['BeginDate', 'EndDate', 'Name', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
 
@@ -65,7 +65,7 @@ class ProjectSearch extends Project
             'ParentID' => $this->ParentID,
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
-            'DeleteDate' => $this->DeleteDate,
+            'DeletedDate' => $this->DeletedDate,
             'TypeID' => $this->TypeID,
             'StatusID' => $this->StatusID,
             'RequestParentID' => $this->RequestParentID,

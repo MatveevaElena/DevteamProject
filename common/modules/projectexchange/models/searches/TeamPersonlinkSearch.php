@@ -18,7 +18,7 @@ class TeamPersonlinkSearch extends TeamPersonlink
     {
         return [
             [['ID', 'IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonParentID'], 'integer'],
-            [['ParentID', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['ParentID', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class TeamPersonlinkSearch extends TeamPersonlink
             'ID' => $this->ID,
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
-            'DeleteDate' => $this->DeleteDate,
+            'DeletedDate' => $this->DeletedDate,
             'RoleID' => $this->RoleID,
             'TeamID' => $this->TeamID,
             'StatusID' => $this->StatusID,

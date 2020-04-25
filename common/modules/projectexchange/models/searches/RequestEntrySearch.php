@@ -18,7 +18,7 @@ class RequestEntrySearch extends RequestEntry
     {
         return [
             [['ID', 'ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'integer'],
-            [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeleteDate', 'request_entrycol'], 'safe'],
+            [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeletedDate', 'request_entrycol'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class RequestEntrySearch extends RequestEntry
             'ParentID' => $this->ParentID,
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
-            'DeleteDate' => $this->DeleteDate,
+            'DeletedDate' => $this->DeletedDate,
             'StoredFileID' => $this->StoredFileID,
             'ProjectParentID' => $this->ProjectParentID,
             'StatusID' => $this->StatusID,

@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'VersionDate')->textInput() ?>
 
-    <?= $form->field($model, 'DeleteDate')->textInput() ?>
+    <?= $form->field($model, 'DeletedDate')->textInput() ?>
 
     <?= $form->field($model, 'StoredFileID')->textInput() ?>
 

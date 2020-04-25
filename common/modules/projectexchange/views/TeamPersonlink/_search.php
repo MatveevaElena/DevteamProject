@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'VersionDate') ?>
 
-    <?= $form->field($model, 'DeleteDate') ?>
+    <?= $form->field($model, 'DeletedDate') ?>
 
     <?php // echo $form->field($model, 'RoleID') ?>
 
