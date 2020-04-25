@@ -1,7 +1,10 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use common\modules\projectexchange\models\RequestType;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\Request */
@@ -10,37 +13,41 @@ use yii\widgets\ActiveForm;
 
 <div class="request-form">
 
+
+    <?php 
+    foreach($model->errors as $key => $value){
+        Yii::$app->session->setFlash('danger', $value); 
+    }
+    ?>
+    
+
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'PersonCount')->textInput() ?>
 
-    <?= $form->field($model, 'Tasks')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'Tasks')->widget(\common\components\widgets\Redactor::className()) ?>
 
-    <?= $form->field($model, 'Objective')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'Objective')->widget(\common\components\widgets\Redactor::className()) ?>
 
-    <?= $form->field($model, 'Issue')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'Issue')->widget(\common\components\widgets\Redactor::className()) ?>
 
-    <?= $form->field($model, 'ProductResults')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'ProductResults')->widget(\common\components\widgets\Redactor::className()) ?>
 
     <?= $form->field($model, 'Cost')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'RequestDate')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Enter event time ...'],
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'dd.mm.yyyy'
+        ]
+    ])
+    
+    ?>
 
-    <?= $form->field($model, 'TZ')->textInput() ?>
+    <?= $form->field($model, 'TypeID')->dropDownList(ArrayHelper::map(RequestType::find()->asArray()->all(), 'ID', 'Name')) ?>
 
-    <?= $form->field($model, 'RequestDate')->textInput() ?>
-
-    <?= $form->field($model, 'ParentID')->textInput() ?>
-
-    <?= $form->field($model, 'IsActual')->textInput() ?>
-
-    <?= $form->field($model, 'VersionDate')->textInput() ?>
-
-    <?= $form->field($model, 'DeletedDate')->textInput() ?>
-
-    <?= $form->field($model, 'StatusID')->textInput() ?>
-
-    <?= $form->field($model, 'TypeID')->textInput() ?>
-
-    <?= $form->field($model, 'PersonParentID')->textInput() ?>
+    <?= $form->field($model, 'TZ')->fileinput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

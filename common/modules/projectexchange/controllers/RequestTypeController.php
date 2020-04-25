@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * RequestTypeController implements the CRUD actions for RequestType model.
  */
-class RequestTypeController extends Controller
+class RequesttypeController extends Controller
 {
     /**
      * {@inheritdoc}

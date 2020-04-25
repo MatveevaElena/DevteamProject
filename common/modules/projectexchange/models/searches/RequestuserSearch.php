@@ -9,7 +9,7 @@ use common\modules\projectexchange\models\Request;
 /**
  * RequestSearch represents the model behind the search form of `common\modules\projectexchange\models\Request`.
  */
-class RequestSearch extends Request
+class RequestuserSearch extends Request
 {
     /**
      * {@inheritdoc}
@@ -66,7 +66,7 @@ class RequestSearch extends Request
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
             'DeletedDate' => $this->DeletedDate,
-            'StatusID' => $this->StatusID,
+            'StatusID' => 1,
             'TypeID' => $this->TypeID,
             'PersonParentID' => $this->PersonParentID,
         ]);

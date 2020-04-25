@@ -5,6 +5,8 @@ namespace common\modules\projectexchange\controllers;
 use Yii;
 use common\modules\projectexchange\models\Request;
 use common\modules\projectexchange\models\searches\RequestSearch;
+use common\modules\projectexchange\models\searches\RequestuserSearch;
+use common\modules\projectexchange\models\searches\RequestmoderatorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -44,6 +46,28 @@ class RequestController extends Controller
         ]);
     }
 
+    public function actionIndexuser()
+    {
+        $searchModel = new RequestuserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index_user', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionIndexmoderator()
+    {
+        $searchModel = new RequestmoderatorSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index_moderator', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Request model.
      * @param integer $id
@@ -55,6 +79,33 @@ class RequestController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+    public function actionViewmoderator($id)
+    {
+        return $this->render('view_moderator', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionApprovemoderator($id)
+    {
+        return true;
+    }
+    public function actionDeclinemoderator($id)
+    {
+        $model = $this->findModel($id);
+        $model->StatusID = 4;
+        $model->save();
+        return $this->redirect(['indexmoderator']);
+    }
+    public function actionBacktoupdate($id)
+    {
+        $model = $this->findModel($id);
+        $model->StatusID = 1;
+        $model->save();
+        
+        return $this->redirect(['indexmoderator']);
     }
 
     /**
@@ -107,6 +158,16 @@ class RequestController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+
+    public function actionApprove($id)
+    {
+        $model = $this->findModel($id);
+        $model->StatusID = 2;
+        $model->save();
+
+        return $this->redirect(['view', 'id'=>$model->ID]);
     }
 
     /**

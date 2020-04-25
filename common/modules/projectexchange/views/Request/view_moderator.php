@@ -16,16 +16,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-    <?php if($model->StatusID == 1){ ?>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->ID], [
-            'class' => 'btn btn-danger',
+    <?php if($model->StatusID == 2){ ?>
+        <?= Html::a(Yii::t('app', 'Backtoupdate'), ['backtoupdate', 'id' => $model->ID], [
+            'class' => 'btn btn-primary',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Are you sure you want to Backtoupdate this item?'),
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a(Yii::t('app', 'Approve'), ['approve', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('app', 'Decline'), ['declinemoderator', 'id' => $model->ID], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => Yii::t('app', 'Are you sure you want to Decline this item?'),
+                'method' => 'post',
+            ],
+        ]) ?>
+        <?= Html::a(Yii::t('app', 'Approve'), ['approvemoderator', 'id' => $model->ID], [
             'class' => 'btn btn-warning',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to approve this item?'),

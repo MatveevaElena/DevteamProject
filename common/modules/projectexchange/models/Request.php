@@ -3,6 +3,7 @@
 namespace common\modules\projectexchange\models;
 
 use Yii;
+use common\modules\projectexchange\models\RequestStatus;
 
 /**
  * This is the model class for table "request".
@@ -40,14 +41,14 @@ class Request extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
+            [['PersonCount', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
             [['Tasks', 'Objective', 'Issue', 'ProductResults'], 'string'],
-            [['RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
-            [['ParentID', 'StatusID', 'TypeID', 'PersonParentID'], 'required'],
+            [['RequestDate', 'VersionDate', 'DeletedDate', 'TZ'], 'safe'],
+            [['ParentID', 'StatusID', 'PersonParentID'], 'required'],
             [['Cost'], 'string', 'max' => 200],
-            [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
-            [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
-            [['TypeID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestType::className(), 'targetAttribute' => ['TypeID' => 'ID']],
+            // [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
+            // [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
+            // [['TypeID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestType::className(), 'targetAttribute' => ['TypeID' => 'ID']],
         ];
     }
 
@@ -75,4 +76,21 @@ class Request extends \common\components\VersionedActiveRecord
             'PersonParentID' => Yii::t('app', 'Person Parent ID'),
         ];
     }
+
+    public function save($runValidation = true, $attributeNames = NULL)
+    {
+        $this->PersonParentID = Yii::$app->user->id;
+        $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
+        // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
+        return parent::save($runValidation = true, $attributeNames = NULL);
+    }
+
+    public function getStatus(){
+        return $this->hasOne(RequestStatus::className(), ['ID'=>'StatusID']);
+    }
+
+    public function getStatusName(){
+        return (($st = $this->status) ? $st->Name : 'Статус не указан');
+    }
+
 }

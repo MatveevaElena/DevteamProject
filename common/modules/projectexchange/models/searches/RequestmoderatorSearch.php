@@ -9,7 +9,7 @@ use common\modules\projectexchange\models\Request;
 /**
  * RequestSearch represents the model behind the search form of `common\modules\projectexchange\models\Request`.
  */
-class RequestSearch extends Request
+class RequestmoderatorSearch extends Request
 {
     /**
      * {@inheritdoc}
@@ -55,7 +55,6 @@ class RequestSearch extends Request
             // $query->where('0=1');
             return $dataProvider;
         }
-
         // grid filtering conditions
         $query->andFilterWhere([
             'ID' => $this->ID,
@@ -64,12 +63,17 @@ class RequestSearch extends Request
             'RequestDate' => $this->RequestDate,
             // 'ParentID' => $this->ParentID,
             'IsActual' => $this->IsActual,
+            'StatusID' => $this->StatusID,
             'VersionDate' => $this->VersionDate,
             'DeletedDate' => $this->DeletedDate,
-            'StatusID' => $this->StatusID,
             'TypeID' => $this->TypeID,
             'PersonParentID' => $this->PersonParentID,
         ]);
+        $query->andFilterWhere([
+            'not in', 'StatusID', 1
+        ]);
+
+
 
         $query->andFilterWhere(['like', 'Tasks', $this->Tasks])
             ->andFilterWhere(['like', 'Objective', $this->Objective])
