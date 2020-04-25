@@ -15,7 +15,7 @@ use Yii;
  * @property int $ParentID
  * @property int|null $IsActual
  * @property string|null $VersionDate
- * @property string|null $DeleteDate
+ * @property string|null $DeletedDate
  * @property int $TypeID
  * @property int $StatusID
  * @property int $RequestParentID
@@ -37,7 +37,7 @@ class Project extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['BeginDate', 'EndDate', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['BeginDate', 'EndDate', 'VersionDate', 'DeletedDate'], 'safe'],
             [['PersonCount', 'ParentID', 'IsActual', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'integer'],
             [['ParentID', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'required'],
             [['Name'], 'string', 'max' => 400],
@@ -62,7 +62,7 @@ class Project extends \common\components\VersionedActiveRecord
             'ParentID' => Yii::t('app', 'Parent ID'),
             'IsActual' => Yii::t('app', 'Is Actual'),
             'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeleteDate' => Yii::t('app', 'Delete Date'),
+            'DeletedDate' => Yii::t('app', 'Delete Date'),
             'TypeID' => Yii::t('app', 'Type ID'),
             'StatusID' => Yii::t('app', 'Status ID'),
             'RequestParentID' => Yii::t('app', 'Request Parent ID'),

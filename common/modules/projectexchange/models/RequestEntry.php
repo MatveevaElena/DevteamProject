@@ -14,7 +14,7 @@ use Yii;
  * @property int $ParentID
  * @property int|null $IsActual
  * @property string|null $VersionDate
- * @property string|null $DeleteDate
+ * @property string|null $DeletedDate
  * @property int|null $StoredFileID
  * @property string|null $request_entrycol
  * @property int $ProjectParentID
@@ -37,7 +37,7 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['RequestDate', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
             [['Experience'], 'string'],
             [['ParentID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'required'],
             [['ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'integer'],
@@ -61,7 +61,7 @@ class RequestEntry extends \common\components\VersionedActiveRecord
             'ParentID' => Yii::t('app', 'Parent ID'),
             'IsActual' => Yii::t('app', 'Is Actual'),
             'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeleteDate' => Yii::t('app', 'Delete Date'),
+            'DeletedDate' => Yii::t('app', 'Delete Date'),
             'StoredFileID' => Yii::t('app', 'Stored File ID'),
             'request_entrycol' => Yii::t('app', 'Request Entrycol'),
             'ProjectParentID' => Yii::t('app', 'Project Parent ID'),

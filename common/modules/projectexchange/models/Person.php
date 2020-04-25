@@ -15,7 +15,7 @@ use Yii;
  * @property int $ParentID
  * @property int|null $IsActual
  * @property string|null $VersionDate
- * @property string|null $DeleteDate
+ * @property string|null $DeletedDate
  */
 class Person extends \common\components\VersionedActiveRecord
 {
@@ -34,7 +34,7 @@ class Person extends \common\components\VersionedActiveRecord
     {
         return [
             [['LastName', 'FirstName', 'BirthDate', 'ParentID'], 'required'],
-            [['BirthDate', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['BirthDate', 'VersionDate', 'DeletedDate'], 'safe'],
             [['ParentID', 'IsActual'], 'integer'],
             [['LastName', 'FirstName', 'MiddleName'], 'string', 'max' => 45],
         ];
@@ -54,7 +54,7 @@ class Person extends \common\components\VersionedActiveRecord
             'ParentID' => Yii::t('app', 'Parent ID'),
             'IsActual' => Yii::t('app', 'Is Actual'),
             'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeleteDate' => Yii::t('app', 'Delete Date'),
+            'DeletedDate' => Yii::t('app', 'Delete Date'),
         ];
     }
 }

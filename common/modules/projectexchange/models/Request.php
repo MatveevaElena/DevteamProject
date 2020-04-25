@@ -19,7 +19,7 @@ use Yii;
  * @property int $ParentID
  * @property int|null $IsActual
  * @property string|null $VersionDate
- * @property string|null $DeleteDate
+ * @property string|null $DeletedDate
  * @property int $StatusID
  * @property int $TypeID
  * @property int $PersonParentID
@@ -42,7 +42,7 @@ class Request extends \common\components\VersionedActiveRecord
         return [
             [['PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
             [['Tasks', 'Objective', 'Issue', 'ProductResults'], 'string'],
-            [['RequestDate', 'VersionDate', 'DeleteDate'], 'safe'],
+            [['RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
             [['ParentID', 'StatusID', 'TypeID', 'PersonParentID'], 'required'],
             [['Cost'], 'string', 'max' => 200],
             [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
@@ -69,7 +69,7 @@ class Request extends \common\components\VersionedActiveRecord
             'ParentID' => Yii::t('app', 'Parent ID'),
             'IsActual' => Yii::t('app', 'Is Actual'),
             'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeleteDate' => Yii::t('app', 'Delete Date'),
+            'DeletedDate' => Yii::t('app', 'Delete Date'),
             'StatusID' => Yii::t('app', 'Status ID'),
             'TypeID' => Yii::t('app', 'Type ID'),
             'PersonParentID' => Yii::t('app', 'Person Parent ID'),

@@ -11,7 +11,7 @@ use Yii;
  * @property string $ParentID
  * @property int|null $IsActual
  * @property string|null $VersionDate
- * @property string|null $DeleteDate
+ * @property string|null $DeletedDate
  * @property int $RoleID
  * @property int $TeamID
  * @property int $StatusID
@@ -35,7 +35,7 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
         return [
             [['ParentID', 'RoleID', 'TeamID', 'StatusID', 'PersonParentID'], 'required'],
             [['IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonParentID'], 'integer'],
-            [['VersionDate', 'DeleteDate'], 'safe'],
+            [['VersionDate', 'DeletedDate'], 'safe'],
             [['ParentID'], 'string', 'max' => 45],
             [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
             [['RoleID'], 'exist', 'skipOnError' => true, 'targetClass' => PersonlinkRole::className(), 'targetAttribute' => ['RoleID' => 'ID']],
@@ -54,7 +54,7 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
             'ParentID' => Yii::t('app', 'Parent ID'),
             'IsActual' => Yii::t('app', 'Is Actual'),
             'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeleteDate' => Yii::t('app', 'Delete Date'),
+            'DeletedDate' => Yii::t('app', 'Delete Date'),
             'RoleID' => Yii::t('app', 'Role ID'),
             'TeamID' => Yii::t('app', 'Team ID'),
             'StatusID' => Yii::t('app', 'Status ID'),
