@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * ProjectStatusController implements the CRUD actions for ProjectStatus model.
  */
-class ProjectStatusController extends Controller
+class ProjectstatusController extends Controller
 {
     /**
      * {@inheritdoc}

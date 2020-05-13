@@ -39,12 +39,12 @@ class Project extends \common\components\VersionedActiveRecord
         return [
             [['BeginDate', 'EndDate', 'VersionDate', 'DeletedDate'], 'safe'],
             [['PersonCount', 'ParentID', 'IsActual', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'integer'],
-            [['ParentID', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'required'],
+            [['ParentID', 'TypeID', 'StatusID', ], 'required'],
             [['Name'], 'string', 'max' => 400],
-            [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
-            [['TypeID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectType::className(), 'targetAttribute' => ['TypeID' => 'ID']],
-            [['RequestParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Request::className(), 'targetAttribute' => ['RequestParentID' => 'ParentID']],
-            [['TeamID'], 'exist', 'skipOnError' => true, 'targetClass' => Team::className(), 'targetAttribute' => ['TeamID' => 'ID']],
+          //  [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
+          //  [['TypeID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectType::className(), 'targetAttribute' => ['TypeID' => 'ID']],
+        //    [['RequestParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Request::className(), 'targetAttribute' => ['RequestParentID' => 'ParentID']],
+           // [['TeamID'], 'exist', 'skipOnError' => true, 'targetClass' => Team::className(), 'targetAttribute' => ['TeamID' => 'ID']],
         ];
     }
 

@@ -42,9 +42,9 @@ class RequestEntry extends \common\components\VersionedActiveRecord
             [['ParentID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'required'],
             [['ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'integer'],
             [['Target', 'request_entrycol'], 'string', 'max' => 45],
-            [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
-            [['ProjectParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['ProjectParentID' => 'ParentID']],
-            [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
+           // [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
+           // [['ProjectParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['ProjectParentID' => 'ParentID']],
+           // [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
         ];
     }
 
@@ -69,4 +69,21 @@ class RequestEntry extends \common\components\VersionedActiveRecord
             'PersonParentID' => Yii::t('app', 'Person Parent ID'),
         ];
     }
+    public function save($runValidation = true, $attributeNames = NULL)
+    {
+        $this->PersonParentID = Yii::$app->user->id;
+        $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
+        // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
+        return parent::save($runValidation = true, $attributeNames = NULL);
+    }
+
+    public function getStatus(){
+        return $this->hasOne(RequestStatus::className(), ['ID'=>'StatusID']);
+    }
+
+    public function getStatusName(){
+        return (($st = $this->status) ? $st->Name : 'Статус не указан');
+    }
+
+
 }

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\Person */
@@ -18,15 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'MiddleName')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'BirthDate')->textInput() ?>
-
-    <?= $form->field($model, 'ParentID')->textInput() ?>
-
-    <?= $form->field($model, 'IsActual')->textInput() ?>
-
-    <?= $form->field($model, 'VersionDate')->textInput() ?>
-
-    <?= $form->field($model, 'DeletedDate')->textInput() ?>
+    <?= $form->field($model, 'BirthDate')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Enter event time ...'],
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'dd.mm.yyyy'
+        ]
+    ])
+    
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

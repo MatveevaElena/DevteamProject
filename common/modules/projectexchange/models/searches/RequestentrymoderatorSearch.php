@@ -69,6 +69,9 @@ class RequestEntrySearch extends RequestEntry
             'StatusID' => $this->StatusID,
             'PersonParentID' => $this->PersonParentID,
         ]);
+        $query->andFilterWhere([
+            'not in', 'StatusID', 1
+        ]);
 
         $query->andFilterWhere(['like', 'Experience', $this->Experience])
             ->andFilterWhere(['like', 'Target', $this->Target])

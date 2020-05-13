@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * TeamPersonlinkController implements the CRUD actions for TeamPersonlink model.
  */
-class TeamPersonlinkController extends Controller
+class TeampersonlinkController extends Controller
 {
     /**
      * {@inheritdoc}
