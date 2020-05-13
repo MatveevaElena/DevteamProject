@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\modules\projectexchange\models\Person */
+/* @var $model common\modules\roles\models\UserRole */
 
-$this->title = $model->ID;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'People'), 'url' => ['index']];
+$this->title = $model->Name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'User Roles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="person-view">
+<div class="user-role-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,10 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'ID',
-            'LastName',
-            'FirstName',
-            'MiddleName',
-            'BirthDate',
+            'Name',
+            'Abbreviation',
+            'Description',
         ],
     ]) ?>
 

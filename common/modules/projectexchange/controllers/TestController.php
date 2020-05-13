@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\modules\projectexchange\models\Project;
+use common\modules\projectexchange\models\Test;
 use common\modules\projectexchange\models\RequestEntry;
 
 class TestController extends Controller
@@ -54,6 +55,22 @@ class TestController extends Controller
             'model' => $model
         ]);
 
+    }
+
+    public function actionCreate(){
+        $model = new Test();
+
+        if ($model->load(Yii::$app->request->post())) {
+            // Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+            return $this->render('testform', [
+                'model' => $model,
+                'post' => Yii::$app->request->post()
+            ]);
+        }
+
+        return $this->render('testform', [
+            'model' => $model,
+        ]);
     }
 
 }

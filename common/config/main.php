@@ -13,7 +13,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/default',
+                '' => 'site/index',
+                // 'roles/userrole/index' => 'site/index',
                 '<controller:(\w+)>/<action:(\w+)>/<id:\d+>' => '<controller>/<action>',
                 '<controller:(\w+)>/<action:(\w+)>' => '<controller>/<action>',
                 '<module:(\w+)>/<controller:(\w+)>/<action:(\w+)>' => '<module>/<controller>/<action>',
@@ -36,6 +37,9 @@ return [
     'modules' => [
         'projectexchange' => [
             'class' => 'common\modules\projectexchange\Module',
+        ],
+        'roles' => [
+            'class' => 'common\modules\roles\Module',
         ],
     ]
 ];

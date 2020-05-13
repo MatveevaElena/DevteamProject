@@ -12,12 +12,8 @@ use Yii;
  * @property string $FirstName
  * @property string|null $MiddleName
  * @property string $BirthDate
- * @property int $ParentID
- * @property int|null $IsActual
- * @property string|null $VersionDate
- * @property string|null $DeletedDate
  */
-class Person extends \common\components\VersionedActiveRecord
+class Person extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -33,9 +29,8 @@ class Person extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['LastName', 'FirstName', 'BirthDate', 'ParentID'], 'required'],
-            [['BirthDate', 'VersionDate', 'DeletedDate'], 'safe'],
-            [['ParentID', 'IsActual'], 'integer'],
+            [['LastName', 'FirstName', 'BirthDate'], 'required'],
+            [['BirthDate'], 'safe'],
             [['LastName', 'FirstName', 'MiddleName'], 'string', 'max' => 45],
         ];
     }
@@ -51,10 +46,6 @@ class Person extends \common\components\VersionedActiveRecord
             'FirstName' => Yii::t('app', 'First Name'),
             'MiddleName' => Yii::t('app', 'Middle Name'),
             'BirthDate' => Yii::t('app', 'Birth Date'),
-            'ParentID' => Yii::t('app', 'Parent ID'),
-            'IsActual' => Yii::t('app', 'Is Actual'),
-            'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeletedDate' => Yii::t('app', 'Delete Date'),
         ];
     }
 }

@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\modules\projectexchange\models\searches\PersonSearch */
+/* @var $searchModel common\modules\roles\models\searches\UserroleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'People');
+$this->title = Yii::t('app', 'User Roles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="person-index">
+<div class="user-role-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Person'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create User Role'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,10 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'LastName',
-            'FirstName',
-            'MiddleName',
-            'BirthDate',
+            'Name',
+            'Abbreviation',
+            'Description',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

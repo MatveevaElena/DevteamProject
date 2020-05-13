@@ -1,15 +1,15 @@
 <?php
 
-namespace common\modules\projectexchange\models\searches;
+namespace common\modules\roles\models\searches;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\modules\projectexchange\models\Person;
+use common\modules\roles\models\UserRole;
 
 /**
- * PersonSearch represents the model behind the search form of `common\modules\projectexchange\models\Person`.
+ * UserroleSearch represents the model behind the search form of `common\modules\roles\models\UserRole`.
  */
-class PersonSearch extends Person
+class UserroleSearch extends UserRole
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class PersonSearch extends Person
     {
         return [
             [['ID'], 'integer'],
-            [['LastName', 'FirstName', 'MiddleName', 'BirthDate'], 'safe'],
+            [['Name', 'Abbreviation', 'Description'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class PersonSearch extends Person
      */
     public function search($params)
     {
-        $query = Person::find();
+        $query = UserRole::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,11 @@ class PersonSearch extends Person
         // grid filtering conditions
         $query->andFilterWhere([
             'ID' => $this->ID,
-            'BirthDate' => $this->BirthDate,
         ]);
 
-        $query->andFilterWhere(['like', 'LastName', $this->LastName])
-            ->andFilterWhere(['like', 'FirstName', $this->FirstName])
-            ->andFilterWhere(['like', 'MiddleName', $this->MiddleName]);
+        $query->andFilterWhere(['like', 'Name', $this->Name])
+            ->andFilterWhere(['like', 'Abbreviation', $this->Abbreviation])
+            ->andFilterWhere(['like', 'Description', $this->Description]);
 
         return $dataProvider;
     }
