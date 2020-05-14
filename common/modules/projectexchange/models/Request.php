@@ -23,7 +23,7 @@ use common\modules\projectexchange\models\RequestStatus;
  * @property string|null $DeletedDate
  * @property int $StatusID
  * @property int $TypeID
- * @property int $PersonParentID
+ * @property int $PersonID
  */
 class Request extends \common\components\VersionedActiveRecord
 {
@@ -41,12 +41,12 @@ class Request extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['PersonCount', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
+            [['PersonCount', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonID'], 'integer'],
             [['Tasks', 'Objective', 'Issue', 'ProductResults'], 'string'],
             [['RequestDate', 'VersionDate', 'DeletedDate', 'TZ'], 'safe'],
-            [['ParentID', 'StatusID', 'PersonParentID'], 'required'],
+            [['ParentID', 'StatusID', 'PersonID'], 'required'],
             [['Cost'], 'string', 'max' => 200],
-            // [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
+            // [['PersonID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonID' => 'ParentID']],
             // [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
             // [['TypeID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestType::className(), 'targetAttribute' => ['TypeID' => 'ID']],
         ];
@@ -73,13 +73,13 @@ class Request extends \common\components\VersionedActiveRecord
             'DeletedDate' => Yii::t('app', 'Delete Date'),
             'StatusID' => Yii::t('app', 'Status ID'),
             'TypeID' => Yii::t('app', 'Type ID'),
-            'PersonParentID' => Yii::t('app', 'Person Parent ID'),
+            'PersonID' => Yii::t('app', 'Person ID'),
         ];
     }
 
     public function save($runValidation = true, $attributeNames = NULL)
     {
-        $this->PersonParentID = Yii::$app->user->id;
+        $this->PersonID = Yii::$app->user->id;
         $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
         // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
         return parent::save($runValidation = true, $attributeNames = NULL);

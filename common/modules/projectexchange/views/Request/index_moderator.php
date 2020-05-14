@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'PersonParentID',
+            'PersonID',
             [
                 'attribute' => 'RequestDate',
                 'format' => ['date','php:d.m.Y']

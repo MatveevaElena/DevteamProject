@@ -15,7 +15,7 @@ use Yii;
  * @property int $RoleID
  * @property int $TeamID
  * @property int $StatusID
- * @property int $PersonParentID
+ * @property int $PersonID
  */
 class TeamPersonlink extends \common\components\VersionedActiveRecord
 {
@@ -33,11 +33,11 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['ParentID', 'RoleID', 'TeamID', 'StatusID', 'PersonParentID'], 'required'],
-            [['IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonParentID'], 'integer'],
+            [['ParentID', 'RoleID', 'TeamID', 'StatusID', 'PersonID'], 'required'],
+            [['IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonID'], 'integer'],
             [['VersionDate', 'DeletedDate'], 'safe'],
             [['ParentID'], 'string', 'max' => 45],
-            [['PersonParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonParentID' => 'ParentID']],
+            [['PersonID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonID' => 'ParentID']],
             [['RoleID'], 'exist', 'skipOnError' => true, 'targetClass' => PersonlinkRole::className(), 'targetAttribute' => ['RoleID' => 'ID']],
             [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => PersonlinkStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
             [['TeamID'], 'exist', 'skipOnError' => true, 'targetClass' => Team::className(), 'targetAttribute' => ['TeamID' => 'ID']],
@@ -58,7 +58,7 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
             'RoleID' => Yii::t('app', 'Role ID'),
             'TeamID' => Yii::t('app', 'Team ID'),
             'StatusID' => Yii::t('app', 'Status ID'),
-            'PersonParentID' => Yii::t('app', 'Person Parent ID'),
+            'PersonID' => Yii::t('app', 'Person ID'),
         ];
     }
 }

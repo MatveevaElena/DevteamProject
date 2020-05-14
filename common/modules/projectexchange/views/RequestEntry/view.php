@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'request_entrycol',
             'ProjectParentID',
             'StatusID',
-            'PersonParentID',
+            'PersonID',
         ],
     ]) ?>
 

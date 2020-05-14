@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'RoleID',
             //'TeamID',
             //'StatusID',
-            //'PersonParentID',
+            //'PersonID',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

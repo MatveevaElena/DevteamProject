@@ -17,7 +17,7 @@ class RequestuserSearch extends Request
     public function rules()
     {
         return [
-            [['ID', 'PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
+            [['ID', 'PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonID'], 'integer'],
             [['Tasks', 'Objective', 'Issue', 'ProductResults', 'Cost', 'RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
@@ -68,7 +68,7 @@ class RequestuserSearch extends Request
             'DeletedDate' => $this->DeletedDate,
             'StatusID' => 1,
             'TypeID' => $this->TypeID,
-            'PersonParentID' => $this->PersonParentID,
+            'PersonID' => $this->PersonID,
         ]);
 
         $query->andFilterWhere(['like', 'Tasks', $this->Tasks])

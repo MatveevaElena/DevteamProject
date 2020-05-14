@@ -17,7 +17,7 @@ class RequestmoderatorSearch extends Request
     public function rules()
     {
         return [
-            [['ID', 'PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonParentID'], 'integer'],
+            [['ID', 'PersonCount', 'TZ', 'ParentID', 'IsActual', 'StatusID', 'TypeID', 'PersonID'], 'integer'],
             [['Tasks', 'Objective', 'Issue', 'ProductResults', 'Cost', 'RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
@@ -67,7 +67,7 @@ class RequestmoderatorSearch extends Request
             'VersionDate' => $this->VersionDate,
             'DeletedDate' => $this->DeletedDate,
             'TypeID' => $this->TypeID,
-            'PersonParentID' => $this->PersonParentID,
+            'PersonID' => $this->PersonID,
         ]);
         $query->andFilterWhere([
             'not in', 'StatusID', 1

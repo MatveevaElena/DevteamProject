@@ -17,7 +17,7 @@ class RequestEntrySearch extends RequestEntry
     public function rules()
     {
         return [
-            [['ID', 'ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'integer'],
+            [['ID', 'ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
             [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeletedDate', 'request_entrycol'], 'safe'],
         ];
     }
@@ -67,7 +67,7 @@ class RequestEntrySearch extends RequestEntry
             'StoredFileID' => $this->StoredFileID,
             'ProjectParentID' => $this->ProjectParentID,
             'StatusID' => $this->StatusID,
-            'PersonParentID' => $this->PersonParentID,
+            'PersonID' => $this->PersonID,
         ]);
         $query->andFilterWhere([
             'not in', 'StatusID', 1

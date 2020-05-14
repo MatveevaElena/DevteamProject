@@ -45,7 +45,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'TypeID') ?>
 
-    <?php // echo $form->field($model, 'PersonParentID') ?>
+    <?php // echo $form->field($model, 'PersonID') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

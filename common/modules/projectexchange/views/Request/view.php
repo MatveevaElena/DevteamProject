@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'DeletedDate',
             'StatusID',
             'TypeID',
-            'PersonParentID',
+            'PersonID',
         ],
     ]) ?>
 

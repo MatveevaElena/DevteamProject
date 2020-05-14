@@ -17,7 +17,7 @@ class TeamPersonlinkSearch extends TeamPersonlink
     public function rules()
     {
         return [
-            [['ID', 'IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonParentID'], 'integer'],
+            [['ID', 'IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonID'], 'integer'],
             [['ParentID', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
@@ -65,7 +65,7 @@ class TeamPersonlinkSearch extends TeamPersonlink
             'RoleID' => $this->RoleID,
             'TeamID' => $this->TeamID,
             'StatusID' => $this->StatusID,
-            'PersonParentID' => $this->PersonParentID,
+            'PersonID' => $this->PersonID,
         ]);
 
         $query->andFilterWhere(['like', 'ParentID', $this->ParentID]);
