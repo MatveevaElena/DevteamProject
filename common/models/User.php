@@ -6,6 +6,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use common\modules\roles\models\User as MyUser;
 
 /**
  * User model
@@ -209,4 +210,11 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+    
+    public function getMyuser()
+    {
+        return $this->hasOne(MyUser::className(), ['id' => 'id']);
+    }
+
+
 }

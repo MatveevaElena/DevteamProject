@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules\projectexchange\models;
+namespace common\modules\test\models;
 
 use Yii;
 use Yii\base\Model;

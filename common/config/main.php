@@ -41,5 +41,8 @@ return [
         'roles' => [
             'class' => 'common\modules\roles\Module',
         ],
+        'test' => [
+            'class' => 'common\modules\test\Module',
+        ],
     ]
 ];

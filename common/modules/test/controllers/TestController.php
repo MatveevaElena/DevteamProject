@@ -1,13 +1,14 @@
 <?php
 
-namespace common\modules\projectexchange\controllers;
+namespace common\modules\test\controllers;
 
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\modules\projectexchange\models\Project;
-use common\modules\projectexchange\models\Test;
+use common\modules\test\models\Test;
+use common\modules\roles\models\User;
 use common\modules\projectexchange\models\RequestEntry;
 
 class TestController extends Controller
@@ -71,6 +72,13 @@ class TestController extends Controller
         return $this->render('testform', [
             'model' => $model,
         ]);
+    }
+
+    public function actionTest(){
+        echo '<pre>';
+        var_dump(User::checkAccess('moderator'));
+        echo '</pre>';
+        die;
     }
 
 }

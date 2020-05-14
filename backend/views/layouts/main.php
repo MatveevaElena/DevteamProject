@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use common\modules\roles\models\User;
 
 AppAsset::register($this);
 ?>
@@ -38,6 +39,15 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
     ];
+    $menuItems[] = ['label' => 'Проекты', 'url' => ['/projectexchange/project/index']];
+    if(User::checkAccess('moderator')){
+        $menuItems[] = ['label' => 'Заявки', 'url' => ['/projectexchange/request/index']];
+        $menuItems[] = ['label' => 'Заявки на участие', 'url' => ['/projectexchange/request/index']];
+    }
+    if(User::checkAccess('admin')){
+        $menuItems[] = ['label' => 'Roles', 'url' => ['/roles/user/index']];
+        $menuItems[] = ['label' => 'Persons', 'url' => ['/projectexchange/person/index']];
+    }
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {

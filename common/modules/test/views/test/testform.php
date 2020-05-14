@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use common\modules\projectexchange\models\Project;
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
 
