@@ -44,6 +44,28 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function actionIndexall()
+    {
+        $searchModel = new ProjectSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // var_dump($dataProvider->getModels());die;
+        return $this->render('indexall', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionIndexmy()
+    {
+        $searchModel = new ProjectSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // var_dump($dataProvider->getModels());die;
+        return $this->render('indexall', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Project model.
      * @param integer $id

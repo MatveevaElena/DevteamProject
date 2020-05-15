@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\modules\roles\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\modules\projectexchange\models\searches\RequestSearch */
@@ -42,8 +43,16 @@ $this->params['breadcrumbs'][] = $this->title;
             //'StatusID',
             //'TypeID',
             //'PersonID',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn'
+                ,'visible' => User::checkAccess('admin')
+                ,'template' => '{view_moderator}{update}{delete}'
+                ,'buttons' => [
+                    'view_moderator' => function ($url,$model) {
+                        return Html::a('', '/projectexchange/request/viewmoderator?id='.$model->ID, ['class' => 'glyphicon glyphicon-eye-open']);
+                    }
+                ]
+            ],
         ],
     ]); ?>
 

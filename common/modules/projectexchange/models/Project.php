@@ -69,4 +69,43 @@ class Project extends \common\components\VersionedActiveRecord
             'TeamID' => Yii::t('app', 'Team ID'),
         ];
     }
+
+    public function save($runValidation = true, $attributeNames = NULL)
+    {
+        
+        $db = Yii::$app->db;
+        $transaction = $db->beginTransaction();
+        $fl = true;
+        try {
+            if(!$this->TeamID){
+                $team = new Team;
+                $team->Name = $this->Name;
+                $fl = $fl && $team->save();
+                $this->TeamID = $team->ID;
+                
+            }
+            $request = Request::find()->where(['IsActual'=>1,'ParentID'=>$this->RequestParentID])->one();
+            if($request && $request->StatusID == 2){
+                $request->StatusID = 3;
+                $fl = $fl && $request->save();
+            }
+            $fl = $fl && parent::save();
+            if($fl){
+                $transaction->commit();
+            }else{
+                $transaction->rollBack();
+            }
+        } catch(\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        } catch(\Throwable $e) {
+            $transaction->rollBack();
+        }
+        return $fl;
+    }
+
+    // public function getRequest(){
+    //     $this->hasOne(Request::className(), ['ParentID' => 'RequestParentID']);
+    // }
+    
 }

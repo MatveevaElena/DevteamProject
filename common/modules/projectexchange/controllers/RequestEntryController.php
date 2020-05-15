@@ -5,6 +5,8 @@ namespace common\modules\projectexchange\controllers;
 use Yii;
 use common\modules\projectexchange\models\RequestEntry;
 use common\modules\projectexchange\models\searches\RequestEntrySearch;
+use common\modules\projectexchange\models\searches\RequestentryuserSearch;
+use common\modules\projectexchange\models\searches\RequestentrymoderatorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -45,7 +47,7 @@ class RequestentryController extends Controller
     }
     public function actionIndexuser()
     {
-        $searchModel = new RequestuserSearch();
+        $searchModel = new RequestentryuserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index_user', [
@@ -56,7 +58,7 @@ class RequestentryController extends Controller
 
     public function actionIndexmoderator()
     {
-        $searchModel = new RequestmoderatorSearch();
+        $searchModel = new RequestentrymoderatorSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index_moderator', [

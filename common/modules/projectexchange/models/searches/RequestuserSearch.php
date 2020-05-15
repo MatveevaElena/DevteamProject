@@ -2,6 +2,7 @@
 
 namespace common\modules\projectexchange\models\searches;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\modules\projectexchange\models\Request;
@@ -66,9 +67,9 @@ class RequestuserSearch extends Request
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
             'DeletedDate' => $this->DeletedDate,
-            'StatusID' => 1,
+            'StatusID' => $this->StatusID,
             'TypeID' => $this->TypeID,
-            'PersonID' => $this->PersonID,
+            'PersonID' => Yii::$app->user->identity->PersonID,
         ]);
 
         $query->andFilterWhere(['like', 'Tasks', $this->Tasks])

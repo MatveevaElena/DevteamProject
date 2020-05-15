@@ -91,6 +91,6 @@ class User extends \yii\db\ActiveRecord
     }
 
     public static function checkAccess($role_name){
-        return in_array($role_name, Yii::$app->user->identity->myuser->userRoleLinkNameList);
+        return in_array($role_name, ($r = Yii::$app->user->identity->myuser->userRoleLinkNameList) ? $r : []);
     }
 }

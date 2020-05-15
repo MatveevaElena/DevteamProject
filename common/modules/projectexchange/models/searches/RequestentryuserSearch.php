@@ -4,21 +4,21 @@ namespace common\modules\projectexchange\models\searches;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\modules\projectexchange\models\Project;
+use common\modules\projectexchange\models\Requestentry;
 
 /**
- * ProjectSearch represents the model behind the search form of `common\modules\projectexchange\models\Project`.
+ * RequestSearch represents the model behind the search form of `common\modules\projectexchange\models\Request`.
  */
-class ProjectSearch extends Project
+class RequestentryuserSearch extends Requestentry
 {
-    /**
+     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['ID', 'PersonCount', 'ParentID', 'IsActual', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'integer'],
-            [['BeginDate', 'EndDate', 'Name', 'VersionDate', 'DeletedDate'], 'safe'],
+            [['ID', 'ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonParentID'], 'integer'],
+            [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeletedDate', 'request_entrycol'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ProjectSearch extends Project
      */
     public function search($params)
     {
-        $query = Project::find();
+        $query = RequestEntry::find();
 
         // add conditions that should always apply here
 
@@ -59,20 +59,19 @@ class ProjectSearch extends Project
         // grid filtering conditions
         $query->andFilterWhere([
             'ID' => $this->ID,
-            'BeginDate' => $this->BeginDate,
-            'EndDate' => $this->EndDate,
-            'PersonCount' => $this->PersonCount,
-            // 'ParentID' => $this->ParentID,
+            'RequestDate' => $this->RequestDate,
+            //'ParentID' => $this->ParentID,
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
             'DeletedDate' => $this->DeletedDate,
-            'TypeID' => $this->TypeID,
-            'StatusID' => $this->StatusID,
-            'RequestParentID' => $this->RequestParentID,
-            'TeamID' => $this->TeamID,
+            'StoredFileID' => $this->StoredFileID,
+            'ProjectParentID' => $this->ProjectParentID,
+            'PersonID' => Yii::$app->user->identity->PersonID,
         ]);
 
-        $query->andFilterWhere(['like', 'Name', $this->Name]);
+        $query->andFilterWhere(['like', 'Experience', $this->Experience])
+            ->andFilterWhere(['like', 'Target', $this->Target])
+            ->andFilterWhere(['like', 'request_entrycol', $this->request_entrycol]);
 
         return $dataProvider;
     }

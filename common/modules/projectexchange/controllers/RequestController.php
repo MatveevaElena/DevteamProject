@@ -4,6 +4,7 @@ namespace common\modules\projectexchange\controllers;
 
 use Yii;
 use common\modules\projectexchange\models\Request;
+use common\modules\projectexchange\models\Project;
 use common\modules\projectexchange\models\searches\RequestSearch;
 use common\modules\projectexchange\models\searches\RequestuserSearch;
 use common\modules\projectexchange\models\searches\RequestmoderatorSearch;
@@ -41,6 +42,17 @@ class RequestController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionIndexmy()
+    {
+        $searchModel = new RequestuserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexmy', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -90,8 +102,26 @@ class RequestController extends Controller
 
     public function actionApprovemoderator($id)
     {
-        return true;
+        return $this->redirect(['projectcreate', 'id' => $id]);
     }
+
+    public function actionProjectcreate($id=null)
+    {
+        $model = new Project;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            return $this->redirect(['view', 'id' => $model->ID]);
+        }
+        // var_dump($id);die;
+        $request = $this->findModel($id);
+        $model->RequestParentID = $request->ParentID;
+
+        return $this->render('create_project', [
+            'model' => $model,
+        ]);
+    }
+
     public function actionDeclinemoderator($id)
     {
         $model = $this->findModel($id);
@@ -99,6 +129,7 @@ class RequestController extends Controller
         $model->save();
         return $this->redirect(['indexmoderator']);
     }
+
     public function actionBacktoupdate($id)
     {
         $model = $this->findModel($id);

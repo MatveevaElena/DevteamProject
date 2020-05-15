@@ -28,23 +28,32 @@ AppAsset::register($this);
 
     <div class="nav_bg bs_out">
         <div class="nav">
-        <div class="nav_tit">
-            <h1>
-            <span>Самарский государственный</span>
-            технический университет
-            </h1>
-        </div>
-        <nav>
-        <a class="nav_elem" href="/frontend/web/site/index">Главная</a>
-            <a class="nav_elem" href="/frontend/web/site/news">Новости</a>
-            <a class="nav_elem">Проекты</a>
-            <a class="nav_elem">Контакты</a>
-            <a class="nav_elem">О сайте</a>
-        </nav>
-        <div class="nav_auth">
+          <div class="nav_tit">
+              <h1>
+              <span>Самарский государственный</span>
+              технический университет
+              </h1>
+          </div>
+          <nav>
+          <a class="nav_elem" href="/frontend/web/site/index">Главная</a>
+              <a class="nav_elem" href="/frontend/web/site/news">Новости</a>
+              <a class="nav_elem" href="/projectexchange/project/indexall">Проекты</a>
+              <a class="nav_elem">Контакты</a>
+              <a class="nav_elem">О сайте</a>
+          </nav>
+          <div class="nav_auth">
+          <?php if (Yii::$app->user->isGuest) { ?>
             <a class="nav_elem" href="/site/login">Вход</a>
             <a class="nav_elem" href="/site/signup">Регистрация</a>
-        </div>
+          <?php } else { ?>
+            <?= Html::beginForm(['/site/logout'], 'post')
+              .Html::submitButton(
+                'Выход (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'nav_elem','style'=>'color:black']
+            ).Html::endForm()
+            ?>
+          <?php } ?>
+          </div>
         </div>
     </div>
     <div class="container">
@@ -64,8 +73,6 @@ AppAsset::register($this);
         <a class="footer_nav_elem" href="/site/index">Главная</a>
         <a class="footer_nav_elem" href="/project/index">Проекты</a>
         <a class="footer_nav_elem" href="/news/index">Новости</a>
-        <a class="footer_nav_elem" href="/site/about">О сайте</a>
-        <a class="footer_nav_elem" href="/site/signup">Регистрация</a>
       </div>
     </div>
     <div class="footer_soc">

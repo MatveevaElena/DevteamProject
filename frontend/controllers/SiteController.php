@@ -75,7 +75,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('about');
     }
 
 
@@ -102,16 +102,24 @@ class SiteController extends Controller
 
     public function actionGetmorenews()
     {
-        $api = Yii::$app->db->createCommand("SELECT * FROM table_news")->queryAll();
-        // $api = [
-        //     '1'=>'Новость 1',
-        //     '2'=>'Новость 2',
-        //     '3'=>'Новость 3',
-        //     '4'=>'Новость 4',
-        //     '5'=>'Новость 5',
-        //     '6'=>'Новость 6',
-        //     '7'=>'Новость 7',
-        // ];
+        // $api = Yii::$app->db->createCommand("SELECT * FROM table_news")->queryAll();
+        $api = [
+            '1'=>'news 1',
+            '2'=>'news 2',
+            '3'=>'news 3',
+            'SMTH_ID'=>'news 4',
+            'ID'=>'news 5',
+            'sdka'=>'news 6',
+            '7'=> [
+                '1'=>'news 1',
+                '2'=>'news 2',
+                '3'=>'news 3',
+                '4'=>'news 4',
+                '5'=>'news 5',
+                '6'=>'news 6',
+                '7'=>'news 7',
+            ]
+        ];
         return json_encode($api);
     }
 

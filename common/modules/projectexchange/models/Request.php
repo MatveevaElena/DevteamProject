@@ -79,7 +79,7 @@ class Request extends \common\components\VersionedActiveRecord
 
     public function save($runValidation = true, $attributeNames = NULL)
     {
-        $this->PersonID = Yii::$app->user->id;
+        $this->PersonID = Yii::$app->user->identity->PersonID;
         $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
         // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
         return parent::save($runValidation = true, $attributeNames = NULL);

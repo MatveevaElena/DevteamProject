@@ -8,6 +8,7 @@ use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\RequestEntry */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="request-entry-form">
@@ -31,7 +32,7 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'request_entrycol')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ProjectParentID')->dropDownList(ArrayHelper::map(Project::find()->asArray()->all(), 'ProjectParentID', 'Name'))  ?>
+    <?= $form->field($model, 'ProjectParentID')->dropDownList(ArrayHelper::map(Project::find()->asArray()->all(), 'ParentID', 'Name'))  ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
