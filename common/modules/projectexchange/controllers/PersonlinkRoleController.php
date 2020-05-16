@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * PersonlinkRoleController implements the CRUD actions for PersonlinkRole model.
  */
-class PersonlinkRoleController extends Controller
+class PersonlinkroleController extends Controller
 {
     /**
      * {@inheritdoc}

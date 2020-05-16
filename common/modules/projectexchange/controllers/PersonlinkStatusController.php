@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * PersonlinkStatusController implements the CRUD actions for PersonlinkStatus model.
  */
-class PersonlinkStatusController extends Controller
+class PersonlinkstatusController extends Controller
 {
     /**
      * {@inheritdoc}

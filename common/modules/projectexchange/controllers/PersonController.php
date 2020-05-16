@@ -5,6 +5,7 @@ namespace common\modules\projectexchange\controllers;
 use Yii;
 use common\modules\projectexchange\models\Person;
 use common\modules\projectexchange\models\searches\PersonSearch;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -123,5 +124,21 @@ class PersonController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function actionAddmember($q = null) {
+        $query = new Query;
+        
+        $query->select("ID, concat(ifnull(LastName,('')),(' '),ifnull(FirstName,('')),(' '),ifnull(MiddleName,(''))) Name")
+            ->from('person')
+            ->where('concat(ifnull(LastName,(\'\')),(\' \'),ifnull(FirstName,(\'\')),(\' \'),ifnull(MiddleName,(\'\'))) LIKE "%' . $q .'%"')
+            ->orderBy('LastName,FirstName,MiddleName');
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+        $out = [];
+        foreach ($data as $d) {
+            $out[$d['ID']] = $d['Name'];
+        }
+        return json_encode($out);
     }
 }

@@ -20,14 +20,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'PersonCount')->textInput() ?>
 
-    <?= $form->field($model, 'ParentID')->textInput() ?>
-
-    <?= $form->field($model, 'IsActual')->textInput() ?>
-
-    <?= $form->field($model, 'VersionDate')->textInput() ?>
-
-    <?= $form->field($model, 'DeletedDate')->textInput() ?>
-
     <?= $form->field($model, 'TypeID')->textInput() ?>
 
     <?= $form->field($model, 'StatusID')->textInput() ?>

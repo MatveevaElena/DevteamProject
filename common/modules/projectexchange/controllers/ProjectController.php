@@ -4,7 +4,9 @@ namespace common\modules\projectexchange\controllers;
 
 use Yii;
 use common\modules\projectexchange\models\Project;
+use common\modules\projectexchange\models\TeamPersonlink;
 use common\modules\projectexchange\models\searches\ProjectSearch;
+use common\modules\projectexchange\models\searches\TeamPersonlinkSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -74,8 +76,14 @@ class ProjectController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $memberSearchModel = new TeamPersonlinkSearch;
+        $memberDataProvider = $memberSearchModel->search(['TeamID' => $model->TeamID]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'memberSearchModel' => $memberSearchModel,
+            'memberDataProvider' => $memberDataProvider
         ]);
     }
 
@@ -93,6 +101,22 @@ class ProjectController extends Controller
         }
 
         return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionAddmember($id)
+    {
+        $project = $this->findModel($id);
+        $model = new TeamPersonlink;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['project', 'id' => $project->ID]);
+        }
+
+        $model->TeamID = $project->TeamID;
+
+        return $this->render('_form_member', [
             'model' => $model,
         ]);
     }

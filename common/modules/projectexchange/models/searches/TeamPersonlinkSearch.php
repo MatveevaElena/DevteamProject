@@ -68,7 +68,7 @@ class TeamPersonlinkSearch extends TeamPersonlink
             'PersonID' => $this->PersonID,
         ]);
 
-        $query->andFilterWhere(['like', 'ParentID', $this->ParentID]);
+        // $query->andFilterWhere(['like', 'ParentID', $this->ParentID]);
 
         return $dataProvider;
     }

@@ -61,4 +61,20 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
             'PersonID' => Yii::t('app', 'Person ID'),
         ];
     }
+
+    public function getTeam(){
+        return $this->hasOne(Team::className(),['ID' => 'TeamID']);
+    }
+    
+    public function getRole(){
+        return $this->hasOne(PersonlinkRole::className(),['ID' => 'RoleID']);
+    }
+    
+    public function getStatus(){
+        return $this->hasOne(PersonlinkStatus::className(),['ID' => 'StatusID']);
+    }
+
+    public function getPerson(){
+        return $this->hasOne(Person::className(),['ID' => 'PersonID']);
+    }
 }

@@ -14,7 +14,7 @@ foreach($dataProvider->getModels() as $key => $value){
 <div class="test-container">
     <div class="test-project">
         <div class="test-project-img"></div>
-        <div class="test-project-name"><?= $value['Name'] ?></div>
+        <div class="test-project-name"><a href="/projectexchange/project/view?id=<?php echo $value['ID'] ?>"><?= $value['Name'] ?></a></div>
         <div class="test-project-text"><a href="application?id=<?php echo $value['ID'] ?>">Подать заявку</a></div>
     </div>
 </div>

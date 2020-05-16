@@ -104,8 +104,16 @@ class Project extends \common\components\VersionedActiveRecord
         return $fl;
     }
 
-    // public function getRequest(){
-    //     $this->hasOne(Request::className(), ['ParentID' => 'RequestParentID']);
-    // }
+    public function getProjectType(){
+        return $this->hasOne(ProjectType::className(), ['ID' => 'TypeID']);
+    }
+
+    public function getProjectStatus(){
+        return $this->hasOne(ProjectStatus::className(), ['ID' => 'StatusID']);
+    }
+
+    public function getTeam(){
+        return $this->hasOne(ProjectStatus::className(), ['ID' => 'TeamID']);
+    }
     
 }
