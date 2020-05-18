@@ -6,7 +6,8 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use common\modules\projectexchange\models\PersonlinkRole;
 use common\modules\projectexchange\models\PersonlinkStatus;
-use kartik\typeahead\Typeahead;
+use kartik\select2\Select2;
+use yii\web\JsExpression;
 
 
 /* @var $this yii\web\View */
@@ -22,19 +23,23 @@ use kartik\typeahead\Typeahead;
 
     <?= $form->field($model->team, 'Name')->textInput(['disabled'=>'disabled']) ?>
 
-    <?= $form->field($model, 'PersonID')->widget(Typeahead::classname(), [
+    <?= $form->field($model, 'PersonID')->widget(Select2::classname(), [
         'options' => ['placeholder' => 'Filter as you type ...'],
-        'pluginOptions' => ['highlight'=>true],
-        'dataset' => [
-            [
-                // 'local' => $data,
-                'remote' => [
-                    'url' => Url::to(['/projectexchange/person/addmember']) . '?q=%QUERY',
-                    'wildcard' => '%QUERY'
-                ],
-                'limit' => 10
-            ]
-        ]
+        'pluginOptions' => [
+            'allowClear' => true,
+            'minimumInputLength' => 3,
+            'language' => [
+                'errorLoading' => new JsExpression("function () { return 'Waiting for results...'; }"),
+            ],
+            'ajax' => [
+                'url' => Url::to(['/projectexchange/person/addmember']),
+                'dataType' => 'json',
+                'data' => new JsExpression('function(params) { return {q:params.term}; }')
+            ],
+            'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+            'templateResult' => new JsExpression('function(item) { console.log(item);return item.text; }'),
+            'templateSelection' => new JsExpression('function (item) { console.log(item);return item.text; }'),
+        ],
     ]); ?>
 
     <?= $form->field($model, 'RoleID')->dropDownList(ArrayHelper::map(PersonlinkRole::find()->all(),'ID','Name')) ?>

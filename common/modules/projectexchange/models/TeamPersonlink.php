@@ -34,10 +34,9 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
     {
         return [
             [['ParentID', 'RoleID', 'TeamID', 'StatusID', 'PersonID'], 'required'],
-            [['IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonID'], 'integer'],
+            [['ParentID', 'IsActual', 'RoleID', 'TeamID', 'StatusID', 'PersonID'], 'integer'],
             [['VersionDate', 'DeletedDate'], 'safe'],
-            [['ParentID'], 'string', 'max' => 45],
-            [['PersonID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonID' => 'ParentID']],
+            [['PersonID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonID' => 'ID']],
             [['RoleID'], 'exist', 'skipOnError' => true, 'targetClass' => PersonlinkRole::className(), 'targetAttribute' => ['RoleID' => 'ID']],
             [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => PersonlinkStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
             [['TeamID'], 'exist', 'skipOnError' => true, 'targetClass' => Team::className(), 'targetAttribute' => ['TeamID' => 'ID']],

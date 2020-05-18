@@ -78,8 +78,8 @@ class ProjectController extends Controller
     {
         $model = $this->findModel($id);
         $memberSearchModel = new TeamPersonlinkSearch;
-        $memberDataProvider = $memberSearchModel->search(['TeamID' => $model->TeamID]);
-
+        $memberDataProvider = $memberSearchModel->search(['TeamPersonlinkSearch'=>['TeamID' => $model->TeamID]]);
+        
         return $this->render('view', [
             'model' => $model,
             'memberSearchModel' => $memberSearchModel,
@@ -109,9 +109,9 @@ class ProjectController extends Controller
     {
         $project = $this->findModel($id);
         $model = new TeamPersonlink;
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['project', 'id' => $project->ID]);
+        // Yii::$app->cache->flush();
+        if ($model->load(Yii::$app->request->post())  && $model->save()) {
+            return $this->redirect(['view', 'id' => $project->ID]);
         }
 
         $model->TeamID = $project->TeamID;

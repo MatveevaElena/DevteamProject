@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 use yii\grid\GridView;
 use common\modules\roles\models\User;
@@ -54,7 +55,41 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $memberSearchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+            ],
+            [
+                'attribute' => 'RoleID',
+                'value' => function($model){
+                    return $model->role->Name;
+                },
+            ],
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->status->Name;
+                },
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'buttons'=>[
+                    'view'=>function ($url, $model) {
+                        $t = '/projectexchange/teampersonlink/view';
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', [Url::to($t),'id'=>$model->ID]);
+                    },
+                    'update'=>function ($url, $model) {
+                        $t = '/projectexchange/teampersonlink/update';
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', [Url::to($t),'id'=>$model->ID]);
+                    },
+                    'delete'=>function ($url, $model) {
+                        $t = '/projectexchange/teampersonlink/delete';
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', [Url::to($t),'id'=>$model->ID]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 

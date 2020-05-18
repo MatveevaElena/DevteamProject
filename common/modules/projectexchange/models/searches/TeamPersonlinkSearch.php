@@ -49,7 +49,7 @@ class TeamPersonlinkSearch extends TeamPersonlink
         ]);
 
         $this->load($params);
-
+        // var_dump($this);die;
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -59,9 +59,9 @@ class TeamPersonlinkSearch extends TeamPersonlink
         // grid filtering conditions
         $query->andFilterWhere([
             'ID' => $this->ID,
-            'IsActual' => $this->IsActual,
-            'VersionDate' => $this->VersionDate,
-            'DeletedDate' => $this->DeletedDate,
+            // 'IsActual' => $this->IsActual,
+            // 'VersionDate' => $this->VersionDate,
+            // 'DeletedDate' => $this->DeletedDate,
             'RoleID' => $this->RoleID,
             'TeamID' => $this->TeamID,
             'StatusID' => $this->StatusID,

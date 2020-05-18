@@ -48,4 +48,8 @@ class Person extends \yii\db\ActiveRecord
             'BirthDate' => Yii::t('app', 'Birth Date'),
         ];
     }
+
+    public function getFio(){
+        return trim($this->LastName.' '.$this->FirstName.' '.$this->MiddleName);
+    }
 }

@@ -137,7 +137,7 @@ class PersonController extends Controller
         $data = $command->queryAll();
         $out = [];
         foreach ($data as $d) {
-            $out[$d['ID']] = $d['Name'];
+            $out['results'][] = ['id' => $d['ID'], 'text' => $d['Name']];
         }
         return json_encode($out);
     }
