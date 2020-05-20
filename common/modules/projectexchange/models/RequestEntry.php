@@ -73,6 +73,8 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     {
         $this->PersonID = Yii::$app->user->id;
         $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
+       
+
         // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
         return parent::save($runValidation = true, $attributeNames = NULL);
     }
@@ -84,6 +86,8 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     public function getStatusName(){
         return (($st = $this->status) ? $st->Name : 'Статус не указан');
     }
-
+    public function getProject(){
+        return $this->hasOne(Project::className(), ['ParentID' => 'ProjectParentID']);
+    }
 
 }

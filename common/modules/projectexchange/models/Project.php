@@ -113,7 +113,7 @@ class Project extends \common\components\VersionedActiveRecord
     }
 
     public function getTeam(){
-        return $this->hasOne(ProjectStatus::className(), ['ID' => 'TeamID']);
+        return $this->hasOne(Team::className(), ['ID' => 'TeamID']);
     }
     
 }

@@ -7,6 +7,7 @@ use common\modules\projectexchange\models\RequestEntry;
 use common\modules\projectexchange\models\searches\RequestEntrySearch;
 use common\modules\projectexchange\models\searches\RequestentryuserSearch;
 use common\modules\projectexchange\models\searches\RequestentrymoderatorSearch;
+use common\modules\projectexchange\models\Project;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -113,10 +114,11 @@ class RequestentryController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        $model = new RequestEntry();
-
+    public function actionCreate($id=null)
+    { $project = Project::findOne($id);
+        $projparentid = $project ? $project->ParentID : null;
+       $model = new RequestEntry();
+       $model->ProjectParentID = $projparentid;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID]);
         }
