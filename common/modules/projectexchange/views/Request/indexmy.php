@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\modules\projectexchange\models\searches\RequestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-// $this->title = Yii::t('app', 'Requests');
+// $this->title = Yii::t('ML', 'Requests');
 // $this->params['breadcrumbs'][] = $this->title;
 ?>
 

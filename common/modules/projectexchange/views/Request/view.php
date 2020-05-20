@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\modules\projectexchange\models\Request */
 
 $this->title = $model->ID;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Requests'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Requests'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -17,18 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
     <?php if($model->StatusID == 1){ ?>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('ML', 'Delete'), ['delete', 'id' => $model->ID], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a(Yii::t('app', 'Approve'), ['approve', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Approve'), ['approve', 'id' => $model->ID], [
             'class' => 'btn btn-warning',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to approve this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to approve this item?'),
                 'method' => 'post',
             ],
         ]) ?>

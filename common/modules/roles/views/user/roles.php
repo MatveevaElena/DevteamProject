@@ -11,7 +11,7 @@ use kartik\select2\Select2;
 /* @var $model common\modules\roles\models\User */
 
 $this->title = $user->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]); ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
 <?php ActiveForm::end(); ?>

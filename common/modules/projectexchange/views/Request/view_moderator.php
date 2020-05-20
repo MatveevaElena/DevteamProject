@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\modules\projectexchange\models\Request */
 
 $this->title = $model->ID;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Requests'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Requests'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -17,24 +17,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
     <?php if($model->StatusID == 2){ ?>
-        <?= Html::a(Yii::t('app', 'Backtoupdate'), ['backtoupdate', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Backtoupdate'), ['backtoupdate', 'id' => $model->ID], [
             'class' => 'btn btn-primary',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to Backtoupdate this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to Backtoupdate this item?'),
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a(Yii::t('app', 'Decline'), ['declinemoderator', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Decline'), ['declinemoderator', 'id' => $model->ID], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to Decline this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to Decline this item?'),
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a(Yii::t('app', 'Approve'), ['approvemoderator', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Approve'), ['approvemoderator', 'id' => $model->ID], [
             'class' => 'btn btn-warning',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to approve this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to approve this item?'),
                 'method' => 'post',
             ],
         ]) ?>

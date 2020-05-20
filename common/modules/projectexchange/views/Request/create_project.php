@@ -43,7 +43,7 @@ use common\modules\projectexchange\models\ProjectType;
     <?= $form->field($model, 'RequestParentID')->hiddenInput()->label(false) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

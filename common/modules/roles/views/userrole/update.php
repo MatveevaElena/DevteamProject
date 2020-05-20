@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\modules\roles\models\UserRole */
 
-$this->title = Yii::t('app', 'Update User Role: {name}', [
+$this->title = Yii::t('ML', 'Update User Role: {name}', [
     'name' => $model->Name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'User Roles'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'User Roles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->Name, 'url' => ['view', 'id' => $model->ID]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('ML', 'Update');
 ?>
 <div class="user-role-update">
 

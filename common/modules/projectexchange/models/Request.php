@@ -58,22 +58,22 @@ class Request extends \common\components\VersionedActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'PersonCount' => Yii::t('app', 'Person Count'),
-            'Tasks' => Yii::t('app', 'Tasks'),
-            'Objective' => Yii::t('app', 'Objective'),
-            'Issue' => Yii::t('app', 'Issue'),
-            'ProductResults' => Yii::t('app', 'Product Results'),
-            'Cost' => Yii::t('app', 'Cost'),
-            'TZ' => Yii::t('app', 'Tz'),
-            'RequestDate' => Yii::t('app', 'Request Date'),
-            'ParentID' => Yii::t('app', 'Parent ID'),
-            'IsActual' => Yii::t('app', 'Is Actual'),
-            'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeletedDate' => Yii::t('app', 'Delete Date'),
-            'StatusID' => Yii::t('app', 'Status ID'),
-            'TypeID' => Yii::t('app', 'Type ID'),
-            'PersonID' => Yii::t('app', 'Person ID'),
+            'ID' => Yii::t('ML', 'ID'),
+            'PersonCount' => Yii::t('ML', 'Person Count'),
+            'Tasks' => Yii::t('ML', 'Tasks'),
+            'Objective' => Yii::t('ML', 'Objective'),
+            'Issue' => Yii::t('ML', 'Issue'),
+            'ProductResults' => Yii::t('ML', 'Product Results'),
+            'Cost' => Yii::t('ML', 'Cost'),
+            'TZ' => Yii::t('ML', 'Tz'),
+            'RequestDate' => Yii::t('ML', 'Request Date'),
+            'ParentID' => Yii::t('ML', 'Parent ID'),
+            'IsActual' => Yii::t('ML', 'Is Actual'),
+            'VersionDate' => Yii::t('ML', 'Version Date'),
+            'DeletedDate' => Yii::t('ML', 'Delete Date'),
+            'StatusID' => Yii::t('ML', 'Status ID'),
+            'TypeID' => Yii::t('ML', 'Type ID'),
+            'PersonID' => Yii::t('ML', 'Person ID'),
         ];
     }
 

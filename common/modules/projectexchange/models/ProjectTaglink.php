@@ -40,9 +40,9 @@ class ProjectTaglink extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'ProjectTagID' => Yii::t('app', 'Project Tag ID'),
-            'ProjectID' => Yii::t('app', 'Project ID'),
+            'ID' => Yii::t('ML', 'ID'),
+            'ProjectTagID' => Yii::t('ML', 'Project Tag ID'),
+            'ProjectID' => Yii::t('ML', 'Project ID'),
         ];
     }
 }

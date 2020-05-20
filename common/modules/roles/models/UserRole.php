@@ -43,10 +43,10 @@ class UserRole extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'Name' => Yii::t('app', 'Name'),
-            'Abbreviation' => Yii::t('app', 'Abbreviation'),
-            'Description' => Yii::t('app', 'Description'),
+            'ID' => Yii::t('ML', 'ID'),
+            'Name' => Yii::t('ML', 'Name'),
+            'Abbreviation' => Yii::t('ML', 'Abbreviation'),
+            'Description' => Yii::t('ML', 'Description'),
         ];
     }
 }

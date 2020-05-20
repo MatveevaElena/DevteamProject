@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\modules\projectexchange\models\Team */
 
 $this->title = $model->Name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Teams'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Teams'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('ML', 'Delete'), ['delete', 'id' => $model->ID], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>

@@ -49,15 +49,15 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'ParentID' => Yii::t('app', 'Parent ID'),
-            'IsActual' => Yii::t('app', 'Is Actual'),
-            'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeletedDate' => Yii::t('app', 'Delete Date'),
-            'RoleID' => Yii::t('app', 'Role ID'),
-            'TeamID' => Yii::t('app', 'Team ID'),
-            'StatusID' => Yii::t('app', 'Status ID'),
-            'PersonID' => Yii::t('app', 'Person ID'),
+            'ID' => Yii::t('ML', 'ID'),
+            'ParentID' => Yii::t('ML', 'Parent ID'),
+            'IsActual' => Yii::t('ML', 'Is Actual'),
+            'VersionDate' => Yii::t('ML', 'Version Date'),
+            'DeletedDate' => Yii::t('ML', 'Delete Date'),
+            'RoleID' => Yii::t('ML', 'Role ID'),
+            'TeamID' => Yii::t('ML', 'Team ID'),
+            'StatusID' => Yii::t('ML', 'Status ID'),
+            'PersonID' => Yii::t('ML', 'Person ID'),
         ];
     }
 

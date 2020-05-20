@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\RequestEntry */
 
-$this->title = Yii::t('app', 'Create Request Entry');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Request Entries'), 'url' => ['index']];
+$this->title = Yii::t('ML', 'Create Request Entry');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Request Entries'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="request-entry-create">

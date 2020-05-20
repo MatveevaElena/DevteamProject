@@ -10,18 +10,18 @@ use common\modules\roles\models\User;
 /* @var $model common\modules\projectexchange\models\Project */
 
 $this->title = $model->Name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Projects'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Projects'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="project-view">
     <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->ID], [
+        <?= Html::a(Yii::t('ML', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('ML', 'Delete'), ['delete', 'id' => $model->ID], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('ML', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
     <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
         <p>
-            <?= Html::a(Yii::t('app', 'Add member'), ['addmember', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a(Yii::t('ML', 'Add member'), ['addmember', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
         </p>
     <?php } ?>
     <?= GridView::widget([

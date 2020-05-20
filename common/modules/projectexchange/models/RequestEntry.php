@@ -39,9 +39,9 @@ class RequestEntry extends \common\components\VersionedActiveRecord
         return [
             [['RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
             [['Experience'], 'string'],
-            [['ParentID', 'ProjectParentID', 'StatusID', 'PersonID'], 'required'],
+            [['ParentID', 'StatusID', 'PersonID'], 'required'],
             [['ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
-            [['Target', 'request_entrycol'], 'string', 'max' => 45],
+            [['Target'], 'string', 'max' => 45],
            // [['PersonID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonID' => 'ParentID']],
            // [['ProjectParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['ProjectParentID' => 'ParentID']],
            // [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
@@ -54,28 +54,26 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'RequestDate' => Yii::t('app', 'Request Date'),
-            'Experience' => Yii::t('app', 'Experience'),
-            'Target' => Yii::t('app', 'Target'),
-            'ParentID' => Yii::t('app', 'Parent ID'),
-            'IsActual' => Yii::t('app', 'Is Actual'),
-            'VersionDate' => Yii::t('app', 'Version Date'),
-            'DeletedDate' => Yii::t('app', 'Delete Date'),
-            'StoredFileID' => Yii::t('app', 'Stored File ID'),
-            'request_entrycol' => Yii::t('app', 'Request Entrycol'),
-            'ProjectParentID' => Yii::t('app', 'Project Parent ID'),
-            'StatusID' => Yii::t('app', 'Status ID'),
-            'PersonID' => Yii::t('app', 'Person ID'),
+            'ID' => Yii::t('ML', 'ID'),
+            'RequestDate' => Yii::t('ML', 'Request Date'),
+            'Experience' => Yii::t('ML', 'Experience'),
+            'Target' => Yii::t('ML', 'Target'),
+            'ParentID' => Yii::t('ML', 'Parent ID'),
+            'IsActual' => Yii::t('ML', 'Is Actual'),
+            'VersionDate' => Yii::t('ML', 'Version Date'),
+            'DeletedDate' => Yii::t('ML', 'Delete Date'),
+            'StoredFileID' => Yii::t('ML', 'Stored File ID'),
+            'ProjectParentID' => Yii::t('ML', 'Project Parent ID'),
+            'StatusID' => Yii::t('ML', 'Status ID'),
+            'PersonID' => Yii::t('ML', 'Person ID'),
         ];
     }
+    
     public function save($runValidation = true, $attributeNames = NULL)
     {
-        $this->PersonID = Yii::$app->user->id;
-        $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
-       
-
-        // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
+        if(!$this->PersonID)$this->PersonID = Yii::$app->user->identity->PersonID;
+        if(!$this->StatusID)$this->StatusID = 1;
+        if(!$this->RequestDate)$this->RequestDate = date_create()->format('d.m.Y');
         return parent::save($runValidation = true, $attributeNames = NULL);
     }
 

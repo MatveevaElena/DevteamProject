@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\modules\projectexchange\models\searches\TeamPersonlinkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Team Personlinks');
+$this->title = Yii::t('ML', 'Team Personlinks');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="team-personlink-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Team Personlink'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('ML', 'Create Team Personlink'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

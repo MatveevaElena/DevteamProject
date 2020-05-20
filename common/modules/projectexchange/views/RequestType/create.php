@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\RequestType */
 
-$this->title = Yii::t('app', 'Create Request Type');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Request Types'), 'url' => ['index']];
+$this->title = Yii::t('ML', 'Create Request Type');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Request Types'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="request-type-create">

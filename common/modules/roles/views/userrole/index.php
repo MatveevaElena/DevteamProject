@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\modules\roles\models\searches\UserroleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'User Roles');
+$this->title = Yii::t('ML', 'User Roles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-role-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create User Role'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('ML', 'Create User Role'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

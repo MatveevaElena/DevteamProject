@@ -54,17 +54,17 @@ class User extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'username' => Yii::t('app', 'Username'),
-            'auth_key' => Yii::t('app', 'Auth Key'),
-            'password_hash' => Yii::t('app', 'Password Hash'),
-            'password_reset_token' => Yii::t('app', 'Password Reset Token'),
-            'email' => Yii::t('app', 'Email'),
-            'status' => Yii::t('app', 'Status'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'verification_token' => Yii::t('app', 'Verification Token'),
-            'PersonID' => Yii::t('app', 'Person ID'),
+            'id' => Yii::t('ML', 'ID'),
+            'username' => Yii::t('ML', 'Username'),
+            'auth_key' => Yii::t('ML', 'Auth Key'),
+            'password_hash' => Yii::t('ML', 'Password Hash'),
+            'password_reset_token' => Yii::t('ML', 'Password Reset Token'),
+            'email' => Yii::t('ML', 'Email'),
+            'status' => Yii::t('ML', 'Status'),
+            'created_at' => Yii::t('ML', 'Created At'),
+            'updated_at' => Yii::t('ML', 'Updated At'),
+            'verification_token' => Yii::t('ML', 'Verification Token'),
+            'PersonID' => Yii::t('ML', 'Person ID'),
         ];
     }
 

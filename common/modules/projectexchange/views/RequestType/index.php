@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\modules\projectexchange\models\searches\RequestTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Request Types');
+$this->title = Yii::t('ML', 'Request Types');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="request-type-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Request Type'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('ML', 'Create Request Type'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

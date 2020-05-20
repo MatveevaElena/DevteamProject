@@ -36,8 +36,8 @@ class RequestStatus extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'Name' => Yii::t('app', 'Name'),
+            'ID' => Yii::t('ML', 'ID'),
+            'Name' => Yii::t('ML', 'Name'),
         ];
     }
 }

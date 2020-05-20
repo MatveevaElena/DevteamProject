@@ -15,27 +15,26 @@ use kartik\date\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'RequestDate')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Enter event time ...'],
-        'pluginOptions' => [
-            'autoclose'=>true,
-            'format' => 'dd.mm.yyyy'
+    <?= $form->field($model, 'ProjectParentID')->dropDownList(ArrayHelper::map(Project::find()->asArray()->all(), 'ParentID', 'Name'),['prompt' => 'Проект не выбран'])  ?>
+    
+    <?= $form->field($model, 'Experience')->widget(\common\components\widgets\Redactor::className(),[
+        'settings' => [             
+            'lang' => 'ru',
+            'minHeight' => 100,
         ]
-    ])
-    ?>
+    ]) ?>
 
-    <?= $form->field($model, 'Experience')->widget(\common\components\widgets\Redactor::className()) ?>
-
-    <?= $form->field($model, 'Target')->widget(\common\components\widgets\Redactor::className()) ?>
+    <?= $form->field($model, 'Target')->widget(\common\components\widgets\Redactor::className(),[
+        'settings' => [             
+            'lang' => 'ru',
+            'minHeight' => 100,
+        ]
+    ]) ?>
 
     <?= $form->field($model, 'StoredFileID')->fileinput() ?>
 
-    <?= $form->field($model, 'request_entrycol')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'ProjectParentID')->dropDownList(ArrayHelper::map(Project::find()->asArray()->all(), 'ParentID', 'Name'))  ?>
-
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

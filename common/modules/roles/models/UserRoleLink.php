@@ -37,8 +37,8 @@ class UserRoleLink extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'UserID' => Yii::t('app', 'User ID'),
-            'RoleID' => Yii::t('app', 'Role ID'),
+            'UserID' => Yii::t('ML', 'User ID'),
+            'RoleID' => Yii::t('ML', 'Role ID'),
         ];
     }
     

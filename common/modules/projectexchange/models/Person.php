@@ -41,11 +41,11 @@ class Person extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'LastName' => Yii::t('app', 'Last Name'),
-            'FirstName' => Yii::t('app', 'First Name'),
-            'MiddleName' => Yii::t('app', 'Middle Name'),
-            'BirthDate' => Yii::t('app', 'Birth Date'),
+            'ID' => Yii::t('ML', 'ID'),
+            'LastName' => Yii::t('ML', 'Last Name'),
+            'FirstName' => Yii::t('ML', 'First Name'),
+            'MiddleName' => Yii::t('ML', 'Middle Name'),
+            'BirthDate' => Yii::t('ML', 'Birth Date'),
         ];
     }
 

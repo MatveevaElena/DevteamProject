@@ -38,9 +38,9 @@ class Team extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => Yii::t('app', 'ID'),
-            'Name' => Yii::t('app', 'Name'),
-            'TeamCol' => Yii::t('app', 'Team Col'),
+            'ID' => Yii::t('ML', 'ID'),
+            'Name' => Yii::t('ML', 'Name'),
+            'TeamCol' => Yii::t('ML', 'Team Col'),
         ];
     }
 }
