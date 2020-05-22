@@ -27,10 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'PersonCount',
-            'Tasks:ntext',
-            'Objective:ntext',
-            'Issue:ntext',
+            //'PersonCount',
+            [
+                'attribute' => 'PersonCount',
+                'header' => Yii::t('ML','Person Count'),
+            ],
+            //'Tasks:ntext',
+            [
+                'attribute' => 'Tasks',
+                'header' => Yii::t('ML','Tasks'),
+            ],
+            //'Objective:ntext',
+            [
+                'attribute' => 'Objective',
+                'header' => Yii::t('ML','Objective'),
+            ],
+            //'Issue:ntext',
+            [
+                'attribute' => 'Issue',
+                'header' => Yii::t('ML','Issue'),
+            ],
             //'ProductResults:ntext',
             //'Cost',
             //'TZ',

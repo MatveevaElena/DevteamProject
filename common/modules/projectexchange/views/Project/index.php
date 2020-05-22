@@ -27,10 +27,28 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'BeginDate',
-            'EndDate',
-            'Name',
-            'PersonCount',
+            //'BeginDate',
+            [
+                'attribute' => 'BeginDate',
+                'format' => ['date','php:d.m.Y'],
+                'header' => Yii::t('ML','Begin Date'),
+            ],
+            //'EndDate',
+            [
+                'attribute' => 'EndDate',
+                'format' => ['date','php:d.m.Y'],
+                'header' => Yii::t('ML','End Date'),
+            ],
+            //'Name',
+            [
+                'attribute' => 'Name',
+                'header' => Yii::t('ML','Name'),
+            ],
+            //'PersonCount',
+            [
+                'attribute' => 'PersonCount',
+                'header' => Yii::t('ML','Person Count'),
+            ],
             //'ParentID',
             //'IsActual',
             //'VersionDate',

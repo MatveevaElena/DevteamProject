@@ -5,7 +5,8 @@ use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 use common\modules\roles\models\User;
 use common\modules\projectexchange\models\RequestStatus;
-
+use common\modules\projectexchange\models\RequestType;
+use common\modules\projectexchange\models\Person;
 /* @var $this yii\web\View */
 /* @var $searchModel common\modules\projectexchange\models\searches\RequestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -30,10 +31,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'PersonCount',
-            'Tasks:ntext',
-            'Objective:ntext',
-            'Issue:ntext',
+            //'PersonCount',
+            [
+                'attribute' => 'PersonCount',
+                'header' => Yii::t('ML','Person Count'),
+            ],
+            //'Tasks:ntext',
+            [
+                'attribute' => 'Tasks',
+                'header' => Yii::t('ML','Tasks'),
+            ],
+            //'Objective:ntext',
+            [
+                'attribute' => 'Objective',
+                'header' => Yii::t('ML','Objective'),
+            ],
+            //'Issue:ntext',
+            [
+                'attribute' => 'Issue',
+                'header' => Yii::t('ML','Issue'),
+            ],
             //'ProductResults:ntext',
             //'Cost',
             //'TZ',
@@ -51,8 +68,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => ArrayHelper::map(RequestStatus::find()->all(),'ID','Name'),
                 'header' => Yii::t('ML','Status ID'),
             ],
-            'TypeID',
-            'PersonID',
+           // 'TypeID',
+            [
+                'attribute' => 'TypeID',
+                'value' => function($model){
+                    return $model->typeName;
+                },
+                'filter' => ArrayHelper::map(RequestType::find()->all(),'ID','Name'),
+                'header' => Yii::t('ML','Type ID'),
+            ],
+            //'PersonID',
+            
+            // [
+            //     'attribute' => 'PersonID',
+            //     'value' => function($model){
+            //         return $model->Fio;
+            //     },
+            //     'filter' => ArrayHelper::map(Person::find()->all(),'ID','LastName'),
+            //     'header' => Yii::t('ML','Last Name'),
+           // ],
             [
                 'class' => 'yii\grid\ActionColumn'
                 ,'visible' => User::checkAccess('admin')

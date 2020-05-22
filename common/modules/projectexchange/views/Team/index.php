@@ -27,8 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'Name',
-            'TeamCol',
+            //'Name',
+            [
+                'attribute' => 'Name',
+                'header' => Yii::t('ML','Name'),
+            ],
+            //'TeamCol',
+            [
+                'attribute' => 'TeamCol',
+                'header' => Yii::t('ML','Team Col'),
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

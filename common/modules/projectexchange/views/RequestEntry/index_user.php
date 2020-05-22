@@ -27,9 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'RequestDate',
+            //'RequestDate',
+            [
+                'attribute' => 'RequestDate',
+                'format' => ['date','php:d.m.Y'],
+                'header' => Yii::t('ML','Request Date'),
+            ],
             'Experience:ntext',
-            'Target',
+            //'Target',
+            [
+                'attribute' => 'Target',
+                'header' => Yii::t('ML','Target'),
+            ],
             'ParentID',
             //'IsActual',
             //'VersionDate',

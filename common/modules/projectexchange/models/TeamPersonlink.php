@@ -64,15 +64,23 @@ class TeamPersonlink extends \common\components\VersionedActiveRecord
     public function getTeam(){
         return $this->hasOne(Team::className(),['ID' => 'TeamID']);
     }
+    public function getTeamName(){
+        return (($tm = $this->team) ? $tm->Name : 'Команда не указана');
+    }
     
     public function getRole(){
         return $this->hasOne(PersonlinkRole::className(),['ID' => 'RoleID']);
+    }
+    public function getRoleName(){
+        return (($rl = $this->role) ? $rl->Name : 'Роль не указана');
     }
     
     public function getStatus(){
         return $this->hasOne(PersonlinkStatus::className(),['ID' => 'StatusID']);
     }
-
+    public function getStatusName(){
+        return (($st = $this->status) ? $st->Name : 'Статус не указан');
+    }
     public function getPerson(){
         return $this->hasOne(Person::className(),['ID' => 'PersonID']);
     }

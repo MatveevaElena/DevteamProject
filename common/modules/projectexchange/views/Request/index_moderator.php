@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 use common\modules\projectexchange\models\RequestStatus;
+use common\modules\projectexchange\models\RequestType;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\modules\projectexchange\models\searches\RequestSearch */
@@ -33,17 +34,39 @@ $this->params['breadcrumbs'][] = $this->title;
             'PersonID',
             [
                 'attribute' => 'RequestDate',
-                'format' => ['date','php:d.m.Y']
+                'format' => ['date','php:d.m.Y'],
+                'header' => Yii::t('ML','Request Date'),
             ],
-            'PersonCount',
-            'Cost',
-            'TZ',
+            //'PersonCount',
+            [
+                'attribute' => 'PersonCount',
+                'header' => Yii::t('ML','Person Count'),
+            ],
+            //'Cost',
+            [
+                'attribute' => 'Cost',
+                'header' => Yii::t('ML','Cost'),
+            ],
+            //'TZ',
+            [
+                'attribute' => 'TZ',
+                'header' => Yii::t('ML','TZ'),
+            ],
             [
                 'attribute' => 'StatusID',
                 'value' => function($model){
                     return $model->statusName;
                 },
-                'filter' => ArrayHelper::map(RequestStatus::find()->where(['!=','ID',1])->asArray()->all(), 'ID', 'Name')
+                'filter' => ArrayHelper::map(RequestStatus::find()->where(['!=','ID',1])->asArray()->all(), 'ID', 'Name'),
+                'header' => Yii::t('ML','Status ID'),
+            ],
+            [
+                'attribute' => 'TypeID',
+                'value' => function($model){
+                    return $model->typeName;
+                },
+                'filter' => ArrayHelper::map(RequestType::find()->all(),'ID','Name'),
+                'header' => Yii::t('ML','Type ID'),
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

@@ -92,5 +92,16 @@ class Request extends \common\components\VersionedActiveRecord
     public function getStatusName(){
         return (($st = $this->status) ? $st->Name : 'Статус не указан');
     }
-
+    public function getType(){
+        return $this->hasOne(RequestType::className(), ['ID'=>'TypeID']);
+    }
+    public function getTypeName(){
+        return (($tp = $this->type) ? $tp->Name : 'Тип не указан');
+    }
+  /*  public function getPeson(){
+        return $this->hasOne(Person::className(), ['ID'=>'LastName']);
+    }
+    public function getTypeName(){
+        return (($tp = $this->type) ? $tp->Name : 'Статус не указан');
+    }*/
 }

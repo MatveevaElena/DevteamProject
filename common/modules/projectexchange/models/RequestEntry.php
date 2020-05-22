@@ -87,5 +87,11 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     public function getProject(){
         return $this->hasOne(Project::className(), ['ParentID' => 'ProjectParentID']);
     }
+    public function getType(){
+        return $this->hasOne(RequestType::className(), ['ID'=>'TypeID']);
+    }
+    public function getTypeName(){
+        return (($tp = $this->type) ? $tp->Name : 'Тип не указан');
+    }
 
 }
