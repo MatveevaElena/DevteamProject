@@ -12,6 +12,12 @@ class Module extends \yii\base\Module
     public $cacheTime = 3600;
     public $namespaceTranslations = '@common/modules/projectexchange/messages';
 
+    public function init()
+    {
+        parent::init();
+        $this->registerTranslations();
+    }
+
     public function registerTranslations(){
         Yii::$app->i18n->translations['ML*'] = [
             'class' => 'yii\i18n\PhpMessageSource',

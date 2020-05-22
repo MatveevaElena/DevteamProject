@@ -22,13 +22,14 @@ return [
                 '<module:(\w+)>/<controller:(\w+)>/<action:(\w+)>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<a:(login|logout|request-password-reset)>' => 'site<a>',
             ],
-        ], 'i18n' => [
+        ],
+        'i18n' => [
             'translations' => [
                 'ML*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
                     'fileMap' => [
-                        'ML/Base' => 'ML.php',
+                        // 'ML/Base' => 'ML.php',
                         'ML' => 'ML.php',
                     ],
                 ],

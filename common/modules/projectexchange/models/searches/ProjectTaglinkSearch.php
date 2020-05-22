@@ -17,7 +17,7 @@ class ProjectTaglinkSearch extends ProjectTaglink
     public function rules()
     {
         return [
-            [['ID', 'ProjectTagID', 'ProjectID'], 'integer'],
+            [['ID', 'ProjectTagID', 'ProjectParentID'], 'integer'],
         ];
     }
 
@@ -59,7 +59,7 @@ class ProjectTaglinkSearch extends ProjectTaglink
         $query->andFilterWhere([
             'ID' => $this->ID,
             'ProjectTagID' => $this->ProjectTagID,
-            'ProjectID' => $this->ProjectID,
+            'ProjectID' => $this->ProjectParentID,
         ]);
 
         return $dataProvider;

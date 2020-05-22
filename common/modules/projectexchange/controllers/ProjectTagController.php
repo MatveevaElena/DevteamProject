@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * ProjectTagController implements the CRUD actions for ProjectTag model.
  */
-class ProjectTagController extends Controller
+class ProjecttagController extends Controller
 {
     /**
      * {@inheritdoc}

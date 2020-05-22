@@ -27,10 +27,10 @@ class ProjectTaglink extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ProjectTagID', 'ProjectID'], 'required'],
-            [['ProjectTagID', 'ProjectID'], 'integer'],
-            [['ProjectID'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['ProjectID' => 'ID']],
-            [['ProjectTagID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectTag::className(), 'targetAttribute' => ['ProjectTagID' => 'ID']],
+            [['ProjectTagID', 'ProjectParentID'], 'required'],
+            [['ProjectTagID', 'ProjectParentID'], 'integer'],
+            // [['ProjectID'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['ProjectID' => 'ID']],
+            // [['ProjectTagID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectTag::className(), 'targetAttribute' => ['ProjectTagID' => 'ID']],
         ];
     }
 
@@ -42,7 +42,7 @@ class ProjectTaglink extends \yii\db\ActiveRecord
         return [
             'ID' => Yii::t('ML', 'ID'),
             'ProjectTagID' => Yii::t('ML', 'Project Tag ID'),
-            'ProjectID' => Yii::t('ML', 'Project ID'),
+            'ProjectParentID' => Yii::t('ML', 'Project Parent ID'),
         ];
     }
 }

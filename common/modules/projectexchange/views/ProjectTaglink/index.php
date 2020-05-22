@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'ID',
             'ProjectTagID',
-            'ProjectID',
+            'ProjectParentID',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -52,4 +52,8 @@ class Person extends \yii\db\ActiveRecord
     public function getFio(){
         return trim($this->LastName.' '.$this->FirstName.' '.$this->MiddleName);
     }
+
+    public function getFioShort(){
+        return trim($this->LastName.' '.mb_substr($this->FirstName,0,1).'. '.mb_substr($this->MiddleName,0,1).'.');
+    }
 }

@@ -70,7 +70,7 @@ class Request extends \common\components\VersionedActiveRecord
             'ParentID' => Yii::t('ML', 'Parent ID'),
             'IsActual' => Yii::t('ML', 'Is Actual'),
             'VersionDate' => Yii::t('ML', 'Version Date'),
-            'DeletedDate' => Yii::t('ML', 'Delete Date'),
+            'DeletedDate' => Yii::t('ML', 'Deleted Date'),
             'StatusID' => Yii::t('ML', 'Status ID'),
             'TypeID' => Yii::t('ML', 'Type ID'),
             'PersonID' => Yii::t('ML', 'Person ID'),
@@ -79,9 +79,9 @@ class Request extends \common\components\VersionedActiveRecord
 
     public function save($runValidation = true, $attributeNames = NULL)
     {
-        $this->PersonID = Yii::$app->user->identity->PersonID;
+        $this->PersonID = $this->isNewRecord ? Yii::$app->user->identity->PersonID : $this->PersonID;
         $this->StatusID = $this->isNewRecord ? 1 : $this->StatusID;
-        // $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
+        $this->RequestDate = $this->isNewRecord ? date_create()->format('Ymd') : $this->RequestDate;
         return parent::save($runValidation = true, $attributeNames = NULL);
     }
 
@@ -98,10 +98,12 @@ class Request extends \common\components\VersionedActiveRecord
     public function getTypeName(){
         return (($tp = $this->type) ? $tp->Name : 'Тип не указан');
     }
-  /*  public function getPeson(){
-        return $this->hasOne(Person::className(), ['ID'=>'LastName']);
+    
+    public function getPerson(){
+        return $this->hasOne(Person::className(), ['ID'=>'PersonID']);
     }
-    public function getTypeName(){
-        return (($tp = $this->type) ? $tp->Name : 'Статус не указан');
-    }*/
+
+    // public function getTypeName(){
+    //     return (($tp = $this->type) ? $tp->Name : 'Статус не указан');
+    // }
 }

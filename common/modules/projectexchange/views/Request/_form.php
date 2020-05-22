@@ -13,14 +13,6 @@ use kartik\date\DatePicker;
 
 <div class="request-form">
 
-
-    <?php 
-    foreach($model->errors as $key => $value){
-        Yii::$app->session->setFlash('danger', $value); 
-    }
-    ?>
-    
-
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'PersonCount')->textInput() ?>
@@ -42,7 +34,6 @@ use kartik\date\DatePicker;
             'format' => 'dd.mm.yyyy'
         ]
     ])
-    
     ?>
 
     <?= $form->field($model, 'TypeID')->dropDownList(ArrayHelper::map(RequestType::find()->asArray()->all(), 'ID', 'Name')) ?>
