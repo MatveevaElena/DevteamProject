@@ -24,7 +24,8 @@ class WhiteappAsset extends AssetBundle
         // Views
         'css/views/Home.css',
         'css/views/News.css',
-        'css/views/About.css'
+        'css/views/About.css',
+        'css/views/Info.css',
     ];
     public $js = [
     ];
