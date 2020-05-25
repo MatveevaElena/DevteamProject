@@ -19,10 +19,10 @@ $this->title = 'О сайте | Проектная платформа СамГТ
   <div class="about_team">
     <div class="about_team_elem">
       <div class="about_team_elem_img">
-        <img src="" alt="Изображение участника">
+        <img src="/assets/img/about/1.png" alt="Изображение участника">
       </div>
-      <h4>Имя участника</h4>
-      <p>Что делал</p>
+      <h4>Федук</h4>
+      <p>Коллекционер курников</p>
     </div>
   </div>
 </section>

@@ -16,10 +16,9 @@ return [
             'rules' => [
                 '/' => 'site/index',
                 'news' => 'news/index',
-                'projects' => 'projectexchange/project/index',
+                'projects' => 'projectexchange/project/indexall',
                 'info' => 'site/info',
                 'about' => 'site/about',
-                // 'roles/userrole/index' => 'site/index',
                 '<controller:(\w+)>/<action:(\w+)>/<id:\d+>' => '<controller>/<action>',
                 '<controller:(\w+)>/<action:(\w+)>' => '<controller>/<action>',
                 '<module:(\w+)>/<controller:(\w+)>/<action:(\w+)>' => '<module>/<controller>/<action>',

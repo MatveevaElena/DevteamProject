@@ -24,6 +24,7 @@ class WhiteappAsset extends AssetBundle
         // Views
         'css/views/Home.css',
         'css/views/News.css',
+        'css/views/Projects.css',
         'css/views/About.css',
         'css/views/Info.css',
     ];

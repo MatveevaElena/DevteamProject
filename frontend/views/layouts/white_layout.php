@@ -31,7 +31,6 @@ WhiteappAsset::register($this);
   <div class="main_hdr_bg">
     <video preload="auto" autoplay loop muted>
       <source src="/assets/video/header_bg.mp4" type="video/mp4"></source>
-      <source src="/assets/video/header_bg.webm" type="video/webm"></source>
     </video>
   </div>
   <div class="main_hdr_content">
@@ -107,11 +106,11 @@ WhiteappAsset::register($this);
   <div class="footer_container">
     <div class="footer_title"><span>Проектная платформа</span> СамГТУ</div>
     <div class="footer_nav">
-      <a href="" class="footer_nav_elem an_2">Главная</a>
-      <a href="" class="footer_nav_elem an_2">Новости</a>
-      <a href="" class="footer_nav_elem an_2">Проекты</a>
-      <a href="" class="footer_nav_elem an_2">Информация</a>
-      <a href="" class="footer_nav_elem an_2">О сайте</a>
+      <a href="/" class="footer_nav_elem an_2">Главная</a>
+      <a href="/news" class="footer_nav_elem an_2">Новости</a>
+      <a href="/projects" class="footer_nav_elem an_2">Проекты</a>
+      <a href="/info" class="footer_nav_elem an_2">Информация</a>
+      <a href="/about" class="footer_nav_elem an_2">О сайте</a>
     </div>
   </div>
   <div class="footer_container">
