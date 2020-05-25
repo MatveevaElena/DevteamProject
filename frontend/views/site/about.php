@@ -4,13 +4,25 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'О сайте | Проектная платформа СамГТУ';
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
-</div>
+<section class="about">
+  <h2>О сайте</h2>
+  <div class="line"></div>
+  <p>Данный сайт разработан командой студентов, который являлся одним из проектов университета в рамка интенсива ПОЛИТЕХ.NET</p>
+  <p>Мы и дальше будем поддерживать и развивать проектную платформу в лучшую сторону и надеемся, что этот инструмент поможет людям воплотить все свои идеи в жизнь.</p>
+  <p>Удачи в ваших начинаниях!</p>
+  <br><br>
+  <h2>Разработчики</h2>
+  <div class="line"></div>
+  <div class="about_team">
+    <div class="about_team_elem">
+      <div class="about_team_elem_img">
+        <img src="" alt="Изображение участника">
+      </div>
+      <h4>Имя участника</h4>
+      <p>Что делал</p>
+    </div>
+  </div>
+</section>
