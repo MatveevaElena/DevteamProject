@@ -2,52 +2,90 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Проектная платформа СамГТУ';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<div class="home_container">
+  <h3>О нас</h3>
+  <div class="line"></div>
+  <div class="home_about">
+    <p>
+      Данный сайт создан обычными студентами в рамках интенсива ПОЛИТЕХ.NET который проводился 2019-2020 годах.
+      Было непросто, но прилагая усилия и постоянно оттачивая свои навыки мы смогли завершить этот проект.
+      Теперь мы хотим помочь и тебе!
+    </p>
+    <p>
+      Комитет проектной деятельности вместе с ЦИПИ готовы абсолютно безвозмездно передать тебе свой опыт проектной деятельности и выпустить вместе с тобой как можно больше новых интересных проектов.
+    </p>
+  </div>
+</div>
+<div class="home_container">
+  <h3>Что мы можем предложить тебе</h3>
+  <div class="line"></div>
+  <div class="home_offer">
+    <div class="home_offer_elem">
+      <div class="home_offer_icon">
+        <div class="i_megaphone"></div>
+      </div>
+      <h4>Система поиска и регистрации проектов</h4>
+      <div class="line"></div>
+      <p>Создай свой проект или присоеденись к уже существующему</p>
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+    <div class="home_offer_elem">
+      <div class="home_offer_icon">
+        <div class="i_educ"></div>
+      </div>
+      <h4>Обучение новым навыкам</h4>
+      <div class="line"></div>
+      <p>Мы проводим публичные курсы и мастерклассы</p>
     </div>
+    <div class="home_offer_elem">
+      <div class="home_offer_icon">
+        <div class="i_flask"></div>
+      </div>
+      <h4>Поддержка в разработке проектов</h4>
+      <div class="line"></div>
+      <p>Помогаем найти выходы из сложных ситуаций и подкидываем идеи</p>
+    </div>
+    <div class="home_offer_elem">
+      <div class="home_offer_icon">
+        <div class="i_credit"></div>
+      </div>
+      <h4>Материальная поддержка</h4>
+      <div class="line"></div>
+      <p>Университет может поддерживать успешные проекты финансированием</p>
+    </div>
+  </div>
+</div>
+<div class="home_container">
+  <h3>Как стать участником?</h3>
+  <div class="line"></div>
+  <div class="home_add">
+    <div class="home_add_col">
+      <h4>Присоеденись к проекту</h4>
+      <ul>
+        <li>Ознакомся со списокм проектов</li>
+        <li>Зарегестрируй себя плафторме</li>
+        <li>Отпишись руководителю проекта</li>
+        <li>Ожидай приглашения</li>
+      </ul>
+    </div>
+    <div class="home_add_col">
+      <h4>Создай свой проект</h4>
+      <ul>
+        <li>Продумай свою идею</li>
+        <li>Собери свою команду</li>
+        <li>Зарегистрируй свою команду на плафторме</li>
+        <li>Подожди пока мы перезвоним тебе</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="home_container">
+  <h3>Поехали!</h3>
+  <div class="line"></div>
+  <div class="home_urls">
+    <button class="type_2_rev">Регистрация</button>
+    <button class="type_2_rev">Подробная информация</button>
+    <button class="type_2_rev">Проекты</button>
+  </div>
 </div>

@@ -20,7 +20,6 @@ use frontend\models\ContactForm;
  */
 class NewsController extends Controller
 {
-    public $layout = 'newlayout';
     /**
      * {@inheritdoc}
      */

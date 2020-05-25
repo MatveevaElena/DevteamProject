@@ -20,7 +20,7 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
-    
+
     /**
      * {@inheritdoc}
      */
@@ -75,7 +75,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('about');
+        return $this->render('index');
     }
 
 

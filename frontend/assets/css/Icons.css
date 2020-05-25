@@ -1,0 +1,71 @@
+.i_megaphone {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/megaphone.svg);
+}
+
+.i_educ {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/educ.svg);
+}
+
+.i_flask {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/flask.svg);
+}
+
+.i_credit {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/credit.svg);
+}
+
+.i_heart {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/heart.svg);
+}
+
+.i_heart_fill {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/heart_fill.svg);
+}
+
+.i_views {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/views.svg);
+}
+
+.i_comment {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/comment.svg);
+}
+
+.i_chevron_left {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/chevron-left.svg);
+}
+
+.i_chevron_left_double {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/chevron-left-double.svg);
+}
+
+.i_chevron_right {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/chevron-right.svg);
+}
+
+.i_chevron_right_double {
+  width: 100%;
+  height: 100%;
+  background: url(../icons/chevron-right-double.svg);
+}

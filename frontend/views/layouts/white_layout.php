@@ -25,71 +25,104 @@ WhiteappAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<?php if ((Yii::$app->controller->id == 'site') and (Yii::$app->controller->action->id == 'index')) { ?>
+<!-- Main Header -->
+<div class="main_hdr bs_out">
+  <div class="main_hdr_bg">
+    <video preload="auto" autoplay loop muted>
+      <source src="/assets/video/header_bg.mp4" type="video/mp4"></source>
+      <source src="/assets/video/header_bg.webm" type="video/webm"></source>
+    </video>
+  </div>
+  <div class="main_hdr_content">
+    <!-- Header -->
+    <header>
+      <h2>
+        <span>Самарский государственный</span><br>
+        технический университет
+      </h2>
+      <nav>
+        <a href="" class="nav_elem an_2">Главная</a>
+        <a href="/news/index" class="nav_elem an_2">Новости</a>
+        <a href="/projectexchange/project/index" class="nav_elem an_2">Проекты</a>
+        <a href="/info" class="nav_elem an_2">Информация</a>
+        <a href="/site/about" class="nav_elem an_2">О сайте</a>
+      </nav>
+      <div class="hdr_buttons">
+        <button class="type_1" type="button">Вход</button>
+        <button class="type_1" type="button">Регистрация</button>
 
-    <div class="nav_bg bs_out">
-        <div class="nav">
-          <div class="nav_tit">
-              <h1>
-              <span>Самарский государственный</span>
-              технический университет
-              </h1>
-          </div>
-          <nav>
-          <a class="nav_elem" href="/frontend/web/site/index">Главная</a>
-              <a class="nav_elem" href="/frontend/web/site/news">Новости</a>
-              <a class="nav_elem" href="/projectexchange/project/indexall">Проекты</a>
-              <a class="nav_elem">Контакты</a>
-              <a class="nav_elem">О сайте</a>
-          </nav>
-          <div class="nav_auth">
-          <?php if (Yii::$app->user->isGuest) { ?>
-            <a class="nav_elem" href="/site/login">Вход</a>
-            <a class="nav_elem" href="/site/signup">Регистрация</a>
-          <?php } else { ?>
-            <?= Html::beginForm(['/site/logout'], 'post')
-              .Html::submitButton(
-                'Выход (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'nav_elem','style'=>'color:black']
-            ).Html::endForm()
-            ?>
-          <?php } ?>
-          </div>
-        </div>
-    </div>
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-<div class="footer-helper"></div>
-<div class="footer bs_out">
-    <div class="footer_logo">
-      <img src="/icons/logo_blue.svg" alt="Logo">
-    </div>
-    <div class="footer_nav">
-      <div class="footer_nav_cont">
-        <a class="footer_nav_elem" href="/site/index">Главная</a>
-        <a class="footer_nav_elem" href="/project/index">Проекты</a>
-        <a class="footer_nav_elem" href="/news/index">Новости</a>
       </div>
-    </div>
-    <div class="footer_soc">
-      <div class="footer_soc_elem">
-        <img src="/icons/vk.svg" alt="Vk">
-      </div>
-      <div class="footer_soc_elem">
-        <img src="/icons/facebook.svg" alt="Facebook">
-      </div>
-      <div class="footer_soc_elem">
-        <img src="/icons/instagram.svg" alt="Instagram">
-      </div>
-      <div class="footer_soc_elem">
-        <img src="/icons/twitter.svg" alt="Twitter">
-      </div>
+    </header>
+    <!-- Header -->
+    <div class="main_hdr_dscr">
+      <h1>Проектная платформа СамГТУ</h1>
+      <p>
+        Инновационная платформа<br>
+        для разработки и продвижения проектов.
+      </p>
+      <p>
+        Перед тобой открыты все двери!<br>
+        Поверь в себя и воплоти свои идеи в жизнь.
+      </p>
     </div>
   </div>
+</div>
+<!-- Main Header -->
+<?php } else { ?>
+<!-- Header -->
+<header>
+  <h2>
+    <span>Самарский государственный</span><br>
+    технический университет
+  </h2>
+  <nav>
+    <a href="" class="nav_elem an_2">Главная</a>
+    <a href="" class="nav_elem an_2">Новости</a>
+    <a href="" class="nav_elem an_2">Проекты</a>
+    <a href="" class="nav_elem an_2">Информация</a>
+    <a href="" class="nav_elem an_2">О сайте</a>
+  </nav>
+  <div class="hdr_buttons">
+    <button class="type_1" type="button">Вход</button>
+    <button class="type_1" type="button">Регистрация</button>
+
+  </div>
+</header>
+<!-- Header -->
+<?php } ?>
+
+<!-- Body -->
+<section class="container">
+  <!-- <?= Breadcrumbs::widget([
+      'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+  ]) ?>
+  <?= Alert::widget() ?> -->
+  <?= $content ?>
+</section>
+<!-- Body -->
+
+<!-- Footer -->
+<footer class="bs_out">
+  <div class="footer_container">
+    <div class="footer_title"><span>Проектная платформа</span> СамГТУ</div>
+    <div class="footer_nav">
+      <a href="" class="footer_nav_elem an_2">Главная</a>
+      <a href="" class="footer_nav_elem an_2">Новости</a>
+      <a href="" class="footer_nav_elem an_2">Проекты</a>
+      <a href="" class="footer_nav_elem an_2">Информация</a>
+      <a href="" class="footer_nav_elem an_2">О сайте</a>
+    </div>
+  </div>
+  <div class="footer_container">
+    <div class="footer_copyright">
+      Самарский государственный технический университет<br>
+      Все права защищены
+    </div>
+  </div>
+</footer>
+<!-- Footer -->
+
 
 <?php $this->endBody() ?>
 </body>

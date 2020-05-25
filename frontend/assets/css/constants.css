@@ -1,19 +1,12 @@
 /* Constants */
+.an_2 {
+  transition: all 0.2s ease-out 0s;
+}
+
+.an_4 {
+  transition: all 0.4s ease-out 0s;
+}
+
 .bs_out {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-}
-.mid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mid_l {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.mid_r {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
 }

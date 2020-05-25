@@ -1,0 +1,47 @@
+/* Footer Style */
+footer {
+  width: 90%;
+  padding: 20px 5%;
+  background: #fff;
+  color: #000;
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: flex-end;
+}
+
+.footer_title {
+  display: flex;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.footer_nav a {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.footer_nav a:hover {
+  padding: 5px 10px 3px 10px;
+  border-bottom: 2px solid #000;
+}
+
+.footer_copyright {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.footer_developer a {
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #000;
+}
