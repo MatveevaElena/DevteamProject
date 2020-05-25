@@ -1,7 +1,8 @@
 <?php
 
 namespace common\modules\projectexchange\models;
-
+use common\modules\projectexchange\models\ProjectTag;
+use common\modules\projectexchange\models\Project;
 use Yii;
 
 /**
@@ -44,5 +45,17 @@ class ProjectTaglink extends \yii\db\ActiveRecord
             'ProjectTagID' => Yii::t('ML', 'Project Tag ID'),
             'ProjectParentID' => Yii::t('ML', 'Project Parent ID'),
         ];
+    }
+    public function getTag(){
+        return $this->hasOne(ProjectTag::className(), ['ID'=>'ProjectTagID']);
+    }
+    public function getTagName(){
+        return (($tg = $this->tag) ? $tg->Name : 'Тег не указан');
+    }
+    public function getProject(){
+        return $this->hasOne(Project::className(), ['ParentID' => 'ProjectParentID']);
+    }
+    public function getProjectName(){
+        return (($pr = $this->project) ? $pg->Name : 'Проект не указан');
     }
 }

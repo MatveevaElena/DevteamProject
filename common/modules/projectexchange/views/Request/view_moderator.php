@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\ArrayHelper;
+use common\modules\projectexchange\models\RequestStatus;
+use common\modules\projectexchange\models\RequestType;
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\Request */
@@ -44,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'ID',
+           // 'ID',
             'PersonCount',
             'Tasks:ntext',
             'Objective:ntext',
@@ -53,13 +56,35 @@ $this->params['breadcrumbs'][] = $this->title;
             'Cost',
             'TZ',
             'RequestDate',
-            'ParentID',
-            'IsActual',
+            //'ParentID',
+            //'IsActual',
             'VersionDate',
-            'DeletedDate',
-            'StatusID',
-            'TypeID',
-            'PersonID',
+            //'DeletedDate',
+            //'StatusID',
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->statusName;
+                },
+                'filter' => ArrayHelper::map(RequestStatus::find()->where(['!=','ID',1])->asArray()->all(), 'ID', 'Name'),
+                'header' => Yii::t('ML','Status ID'),
+            ],
+            //'TypeID',
+            [
+                'attribute' => 'TypeID',
+                'value' => function($model){
+                    return $model->typeName;
+                },
+                'filter' => ArrayHelper::map(RequestType::find()->all(),'ID','Name'),
+                'header' => Yii::t('ML','Type ID'),
+            ],
+           // 'PersonID',
+           [
+            'attribute' => 'PersonID',
+            'value' => function($model){
+                return $model->person->fio;
+            },
+        ],
         ],
     ]) ?>
 

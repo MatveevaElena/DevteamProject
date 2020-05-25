@@ -3,6 +3,7 @@ $lang = \Yii::$app->language;
 $ml = require(dirname(dirname(dirname(dirname(dirname(__DIR__))))) . "/common/messages/$lang/ML.php");
 
 return array_merge($ml, [
+    'Save' => 'Сохранить',
     'Create' => 'Сохранить',
     'Update' => 'Изменить',
     'Delete' => 'Удалить',
@@ -34,6 +35,32 @@ return array_merge($ml, [
     'Role ID'=> 'Роль участника',
     'Team ID' => 'Команда',
     'Birth Date' => 'Дата рождения',
-    'Team Col' => 'Количество участников команды'
-]);
+    'Team Col' => 'Количество участников команды',
+    'Project Tags' => 'Теги',
+    'Create Project Tag' => 'Создать тег',
+    'Project Tag ID' => 'Тег',
+    'Project Parent ID'=>'Проект',
+    'Create Project Taglink' =>'Создать связь Тег-Проект',
+    'Project Taglinks'=> 'Связи Теги-Проекты',
+    'Stored File ID' => 'Дополнительные файлы',
+    'Create Request Entry' => 'Подать заявку на участие в проекте', 
+    'Request Entries' => 'Заявка на участие в проекте',
+    'Project Types' => 'Типы проектов',
+    'Create Project Type'=>'Создать тип проекта',
+    'Project Statuses' => 'Статусы проектов',
+    'Create Project Status'=>'Создать статус для проекта',
+    'Projects' => 'Проекты',
+    'Project' => 'Проект',
+    'Create Project'=>'Создать проект',
+    'Personlink Roles'=>'Роли персоны',
+    'Personlink Role'=>'Роль персоны',
+    'Create Personlink Role'=>'Создать роль',
+    'Personlink Statuses'=>'Статусы персоны',
+    'Personlink Status'=>'Статус персоны',
+    'Create Personlink Status'=>'Создать статус',
+    'Team Personlinks' => 'Связь персоны с командой',
+    'Create Team Personlink'=>'Создать связь персоны с командой',
+    'Add tag'=>'Добавить тег',
+    'Add member'=>'Добавить участника'
+    ]);
 ?>

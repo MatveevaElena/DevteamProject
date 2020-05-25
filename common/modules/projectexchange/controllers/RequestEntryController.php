@@ -7,6 +7,7 @@ use common\modules\projectexchange\models\RequestEntry;
 use common\modules\projectexchange\models\searches\RequestEntrySearch;
 use common\modules\projectexchange\models\searches\RequestentryuserSearch;
 use common\modules\projectexchange\models\searches\RequestentrymoderatorSearch;
+use common\modules\projectexchange\models\TeamPersonlink;
 use common\modules\projectexchange\models\Project;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -91,7 +92,22 @@ class RequestentryController extends Controller
 
     public function actionApprovemoderator($id)
     {
-        return true;
+        $requestentry = $this->findModel($id);
+        $project = Project::find()->where(['ParentID'=>$requestentry->ProjectParentID, 'IsActual'=>1])->one();
+        $model = new TeamPersonlink;
+        // Yii::$app->cache->flush();
+        if ($model->load(Yii::$app->request->post())  && $model->save()) {
+            $requestentry->StatusID = 3;
+            $requestentry->save();
+            return $this->redirect(['view', 'id' => $requestentry->ID]);
+        }
+
+        $model->TeamID = $project->TeamID;
+        $model->PersonID = $requestentry->PersonID;
+
+        return $this->render('_form_member_entry', [
+            'model' => $model,
+        ]);
     }
     public function actionDeclinemoderator($id)
     {

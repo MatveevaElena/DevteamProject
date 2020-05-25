@@ -10,6 +10,7 @@ use common\modules\projectexchange\models\searches\TeamPersonlinkSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\modules\projectexchange\models\ProjectTaglink;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -117,6 +118,21 @@ class ProjectController extends Controller
         $model->TeamID = $project->TeamID;
 
         return $this->render('_form_member', [
+            'model' => $model,
+        ]);
+    }
+    public function actionAddtag($id)
+    {
+        $project = $this->findModel($id);
+        $model = new ProjectTaglink;
+        // Yii::$app->cache->flush();
+        if ($model->load(Yii::$app->request->post())  && $model->save()) {
+            return $this->redirect(['view', 'id' => $project->ID]);
+        }
+
+        $model->ProjectParentID = $project->ParentID;
+
+        return $this->render('_form_tag', [
             'model' => $model,
         ]);
     }

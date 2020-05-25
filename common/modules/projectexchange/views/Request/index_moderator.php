@@ -52,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'TZ',
                 'header' => Yii::t('ML','TZ'),
             ],
+            //StatusID
             [
                 'attribute' => 'StatusID',
                 'value' => function($model){
@@ -60,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => ArrayHelper::map(RequestStatus::find()->where(['!=','ID',1])->asArray()->all(), 'ID', 'Name'),
                 'header' => Yii::t('ML','Status ID'),
             ],
+            //TypeID
             [
                 'attribute' => 'TypeID',
                 'value' => function($model){

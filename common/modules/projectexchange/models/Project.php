@@ -115,5 +115,15 @@ class Project extends \common\components\VersionedActiveRecord
     public function getTeam(){
         return $this->hasOne(Team::className(), ['ID' => 'TeamID']);
     }
-    
+    public function getTags(){
+        return $this->hasMany(ProjectTaglink::className(), ['ProjectParentID' => 'ParentID']);
+    }
+    public function getTagsString(){
+        $tags = $this->tags;
+        $result = [];
+        foreach($tags as $tag){
+            $result[] = $tag->tagName;
+        }
+        return implode(', ',$result);
+    }
 }

@@ -42,12 +42,21 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'StatusID',
                 'value' => $model->projectStatus->Name
+            ],
+            [
+                'label' => 'Tags',
+                'value' => $model->tagsString
             ]
         ],
     ]) ?>
     <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
         <p>
             <?= Html::a(Yii::t('ML', 'Add member'), ['addmember', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
+        </p>
+    <?php } ?>
+    <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
+        <p>
+            <?= Html::a(Yii::t('ML', 'Add tag'), ['addtag', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
         </p>
     <?php } ?>
     <?= GridView::widget([

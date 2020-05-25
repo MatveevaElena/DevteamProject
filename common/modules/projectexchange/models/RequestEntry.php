@@ -93,5 +93,10 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     public function getTypeName(){
         return (($tp = $this->type) ? $tp->Name : 'Тип не указан');
     }
-
+    public function getPerson(){
+        return $this->hasOne(Person::className(), ['ID'=>'PersonID']);
+    }
+    public function getTeam(){
+        return $this->hasOne(Team::className(), ['ID' => 'TeamID']);
+    }
 }

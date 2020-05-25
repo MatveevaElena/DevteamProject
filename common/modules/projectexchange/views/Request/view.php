@@ -47,13 +47,31 @@ $this->params['breadcrumbs'][] = $this->title;
             'Cost',
             'TZ',
             'RequestDate',
-            'ParentID',
-            'IsActual',
-            'VersionDate',
-            'DeletedDate',
-            'StatusID',
-            'TypeID',
-            'PersonID',
+            //'ParentID',
+            //'IsActual',
+            //'VersionDate',
+           // 'DeletedDate',
+            //'StatusID',
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->status->Name;
+                },
+            ],
+            //'TypeID',
+            [
+                'attribute' => 'TypeID',
+                'value' => function($model){
+                    return $model->type->Name;
+                },
+            ],
+            //'PersonID',
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+            ],
         ],
     ]) ?>
 

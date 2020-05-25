@@ -4,6 +4,7 @@ namespace common\modules\projectexchange\models;
 
 use Yii;
 use common\modules\projectexchange\models\RequestStatus;
+use common\modules\projectexchange\models\RequestTupe;
 
 /**
  * This is the model class for table "request".
@@ -103,7 +104,4 @@ class Request extends \common\components\VersionedActiveRecord
         return $this->hasOne(Person::className(), ['ID'=>'PersonID']);
     }
 
-    // public function getTypeName(){
-    //     return (($tp = $this->type) ? $tp->Name : 'Статус не указан');
-    // }
 }

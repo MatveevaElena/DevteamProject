@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\RequestEntry */
 
@@ -33,14 +34,26 @@ $this->params['breadcrumbs'][] = $this->title;
             'RequestDate',
             'Experience:ntext',
             'Target',
-            'ParentID',
-            'IsActual',
-            'VersionDate',
-            'DeletedDate',
+          //  'ParentID',
+            //'IsActual',
+           // 'VersionDate',
+           // 'DeletedDate',
             'StoredFileID',
             'ProjectParentID',
-            'StatusID',
+           // 'StatusID',
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->status->Name;
+                },
+            ],
             'PersonID',
+        //    [
+        //     'attribute' => 'PersonID',
+        //     'value' => function($model){
+        //         return $model->person->fio;
+        //     },
+        //     ],
         ],
     ]) ?>
 

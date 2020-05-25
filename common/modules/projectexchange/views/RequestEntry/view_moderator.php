@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\ArrayHelper;
+use common\modules\projectexchange\models\RequestStatus;
+use common\modules\projectexchange\models\RequestType;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\projectexchange\models\RequestEntry */
@@ -48,15 +52,32 @@ $this->params['breadcrumbs'][] = $this->title;
             'RequestDate',
             'Experience:ntext',
             'Target',
-            'ParentID',
-            'IsActual',
-            'VersionDate',
-            'DeletedDate',
+           // 'ParentID',
+            //'IsActual',
+            //'VersionDate',
+            //'DeletedDate',
             'StoredFileID',
-            'request_entrycol',
-            'ProjectParentID',
-            'StatusID',
-            'PersonParentID',
+            //'ProjectParentID',
+            [
+                'attribute' => 'ProjectParentID',
+                'value' => function($model){
+                    return $model->project->Name;
+                },
+            ],
+            //'StatusID',
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->status->Name;
+                },
+            ],
+            //'PersonParentID',
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+            ],
         ],
     ]) ?>
 

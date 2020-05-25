@@ -9,7 +9,7 @@ use common\modules\projectexchange\models\RequestEntry;
 /**
  * RequestEntrySearch represents the model behind the search form of `common\modules\projectexchange\models\RequestEntry`.
  */
-class RequestEntrySearch extends RequestEntry
+class RequestEntrymoderatorSearch extends RequestEntry
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class RequestEntrySearch extends RequestEntry
     {
         return [
             [['ID', 'ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
-            [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeletedDate', 'request_entrycol'], 'safe'],
+            [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
 
@@ -75,7 +75,7 @@ class RequestEntrySearch extends RequestEntry
 
         $query->andFilterWhere(['like', 'Experience', $this->Experience])
             ->andFilterWhere(['like', 'Target', $this->Target])
-            ->andFilterWhere(['like', 'request_entrycol', $this->request_entrycol]);
+            ;
 
         return $dataProvider;
     }

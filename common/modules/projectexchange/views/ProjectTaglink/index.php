@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use common\modules\projectexchange\models\ProjectTag;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\modules\projectexchange\models\searches\ProjectTaglinkSearch */
@@ -27,7 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'ProjectTagID',
+            //'ProjectTagID',
+            [
+                'attribute' => 'ProjectTagID',
+                'value' => function($model){
+                    return $model->tagName;
+                },
+                'filter' => ArrayHelper::map(ProjectTag::find()->all(),'ID','Name'),
+                'header' => Yii::t('ML','Project Tag ID'),
+            ],
             'ProjectParentID',
 
             ['class' => 'yii\grid\ActionColumn'],
