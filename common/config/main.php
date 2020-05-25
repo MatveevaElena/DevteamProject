@@ -14,7 +14,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
+                '/' => 'site/index',
+                'news' => 'news/index',
+                'projects' => 'projectexchange/project/index',
+                'info' => 'site/info',
+                'about' => 'site/about',
                 // 'roles/userrole/index' => 'site/index',
                 '<controller:(\w+)>/<action:(\w+)>/<id:\d+>' => '<controller>/<action>',
                 '<controller:(\w+)>/<action:(\w+)>' => '<controller>/<action>',

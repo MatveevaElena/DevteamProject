@@ -42,11 +42,11 @@ WhiteappAsset::register($this);
         технический университет
       </h2>
       <nav>
-        <a href="" class="nav_elem an_2">Главная</a>
-        <a href="/news/index" class="nav_elem an_2">Новости</a>
-        <a href="/projectexchange/project/index" class="nav_elem an_2">Проекты</a>
+        <a href="/" class="nav_elem an_2">Главная</a>
+        <a href="/news" class="nav_elem an_2">Новости</a>
+        <a href="/projects" class="nav_elem an_2">Проекты</a>
         <a href="/info" class="nav_elem an_2">Информация</a>
-        <a href="/site/about" class="nav_elem an_2">О сайте</a>
+        <a href="/about" class="nav_elem an_2">О сайте</a>
       </nav>
       <div class="hdr_buttons">
         <button class="type_1" type="button">Вход</button>
@@ -77,11 +77,11 @@ WhiteappAsset::register($this);
     технический университет
   </h2>
   <nav>
-    <a href="" class="nav_elem_dark an_2">Главная</a>
-    <a href="" class="nav_elem_dark an_2">Новости</a>
-    <a href="" class="nav_elem_dark an_2">Проекты</a>
-    <a href="" class="nav_elem_dark an_2">Информация</a>
-    <a href="" class="nav_elem_dark an_2">О сайте</a>
+    <a href="/" class="nav_elem_dark an_2">Главная</a>
+    <a href="/news" class="nav_elem_dark an_2">Новости</a>
+    <a href="/projects" class="nav_elem_dark an_2">Проекты</a>
+    <a href="/info" class="nav_elem_dark an_2">Информация</a>
+    <a href="/about" class="nav_elem_dark an_2">О сайте</a>
   </nav>
   <div class="hdr_buttons">
     <button class="type_1_rev" type="button">Вход</button>
