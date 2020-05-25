@@ -71,21 +71,21 @@ WhiteappAsset::register($this);
 <!-- Main Header -->
 <?php } else { ?>
 <!-- Header -->
-<header>
+<header class="header_dark bs_out">
   <h2>
     <span>Самарский государственный</span><br>
     технический университет
   </h2>
   <nav>
-    <a href="" class="nav_elem an_2">Главная</a>
-    <a href="" class="nav_elem an_2">Новости</a>
-    <a href="" class="nav_elem an_2">Проекты</a>
-    <a href="" class="nav_elem an_2">Информация</a>
-    <a href="" class="nav_elem an_2">О сайте</a>
+    <a href="" class="nav_elem_dark an_2">Главная</a>
+    <a href="" class="nav_elem_dark an_2">Новости</a>
+    <a href="" class="nav_elem_dark an_2">Проекты</a>
+    <a href="" class="nav_elem_dark an_2">Информация</a>
+    <a href="" class="nav_elem_dark an_2">О сайте</a>
   </nav>
   <div class="hdr_buttons">
-    <button class="type_1" type="button">Вход</button>
-    <button class="type_1" type="button">Регистрация</button>
+    <button class="type_1_rev" type="button">Вход</button>
+    <button class="type_1_rev" type="button">Регистрация</button>
 
   </div>
 </header>

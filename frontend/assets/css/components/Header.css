@@ -45,13 +45,15 @@ header nav a:hover {
   padding: 5px 10px 3px 10px;
   border-bottom: 2px solid #fff;
 }
+.nav_elem_dark {
+  color: #000;
+}
 
 .header_dark {
   color: #000;
 }
 
 .hdr_buttons {
-  flex: 1 1 30%;
   display: flex;
 }
 

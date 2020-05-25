@@ -18,9 +18,12 @@ class WhiteappAsset extends AssetBundle
         'css/Fonts.css',
         'css/Constants.css',
         'css/Icons.css',
+        // Components
         'css/components/Header.css',
         'css/components/Footer.css',
+        // Views
         'css/views/Home.css',
+        'css/views/News.css'
     ];
     public $js = [
     ];
