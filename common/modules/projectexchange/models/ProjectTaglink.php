@@ -56,6 +56,6 @@ class ProjectTaglink extends \yii\db\ActiveRecord
         return $this->hasOne(Project::className(), ['ParentID' => 'ProjectParentID']);
     }
     public function getProjectName(){
-        return (($pr = $this->project) ? $pg->Name : 'Проект не указан');
+        return (($pr = $this->project) ? $pr->Name : 'Проект не указан');
     }
 }

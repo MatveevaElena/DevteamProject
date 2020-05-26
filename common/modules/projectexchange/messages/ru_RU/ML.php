@@ -23,6 +23,10 @@ return array_merge($ml, [
     'Cost'=> 'Стоимость',
     'Tz' => 'Техническое задание',
     'Request' => 'Заявка на создание проекта',
+    'Request Statuses' => 'Статусы заявок',
+    'Request Types'=> 'Типы заявок на проект',
+    'Create Request Type'=>'Создать тип для заявки на проект',
+    'Create Request Status'=>'Создать стаус для заявки',
     'Requests' => 'Заявки на создание проекта',
     'Create Request' => 'Подать заявку на создание проекта',
     'Create Person' => 'Создать физ. лицо',
@@ -33,9 +37,12 @@ return array_merge($ml, [
     'Experience' =>'Опыт',
     'Target' => 'Цели участия',
     'Role ID'=> 'Роль участника',
+    'Teams'=>'Команды',
+    'Create Team'=>'Создать команду',
     'Team ID' => 'Команда',
     'Birth Date' => 'Дата рождения',
     'Team Col' => 'Количество участников команды',
+    'Project Parent ID'=>'Проект',
     'Project Tags' => 'Теги',
     'Create Project Tag' => 'Создать тег',
     'Project Tag ID' => 'Тег',
@@ -61,6 +68,8 @@ return array_merge($ml, [
     'Team Personlinks' => 'Связь персоны с командой',
     'Create Team Personlink'=>'Создать связь персоны с командой',
     'Add tag'=>'Добавить тег',
-    'Add member'=>'Добавить участника'
+    'Add member'=>'Добавить участника',
+    'Tags'=>'Теги',
+    'Implementation period'=>'Период реализации',
     ]);
 ?>

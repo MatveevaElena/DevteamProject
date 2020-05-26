@@ -30,8 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'ID',
-            'ProjectTagID',
-            'ProjectParentID',
+            //'ProjectTagID',
+            [
+                'attribute' => 'ProjectTagID',
+                'value' => $model->tagName,
+            ],
+            //'ProjectParentID',
+            [
+                'attribute' => 'ProjectParentID',
+                'value' => $model->projectName,
+            ],
         ],
     ]) ?>
 

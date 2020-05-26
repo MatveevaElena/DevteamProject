@@ -31,7 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID',
-            'PersonID',
+           // 'PersonID',
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+                'header' => Yii::t('ML','Person ID'),
+            ],
             [
                 'attribute' => 'RequestDate',
                 'format' => ['date','php:d.m.Y'],

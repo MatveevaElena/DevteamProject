@@ -78,15 +78,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => Yii::t('ML','Type ID'),
             ],
             //'PersonID',
-            
-            // [
-            //     'attribute' => 'PersonID',
-            //     'value' => function($model){
-            //         return $model->Fio;
-            //     },
-            //     'filter' => ArrayHelper::map(Person::find()->all(),'ID','LastName'),
-            //     'header' => Yii::t('ML','Last Name'),
-           // ],
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+                'header' => Yii::t('ML','Person ID'),
+            ],
             [
                 'class' => 'yii\grid\ActionColumn'
                 ,'visible' => User::checkAccess('admin')

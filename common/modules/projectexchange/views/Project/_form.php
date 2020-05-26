@@ -40,8 +40,6 @@ use common\modules\projectexchange\models\Team;
 
     <?= $form->field($model, 'StatusID')->dropDownList(ArrayHelper::map(ProjectStatus::find()->asArray()->all(), 'ID', 'Name')) ?>
 
-    <?= $form->field($model, 'RequestParentID')->textInput() ?>
-
     <?= $form->field($model, 'TeamID')->dropDownList(ArrayHelper::map(Team::find()->asArray()->all(), 'ID', 'Name')) ?>
 
     <div class="form-group">

@@ -31,9 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             [
-                'attribute' => 'BeginDate',
-                'value' => date_create($model->BeginDate)->format('d.m.Y').'-'.date_create($model->EndDate)->format('d.m.Y')
+                'label' => Yii::t('ML','Implementation period'),
+                'value' => date_create($model->BeginDate)->format('d.m.Y').'-'.date_create($model->EndDate)->format('d.m.Y'),
             ],
+
             'Name',
             [
                 'attribute' => 'TypeID',
@@ -44,8 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => $model->projectStatus->Name
             ],
             [
-                'label' => 'Tags',
-                'value' => $model->tagsString
+                'label' => Yii::t('ML','Tags'),
+                'value' => $model->tagsString,
             ]
         ],
     ]) ?>

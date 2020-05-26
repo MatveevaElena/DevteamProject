@@ -30,14 +30,36 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'ID',
-            'ParentID',
-            'IsActual',
-            'VersionDate',
-            'DeletedDate',
-            'RoleID',
-            'TeamID',
-            'StatusID',
-            'PersonID',
+           // 'ParentID',
+           // 'IsActual',
+            //'VersionDate',
+           // 'DeletedDate',
+           // 'RoleID',
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->roleName;
+                },
+            ],
+            //'TeamID',
+            [
+                'attribute' => 'TeamID',
+                'value' => $model->teamName,
+            ],
+            //'StatusID',
+            [
+                'attribute' => 'StatusID',
+                'value' => function($model){
+                    return $model->statusName;
+                },
+            ],
+           // 'PersonID',
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+            ],
         ],
     ]) ?>
 

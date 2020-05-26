@@ -6,6 +6,7 @@ use yii\grid\GridView;
 use common\modules\projectexchange\models\PersonlinkRole;
 use common\modules\projectexchange\models\Team;
 use common\modules\projectexchange\models\RequestStatus;
+use common\modules\projectexchange\models\Person;
 /* @var $this yii\web\View */
 /* @var $searchModel common\modules\projectexchange\models\searches\TeamPersonlinkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -61,7 +62,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => ArrayHelper::map(RequestStatus::find()->all(),'ID','Name'),
                  'header' => Yii::t('ML','Status ID'),
             ],
-            'PersonID',
+            //'PersonID',
+            [
+                'attribute' => 'PersonID',
+                'value' => function($model){
+                    return $model->person->fio;
+                },
+                'header' => Yii::t('ML','Person ID'),
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
