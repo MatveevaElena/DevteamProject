@@ -15,7 +15,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
-                'news' => 'news/index',
+                'news' => 'site/news',
                 'projects' => 'projectexchange/project/indexall',
                 'info' => 'site/info',
                 'about' => 'site/about',
@@ -48,6 +48,9 @@ return [
         ],
         'test' => [
             'class' => 'common\modules\test\Module',
+        ],
+        'news' => [
+            'class' => 'common\modules\news\Module',
         ],
     ]
 ];

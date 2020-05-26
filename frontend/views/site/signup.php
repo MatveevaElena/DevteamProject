@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'options' => ['placeholder' => 'Enter event time ...'],
                     'pluginOptions' => [
                         'autoclose'=>true,
-                        'format' => 'dd.mm.yyyy'
+                        'format' => 'yyyy-mm-dd'
                     ]
                 ])
                 
