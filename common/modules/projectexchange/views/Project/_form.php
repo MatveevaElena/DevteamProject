@@ -33,6 +33,10 @@ use common\modules\projectexchange\models\Team;
     ]) ?>
 
     <?= $form->field($model, 'Name')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'Description')->textArea() ?>
+
+    <?= $form->field($model, 'Img')->fileInput() ?>
 
     <?= $form->field($model, 'PersonCount')->textInput() ?>
 

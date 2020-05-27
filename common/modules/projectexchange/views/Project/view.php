@@ -2,106 +2,130 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\DetailView;
-use yii\grid\GridView;
 use common\modules\roles\models\User;
+use common\modules\projectexchange\assets\ProjectAsset;
 
-/* @var $this yii\web\View */
-/* @var $model common\modules\projectexchange\models\Project */
+ProjectAsset::register($this);
 
-$this->title = $model->Name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('ML', 'Projects'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
 ?>
-<div class="project-view">
-    <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
-    <p>
-        <?= Html::a(Yii::t('ML', 'Update'), ['update', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('ML', 'Delete'), ['delete', 'id' => $model->ID], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('ML', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-    <?php } ?>
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            [
-                'label' => Yii::t('ML','Implementation period'),
-                'value' => date_create($model->BeginDate)->format('d.m.Y').'-'.date_create($model->EndDate)->format('d.m.Y'),
-            ],
 
-            'Name',
-            [
-                'attribute' => 'TypeID',
-                'value' => $model->projectType->Name
-            ],
-            [
-                'attribute' => 'StatusID',
-                'value' => $model->projectStatus->Name
-            ],
-            [
-                'label' => Yii::t('ML','Tags'),
-                'value' => $model->tagsString,
-            ]
-        ],
-    ]) ?>
-    <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
-        <p>
-            <?= Html::a(Yii::t('ML', 'Add member'), ['addmember', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        </p>
-    <?php } ?>
-    <?php if (User::checkAccess('admin') || User::checkAccess('moderator')){ ?>
-        <p>
-            <?= Html::a(Yii::t('ML', 'Add tag'), ['addtag', 'id' => $model->ID], ['class' => 'btn btn-primary']) ?>
-        </p>
-    <?php } ?>
-    <?= GridView::widget([
-        'dataProvider' => $memberDataProvider,
-        'filterModel' => $memberSearchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute' => 'PersonID',
-                'value' => function($model){
-                    return $model->person->fio;
-                },
-            ],
-            [
-                'attribute' => 'RoleID',
-                'value' => function($model){
-                    return $model->role->Name;
-                },
-            ],
-            [
-                'attribute' => 'StatusID',
-                'value' => function($model){
-                    return $model->status->Name;
-                },
-            ],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'buttons'=>[
-                    'view'=>function ($url, $model) {
-                        $t = '/projectexchange/teampersonlink/view';
-                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', [Url::to($t),'id'=>$model->ID]);
-                    },
-                    'update'=>function ($url, $model) {
-                        $t = '/projectexchange/teampersonlink/update';
-                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', [Url::to($t),'id'=>$model->ID]);
-                    },
-                    'delete'=>function ($url, $model) {
-                        $t = '/projectexchange/teampersonlink/delete';
-                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', [Url::to($t),'id'=>$model->ID]);
-                    },
-                ],
-            ],
-        ],
-    ]); ?>
+    <h1 class="project_header-view"><?= $model->Name ?></h1>
+    <br>
+    <div class="project_container">
+        <div class="project_container-left">
+            <div class="project_container-img">
+                <img src="/projectexchange/project/showimage?id=<?= $model->ID ?>" class="project_img" alt="Изображение проекта">
+            </div>
+        </div>
+        <div class="project_container-right">
+            <div class="project_container-desctiption">
+                <h2><?= Yii::t('ML', 'Description') ?></h2>
+                <!-- <p><?= $model->Description ?></p> -->
+                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis praesentium recusandae ea? Tempora hic quod, dignissimos quisquam consequatur ullam, recusandae molestias molestiae corrupti harum saepe repellendus, rerum dolore? Esse, vitae?</p><br>
+                <h2><?= Yii::t('ML', 'Type ID') ?></h2>
+                <p><?= $model->projectType->Name ?></p><br>
+                <h2><?= Yii::t('ML', 'Status ID') ?></h2>
+                <p><?= $model->projectStatus->Name ?></p><br>
+                <h2><?= Yii::t('ML','Implementation period') ?></h2>
+                <p><?= $model->implementationPeriod ?></p><br>
+                <h2><?=  Yii::t('ML','Tags') ?></h2>
+                <p><?= $model->tagsString ?></p>
+            </div>
+        </div>
+    </div>
+    <h1 class="project_header-view">Команда проекта</h1>
+    <br>
+    <div class="project_team">
+        <?php foreach($memberDataProvider->getModels() as $index => $item){ ?>
+        <div class="project_team_item">
+            <div class="project_team_item-serial"><?= $index+1 ?></div>
+            <div class="project_team_item-fio"><?= $item->person->fio ?></div>
+            <div class="project_team_item-role"><?= $item->role->Name ?></div>
+            <div class="project_team_item-status"><?= $item->status->Name ?></div>
+        </div>
+        <?php } ?>
+    </div>
+    <br>
+    <div class="project_signup">
+        <button data-id="<?= $model->ID ?>" class="project_signup-button type_1_rev">Подать заявку на участие</button>
+    </div>
 
+<style>
+.project_header-view{
+    font-size: 2em;
+}
+.project_container{
+    /* background-color: lightblue; */
+    display: flex;
+    flex-wrap: none;
+    min-height: 300px;
+}
+.project_container-left{
+    display: flex;
+    width: 30%;
+}
+.project_container-right{
+    display: flex;
+    width: 70%;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.project_container-img{
+    display: flex;
+}
+.project_img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.project_container-description{
 
-</div>
+}
+.project_signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.project_team{
+    /* background-color: lightcoral; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.project_team_item{
+    display: flex;
+    width: 100%;
+}
+.project_team_item div{
+    outline: 1px solid black;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.project_team_item-serial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+}
+.project_team_item-fio{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    /* min-width: 200px; */
+    width: 45%;
+}
+.project_team_item-role{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 200px; */
+    width: 25%;
+}
+.project_team_item-status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 200px; */
+    width: 25%;
+    /* background-color: aqua; */
+}
+</style>

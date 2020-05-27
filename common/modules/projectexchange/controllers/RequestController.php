@@ -11,6 +11,8 @@ use common\modules\projectexchange\models\searches\RequestmoderatorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use common\components\helpers\Upload;
 
 /**
  * RequestController implements the CRUD actions for Request model.
@@ -109,11 +111,15 @@ class RequestController extends Controller
     {
         $model = new Project;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
-            return $this->redirect(['view', 'id' => $model->ID]);
+        if ($model->load(Yii::$app->request->post())) {
+            if(($fileInstence = UploadedFile:: getInstance($model, 'Img')))
+            { 
+                $model->Img = Upload::file($fileInstence, 'project', true);
+            }
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->ID]);//на проект
+            }
         }
-        // var_dump($id);die;
         $request = $this->findModel($id);
         $model->RequestParentID = $request->ParentID;
 
@@ -148,8 +154,14 @@ class RequestController extends Controller
     {
         $model = new Request();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+        if ($model->load(Yii::$app->request->post())) {
+            if(($fileInstence = UploadedFile:: getInstance($model, 'TZ')))
+            { 
+                $model->TZ = Upload::file($fileInstence, 'request', true);
+            }
+            if($model-> save()){
+                return $this->redirect(['view', 'id' => $model->ID]);
+            }
         }
 
         return $this->render('create', [
@@ -168,8 +180,14 @@ class RequestController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+        if ($model->load(Yii::$app->request->post())) {
+            if(($fileInstence = UploadedFile:: getInstance($model, 'TZ')))
+            { 
+                $model->TZ = Upload::file($fileInstence, 'request', true);
+            }
+            if($model-> save()){
+                return $this->redirect(['view', 'id' => $model->ID]);
+            }
         }
 
         return $this->render('update', [
@@ -215,5 +233,10 @@ class RequestController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('ML', 'The requested page does not exist.'));
+    }
+
+    public function actionShowimg($path)
+    {
+        return base64_encode(file_get_contents(Yii::getAlias('@uploads').'/'.$path));
     }
 }

@@ -34,6 +34,10 @@ use common\modules\projectexchange\models\ProjectType;
 
     <?= $form->field($model, 'Name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'Description')->textArea() ?>
+
+    <?= $form->field($model, 'Img')->fileInput() ?>
+
     <?= $form->field($model, 'PersonCount')->textInput() ?>
 
     <?= $form->field($model, 'TypeID')->dropDownList(ArrayHelper::map(ProjectType::find()->all(),'ID','Name')) ?>

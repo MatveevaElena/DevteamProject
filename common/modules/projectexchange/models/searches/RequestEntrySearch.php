@@ -17,7 +17,7 @@ class RequestEntrySearch extends RequestEntry
     public function rules()
     {
         return [
-            [['ID', 'ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
+            [['ID', 'ParentID', 'IsActual', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
             [['RequestDate', 'Experience', 'Target', 'VersionDate', 'DeletedDate'], 'safe'],
         ];
     }
@@ -64,7 +64,6 @@ class RequestEntrySearch extends RequestEntry
             'IsActual' => $this->IsActual,
             'VersionDate' => $this->VersionDate,
             'DeletedDate' => $this->DeletedDate,
-            'StoredFileID' => $this->StoredFileID,
             'ProjectParentID' => $this->ProjectParentID,
             'StatusID' => $this->StatusID,
             'PersonID' => $this->PersonID,

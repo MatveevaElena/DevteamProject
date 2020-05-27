@@ -1,0 +1,124 @@
+a.button_type_red {
+	cursor: pointer;
+	font-family: 'Montserrat';
+	outline: none;
+	border: 1px solid #940000;
+	color: #940000;
+	margin: 5px;
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 15px;
+	text-align: center;
+	width: fit-content;
+}
+
+a.button_type_red:hover {
+	background: #940000;
+	color: #fff;
+}
+
+a.button_type_blue {
+	cursor: pointer;
+	font-family: 'Montserrat';
+	outline: none;
+	border: 1px solid #00028a;
+	color: #00028a;
+	margin: 5px;
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 15px;
+	text-align: center;
+	width: fit-content;
+}
+
+a.button_type_blue:hover {
+	background: #00028a;
+	color: #fff;
+}
+
+.button_type_green {
+	cursor: pointer;
+	font-family: 'Montserrat';
+	outline: none;
+	border: 1px solid #098a00;
+	color: #098a00;
+	margin: 5px;
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 15px;
+	text-align: center;
+	width: fit-content;
+}
+
+.button_type_green:hover {
+	background: #098a00;
+	color: #fff;
+}
+
+button {
+	cursor: pointer;
+	font-family: 'Montserrat';
+	outline: none;
+}
+
+button.type_1 {
+	background: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	margin: 5px;
+	padding: 5px 15px;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+button.type_1:hover {
+	background: #fff;
+	color: #273856;
+}
+
+button.type_1_rev {
+	background: transparent;
+	border: 1px solid #000;
+	color: #000;
+	margin: 5px;
+	padding: 5px 15px;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+button.type_1_rev:hover {
+	background: #000;
+	color: #fff;
+}
+
+button.type_2 {
+	background: rgba(0, 0, 0, 0);
+	border: 1px solid #fff;
+	color: #fff;
+	margin: 10px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+button.type_2:hover {
+	background: #fff;
+	color: #273856;
+}
+
+button.type_2_rev {
+	background: rgba(0, 0, 0, 0);
+	border: 1px solid #000;
+	color: #000;
+	margin: 10px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+button.type_2_rev:hover {
+	background: #000;
+	color: #fff;
+}

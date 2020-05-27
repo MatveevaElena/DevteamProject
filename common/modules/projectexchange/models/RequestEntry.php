@@ -38,10 +38,10 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     {
         return [
             [['RequestDate', 'VersionDate', 'DeletedDate'], 'safe'],
-            [['Experience'], 'string'],
+            [['Experience', 'Target'], 'string'],
             [['ParentID', 'StatusID', 'PersonID'], 'required'],
-            [['ParentID', 'IsActual', 'StoredFileID', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
-            [['Target'], 'string', 'max' => 45],
+            [['ParentID', 'IsActual', 'ProjectParentID', 'StatusID', 'PersonID'], 'integer'],
+            [['StoredFileID'], 'string', 'max' => 200],
            // [['PersonID'], 'exist', 'skipOnError' => true, 'targetClass' => Person::className(), 'targetAttribute' => ['PersonID' => 'ParentID']],
            // [['ProjectParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['ProjectParentID' => 'ParentID']],
            // [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => RequestStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
@@ -98,5 +98,8 @@ class RequestEntry extends \common\components\VersionedActiveRecord
     }
     public function getTeam(){
         return $this->hasOne(Team::className(), ['ID' => 'TeamID']);
+    }
+    public function getFormatedRequestDate(){
+        return date_create($this->RequestDate)->format('d.m.Y');
     }
 }

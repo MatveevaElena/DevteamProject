@@ -18,6 +18,7 @@ class WhiteappAsset extends AssetBundle
         'css/Fonts.css',
         'css/Constants.css',
         'css/Icons.css',
+        'css/buttons.css',
         // Components
         'css/components/Header.css',
         'css/components/Footer.css',

@@ -14,9 +14,12 @@ use kartik\date\DatePicker;
 <div class="request-entry-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'ProjectParentID')->dropDownList(ArrayHelper::map(Project::find()->asArray()->all(), 'ParentID', 'Name'),['prompt' => 'Проект не выбран'])  ?>
+    <br>
     
+    <?php if($model->isNewRecord){ ?>
+    <?= $form->field($model, 'ProjectParentID')->dropDownList(ArrayHelper::map(Project::find()->asArray()->all(), 'ParentID', 'Name'),['prompt' => 'Любой проект'])  ?>
+    <?php } ?>
+    <br>
     <?= $form->field($model, 'Experience')->widget(\common\components\widgets\Redactor::className(),[
         'settings' => [             
             'lang' => 'ru',
@@ -24,6 +27,7 @@ use kartik\date\DatePicker;
         ]
     ]) ?>
 
+    <br>
     <?= $form->field($model, 'Target')->widget(\common\components\widgets\Redactor::className(),[
         'settings' => [             
             'lang' => 'ru',
@@ -31,10 +35,11 @@ use kartik\date\DatePicker;
         ]
     ]) ?>
 
+    <br>
     <?= $form->field($model, 'StoredFileID')->fileinput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'type_1_rev']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

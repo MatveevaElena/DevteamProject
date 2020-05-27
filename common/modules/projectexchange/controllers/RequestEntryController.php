@@ -12,7 +12,8 @@ use common\modules\projectexchange\models\Project;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
+use common\components\helpers\Upload;
 /**
  * RequestEntryController implements the CRUD actions for RequestEntry model.
  */
@@ -114,7 +115,7 @@ class RequestentryController extends Controller
         $model = $this->findModel($id);
         $model->StatusID = 4;
         $model->save();
-        return $this->redirect(['indexmoderator']);
+        return $this->redirect(['view', 'id' => $model->ID]);
     }
     public function actionBacktoupdate($id)
     {
@@ -131,12 +132,20 @@ class RequestentryController extends Controller
      * @return mixed
      */
     public function actionCreate($id=null)
-    { $project = Project::findOne($id);
+    { 
+        $project = Project::findOne($id);
         $projparentid = $project ? $project->ParentID : null;
-       $model = new RequestEntry();
-       $model->ProjectParentID = $projparentid;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+        $model = new RequestEntry();
+        $model->ProjectParentID = $projparentid;
+
+        if ($model->load(Yii::$app->request->post())) {
+            if(($fileInstence = UploadedFile:: getInstance($model, 'StoredFileID')))
+            { 
+                $model->StoredFileID = Upload::file($fileInstence, 'requestentry', true);
+            }
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->ID]);
+            }
         }
 
         return $this->render('create', [

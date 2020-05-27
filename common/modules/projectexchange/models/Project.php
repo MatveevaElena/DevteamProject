@@ -3,6 +3,7 @@
 namespace common\modules\projectexchange\models;
 
 use Yii;
+use Yii\base\Response;
 
 /**
  * This is the model class for table "project".
@@ -37,10 +38,11 @@ class Project extends \common\components\VersionedActiveRecord
     public function rules()
     {
         return [
-            [['BeginDate', 'EndDate', 'VersionDate', 'DeletedDate'], 'safe'],
+            [['BeginDate', 'EndDate', 'VersionDate', 'DeletedDate', 'Img'], 'safe'],
             [['PersonCount', 'ParentID', 'IsActual', 'TypeID', 'StatusID', 'RequestParentID', 'TeamID'], 'integer'],
             [['ParentID', 'TypeID', 'StatusID', ], 'required'],
             [['Name'], 'string', 'max' => 400],
+            [['Description'], 'string', 'max' => 500],
           //  [['StatusID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectStatus::className(), 'targetAttribute' => ['StatusID' => 'ID']],
           //  [['TypeID'], 'exist', 'skipOnError' => true, 'targetClass' => ProjectType::className(), 'targetAttribute' => ['TypeID' => 'ID']],
         //    [['RequestParentID'], 'exist', 'skipOnError' => true, 'targetClass' => Request::className(), 'targetAttribute' => ['RequestParentID' => 'ParentID']],
@@ -67,6 +69,8 @@ class Project extends \common\components\VersionedActiveRecord
             'StatusID' => Yii::t('ML', 'Status ID'),
             'RequestParentID' => Yii::t('ML', 'Request Parent ID'),
             'TeamID' => Yii::t('ML', 'Team ID'),
+            'Description' => Yii::t('ML', 'Description'),
+            'Img' => Yii::t('ML', 'Img'),
         ];
     }
 
@@ -112,6 +116,10 @@ class Project extends \common\components\VersionedActiveRecord
         return $this->hasOne(ProjectStatus::className(), ['ID' => 'StatusID']);
     }
 
+    public function getFormatedBeginDate(){
+        return date_create($this->BeginDate)->format('d.m.Y');
+    }
+
     public function getTeam(){
         return $this->hasOne(Team::className(), ['ID' => 'TeamID']);
     }
@@ -125,5 +133,10 @@ class Project extends \common\components\VersionedActiveRecord
             $result[] = $tag->tagName;
         }
         return implode(', ',$result);
+    }
+
+    public function getImplementationPeriod()
+    {
+        return date_create($this->BeginDate)->format('d.m.Y').'-'.date_create($this->EndDate)->format('d.m.Y');
     }
 }

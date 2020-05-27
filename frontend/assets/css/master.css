@@ -148,7 +148,7 @@ button.type_2_rev:hover {
 	padding: 10px 0;
 }
 
-select {
+select, input {
 	width: 100%;
 	color: #000;
 	-webkit-appearance: none;

@@ -13,7 +13,7 @@ use common\models\LoginForm;
 class SiteController extends Controller
 {
     
-    public $layout = 'first';
+    // public $layout = 'first';
 
     /**
      * {@inheritdoc}

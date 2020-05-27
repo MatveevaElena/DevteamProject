@@ -1,28 +1,31 @@
-<section class="proj">
-  <div class="proj_container">
+<?php
+
+use common\modules\projectexchange\assets\ProjectAsset;
+use frontend\assets\MediaAsset;
+ProjectAsset::register($this);
+$media = MediaAsset::register($this);
+
+// var_dump($media->baseUrl);die;
+?>
+
+<section class="proj" >
+  <div class="proj_container" style="background-color: #e5e5e5 !important">
       <?php
         foreach($dataProvider->getModels() as $key => $value){
       ?>
-      <!-- <div class="test-container">
-          <div class="test-project">
-              <div class="test-project-img"></div>
-              <div class="test-project-name"><a href="/projectexchange/project/view?id=<?php echo $value['ID'] ?>"><?= $value['Name'] ?></a></div>
-              <div class="test-project-text"><a href=" /projectexchange/requestentry/create?id=<?php echo $value['ID'] ?>">Подать заявку</a></div>
-          </div>
-      </div> -->
       <div class="proj_elem">
         <h2><?= $value['Name'] ?></h2>
-        <p>Описание</p>
+        <p><?= $value->Description ? $value->Description : '&nbsp' ?></p>
         <div class="proj_table">
-          <div class="proj_col">Категория</div>
-          <div class="proj_col">IT-технологии</div>
-          <div class="proj_col">Статус</div>
-          <div class="proj_col">Разработка</div>
-          <div class="proj_col">Дата начала</div>
-          <div class="proj_col">Дата</div>
+          <div class="proj_col"><?= Yii::t('ML','Type ID') ?></div>
+          <div class="proj_col"><?= $value->projectType->Name ?></div>
+          <div class="proj_col"><?= Yii::t('ML','Status ID') ?></div>
+          <div class="proj_col"><?= $value->projectStatus->Name ?></div>
+          <div class="proj_col"><?= Yii::t('ML','Begin Date') ?></div>
+          <div class="proj_col"><?= $value->formatedBeginDate ?></div>
         </div>
         <div class="proj_img">
-          <img src="/assets/img/test.jpg" alt="Изображение проекта">
+          <img src="/projectexchange/project/showimage?id=<?=$value->ID ?>" alt="Изображение проекта">
         </div>
         <div class="proj_footer">
           <div class="proj_buttons">
@@ -40,7 +43,7 @@
             <span>12</span>
           </div>
           <div class="proj_url">
-            <button class="type_1">Подробнее</button>
+            <button data-id="<?= $value->ID ?>" class="type_1_rev view_project">Подробнее</button>
           </div>
         </div>
       </div>
@@ -53,13 +56,13 @@
     			</div>
     			<a href="">
     				<div class="pagin_nav first">
-    					<img src="@/assets/icons/chevron-left-double.svg" alt="">
+    					<img src="<?= $media->baseUrl ?>/icons/chevron-left-double.svg" alt="">
     				</div>
     			</a>
     			<div class="pagin_page_list">
     				<a href="">
     					<div class="page pagin_nav prev">
-    						<img src="@/assets/icons/chevron-left.svg" alt="">
+    						<img src="<?= $media->baseUrl ?>/icons/chevron-left.svg" alt="">
     					</div>
     				</a>
     				<a href=""><div class="page">1</div></a>
@@ -69,13 +72,13 @@
     				<a href=""><div class="page">5</div></a>
     				<a href="">
     					<div class="page pagin_nav next">
-    						<img src="@/assets/icons/chevron-right.svg" alt="">
+    						<img src="<?= $media->baseUrl ?>/icons/chevron-right.svg" alt="">
     					</div>
     				</a>
     			</div>
     			<a href="">
     				<div class="pagin_nav last">
-    					<img src="@/assets/icons/chevron-right-double.svg" alt="">
+    					<img src="<?= $media->baseUrl ?>/icons/chevron-right-double.svg" alt="">
     				</div>
     			</a>
     		</div>

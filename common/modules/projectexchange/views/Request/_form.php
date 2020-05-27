@@ -13,7 +13,7 @@ use kartik\date\DatePicker;
 
 <div class="request-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'class' => 'model-form']]); ?>
 
     <?= $form->field($model, 'PersonCount')->textInput() ?>
 
@@ -26,15 +26,6 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'ProductResults')->widget(\common\components\widgets\Redactor::className()) ?>
 
     <?= $form->field($model, 'Cost')->textInput(['maxlength' => true]) ?>
-    
-    <?= $form->field($model, 'RequestDate')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Enter event time ...'],
-        'pluginOptions' => [
-            'autoclose'=>true,
-            'format' => 'dd.mm.yyyy'
-        ]
-    ])
-    ?>
 
     <?= $form->field($model, 'TypeID')->dropDownList(ArrayHelper::map(RequestType::find()->asArray()->all(), 'ID', 'Name')) ?>
 

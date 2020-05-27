@@ -11,6 +11,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\modules\projectexchange\models\ProjectTaglink;
+use yii\web\UploadedFile;
+use common\components\helpers\Upload;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -185,5 +187,26 @@ class ProjectController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('ML', 'The requested page does not exist.'));
+    }
+
+    // Yii::getAlias('@uploads').'/'.$this->Img
+    public function actionShowimage($id){
+        $project = Project::findOne($id);
+        header('Content-type: image/jpeg; charset=windows-1251');
+        try{
+            $img = file_get_contents(Yii::getAlias('@uploads').'/'.$project->Img);
+        } catch (\Throwable $th) {
+            $img = file_get_contents(Yii::getAlias('@media').'/img/test.jpg');
+        }
+        if(!$img){
+            echo '';
+        }else{
+            try {
+                echo pack('H*', $img );
+            } catch (\Throwable $th) {
+                echo $img;
+            }
+            
+        }
     }
 }

@@ -23,35 +23,17 @@ use common\modules\projectexchange\models\Team;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'TeamID')->dropDownList(ArrayHelper::map(Team::find()->asArray()->all(), 'ID', 'Name'),['readonly'=>'readonly']) ?>
-
-
+    <br>
+    <?= $form->field($model, 'PersonID')->hiddenInput()->label(false); ?>
     
-    <?= $form->field($model, 'PersonID')->widget(Select2::classname(), [ 
-        'data'=>[$model->PersonID=>$model->person->fio],
-        'options' => ['placeholder' => 'Filter as you type ...','readonly'=>'readonly'],
-        'pluginOptions' => [
-            'allowClear' => true,
-            'minimumInputLength' => 3,
-            'language' => [
-                'errorLoading' => new JsExpression("function () { return 'Waiting for results...'; }"),
-            ],
-            'ajax' => [
-                'url' => Url::to(['/projectexchange/person/addmember']),
-                'dataType' => 'json',
-                'data' => new JsExpression('function(params) { return {q:params.term}; }')
-            ],
-            'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
-            'templateResult' => new JsExpression('function(item) { console.log(item);return item.text; }'),
-            'templateSelection' => new JsExpression('function (item) { console.log(item);return item.text; }'),
-        ],
-    ]); ?>
-
+    <?= $form->field($model->person, 'Fio')->dropDownList([$model->PersonID => $model->person->fio],['readonly'=>'readonly'])->label(Yii::t('ML','Person ID')) ?>
+    <br>
     <?= $form->field($model, 'RoleID')->dropDownList(ArrayHelper::map(PersonlinkRole::find()->all(),'ID','Name')) ?>
-
+    <br>
     <?= $form->field($model, 'StatusID')->dropDownList(ArrayHelper::map(PersonlinkStatus::find()->all(),'ID','Name')) ?>
-
+    <br>
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'button_type_green']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

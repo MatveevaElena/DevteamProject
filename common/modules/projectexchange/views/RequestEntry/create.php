@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="request-entry-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 style="font-size: 2rem;"><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
