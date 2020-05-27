@@ -10,7 +10,7 @@ use Yii;
  * @property int $ID
  * @property string|null $Date
  * @property string|null $Authors
- * @property int $ImgID
+ * @property string|null $Img
  * @property int|null $Views
  * @property string|null $Title
  * @property string|null $Description
@@ -24,6 +24,21 @@ class News extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'news';
+    }
+
+    public function getTitle()
+    {
+        return $this->Title;
+    }
+
+    public function getDescription()
+    {
+        return $this->Description;
+    }
+
+    public function getMain()
+    {
+        return $this->Main;
     }
 
     public function getDayDate()
@@ -56,10 +71,10 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             [['Date'], 'safe'],
-            [['ImgID'], 'required'],
-            [['ImgID', 'Views'], 'integer'],
+            [['Views'], 'integer'],
             [['Main'], 'string'],
             [['Authors', 'Title'], 'string', 'max' => 200],
+            [['Img'], 'string', 'max' => 100],
             [['Description'], 'string', 'max' => 400],
         ];
     }
@@ -73,7 +88,7 @@ class News extends \yii\db\ActiveRecord
             'ID' => Yii::t('ML', 'ID'),
             'Date' => Yii::t('ML', 'Date'),
             'Authors' => Yii::t('ML', 'Authors'),
-            'ImgID' => Yii::t('ML', 'Img ID'),
+            'Img' => Yii::t('ML', 'Img'),
             'Views' => Yii::t('ML', 'Views'),
             'Title' => Yii::t('ML', 'Title'),
             'Description' => Yii::t('ML', 'Description'),

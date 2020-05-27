@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ID',
             'Date',
             'Authors',
-            'ImgID',
+            'Img',
             'Views',
             //'Title',
             //'Description',

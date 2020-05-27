@@ -17,8 +17,8 @@ class NewsSearch extends News
     public function rules()
     {
         return [
-            [['ID', 'ImgID', 'Views'], 'integer'],
-            [['Date', 'Authors', 'Title', 'Description', 'Main'], 'safe'],
+            [['ID', 'Views'], 'integer'],
+            [['Date', 'Authors', 'Img', 'Title', 'Description', 'Main'], 'safe'],
         ];
     }
 
@@ -60,11 +60,11 @@ class NewsSearch extends News
         $query->andFilterWhere([
             'ID' => $this->ID,
             'Date' => $this->Date,
-            'ImgID' => $this->ImgID,
             'Views' => $this->Views,
         ]);
 
         $query->andFilterWhere(['like', 'Authors', $this->Authors])
+            ->andFilterWhere(['Img', 'Img', $this->Img])
             ->andFilterWhere(['like', 'Title', $this->Title])
             ->andFilterWhere(['like', 'Description', $this->Description])
             ->andFilterWhere(['like', 'Main', $this->Main]);

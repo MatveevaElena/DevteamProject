@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'Authors')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ImgID')->textInput() ?>
+    <?= $form->field($model, 'Img')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'Views')->textInput() ?>
 
