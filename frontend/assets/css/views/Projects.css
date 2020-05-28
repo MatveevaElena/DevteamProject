@@ -23,14 +23,18 @@
   background: #fff;
 }
 .proj_elem p {
+  font-size: 1.25em;
   padding: 5px;
   margin: 5px;
-  height: 130px;
+  height: 140px;
   background: #fff;
   text-align: center;
-  display: flex;
-  align-items: center;
   text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  line-height: 19px;
 }
 
 .proj_table {
