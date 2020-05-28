@@ -30,7 +30,7 @@ $asset = WhiteappAsset::register($this);
 <div class="main_hdr bs_out">
   <div class="main_hdr_bg">
     <video preload="auto" autoplay loop muted>
-      <source src="<?= $asset->baseUrl ?>/video/header_bg.mp4" type="video/mp4"></source>
+      <!-- <source src="<?= $asset->baseUrl ?>/video/header_bg.mp4" type="video/mp4"></source> -->
     </video>
   </div>
   <div class="main_hdr_content">
