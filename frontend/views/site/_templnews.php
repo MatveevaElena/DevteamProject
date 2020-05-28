@@ -7,7 +7,7 @@ use yii\helpers\URL;
 <div class="news_elem">
     <h2>
         <?php
-            echo $news['Title'];
+            echo $news->Title;
         ?>
     </h2>
         <div class="news_text">
@@ -22,11 +22,11 @@ use yii\helpers\URL;
     </div>
         <p>
             <?php
-              echo $news['Description'];
+              echo $news->Description;
             ?>
         </p>
     <div class="news_img">
-        <img src="/news/news/showimage?id=<?= $news->ID ?>" alt="Тут должно быть изображение, но почему-то оно не захотело загрузиться">
+        <img src="/news/news/showimage?id=<?= $news->ID ?>" alt="<?= $news->Title ?>">
     </div>
         <div class="news_footer">
             <div class="news_buttons">

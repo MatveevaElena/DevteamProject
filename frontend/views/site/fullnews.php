@@ -7,12 +7,12 @@ $this->title = 'Новости | Проектная платформа СамГ�
     <div class="news_container">
         <h1 class="title">
             <?php
-                echo $news['Title'];
+                echo $news->Title;
             ?>
         </h1>
         <h3 class="description">
             <?php
-                echo $news['Description'];
+                echo $news->Description;
             ?>
         </h3>
         <div class="main_block">

@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'Description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Main')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'Main')->widget(\common\components\widgets\Redactor::className()) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('ML', 'Save'), ['class' => 'btn btn-success']) ?>

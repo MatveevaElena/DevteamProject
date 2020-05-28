@@ -26,21 +26,6 @@ class News extends \yii\db\ActiveRecord
         return 'news';
     }
 
-    public function getTitle()
-    {
-        return $this->Title;
-    }
-
-    public function getDescription()
-    {
-        return $this->Description;
-    }
-
-    public function getMain()
-    {
-        return $this->Main;
-    }
-
     public function getDayDate()
     {
         return date_create($this->Date)->format('d.m.Y');

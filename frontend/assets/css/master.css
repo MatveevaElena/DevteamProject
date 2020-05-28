@@ -14,7 +14,7 @@ span {
 	font-weight: lighter;
 }
 
-.container {
+.section_container {
 	margin: 20px 5%;
 	min-height: -webkit-calc(100vh - 287px);
 	min-height: -moz-calc(100vh - 287px);

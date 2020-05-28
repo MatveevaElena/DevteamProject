@@ -15,15 +15,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="news-view">
     <div class="fullnews_container">
         <div class="fullnews_title">
-            <h1><?php echo $model->title ?></h1>
+            <h1><?php echo $model->Title ?></h1>
         </div>
-        <div class="fullnews_title_img">
-
+        <div class="fullnews_title_img_container">
+            <img src="/news/news/showimage?id=<?= $model->ID ?>" class="fullnews_title_img" alt="<?= $model->Title ?>">
         </div>
         <div class="fullnews_description">
-            <h2><?php echo $model->description ?></h2>
+            <h2><?php echo $model->Description ?></h2>
         </div>
-        
-        <?php echo $model->main ?>
+        <?php echo $model->Main ?>
     </div>
 </div>

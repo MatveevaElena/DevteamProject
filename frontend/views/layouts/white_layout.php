@@ -89,7 +89,7 @@ $asset = WhiteappAsset::register($this);
 <?php } ?>
 
 <!-- Body -->
-<section class="container">
+<section class="section_container">
   <!-- <?= Breadcrumbs::widget([
       'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
   ]) ?>
