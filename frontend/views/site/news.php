@@ -21,13 +21,13 @@ $this->title = 'Новости | Проектная платформа СамГ�
         </div>
         <a href="">
           <div class="pagin_nav first">
-            <img src="@/assets/icons/chevron-left-double.svg" alt="">
+            <img src="<?= $media->baseUrl ?>/icons/chevron-left-double.svg" alt="">
           </div>
         </a>
         <div class="pagin_page_list">
           <a href="">
             <div class="page pagin_nav prev">
-              <img src="@/assets/icons/chevron-left.svg" alt="">
+              <img src="<?= $media->baseUrl ?>/icons/chevron-left.svg" alt="">
             </div>
           </a>
           <a href="">
@@ -47,13 +47,13 @@ $this->title = 'Новости | Проектная платформа СамГ�
           </a>
           <a href="">
             <div class="page pagin_nav next">
-              <img src="@/assets/icons/chevron-right.svg" alt="">
+              <img src="<?= $media->baseUrl ?>/icons/chevron-right.svg" alt="">
             </div>
           </a>
         </div>
         <a href="">
           <div class="pagin_nav last">
-            <img src="@/assets/icons/chevron-right-double.svg" alt="">
+            <img src="<?= $media->baseUrl ?>/icons/chevron-right-double.svg" alt="">
           </div>
         </a>
       </div>
@@ -61,24 +61,27 @@ $this->title = 'Новости | Проектная платформа СамГ�
   </div>
   <div class="news_filter">
     <!-- Filters -->
-    <div class="filter_elem">
-      <h4>Категории</h4>
-      <div class="filter_category_select">
-        <select name="" id="">
-          <option value="">Весёлые</option>
-          <option value="">Грустные</option>
-          <option value="">Нормальные</option>
-        </select>
+    <a class="type_1 filters_mobile">Фильтры</a>
+    <div class="filter_container">
+      <div class="filter_elem">
+        <h4>Категории</h4>
+        <div class="filter_category_select">
+          <select name="" id="">
+            <option value="">Весёлые</option>
+            <option value="">Грустные</option>
+            <option value="">Нормальные</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="filter_elem">
-      <h4>Сортировать</h4>
-      <div class="filter_sort_select">
-        <select name="" id="">
-          <option value="">Популярные</option>
-          <option value="">Новые</option>
-          <option value="">Старые</option>
-        </select>
+      <div class="filter_elem">
+        <h4>Сортировать</h4>
+        <div class="filter_sort_select">
+          <select name="" id="">
+            <option value="">Популярные</option>
+            <option value="">Новые</option>
+            <option value="">Старые</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

@@ -3,20 +3,16 @@
 }
 
 .proj_container {
-  width: 75%;
+  flex: 0 0 75%;
+}
+.proj_wrapper {
   display: flex;
   flex-wrap: wrap;
 }
-
 .proj_elem {
   width: calc(50% - 20px);
-  padding: 10px;
+  margin: 10px;
 }
-
-.proj_elem.in-viewport {
-  opacity: 1;
-}
-
 .proj_elem h2 {
   font-size: 26px;
   font-weight: bold;
@@ -26,12 +22,15 @@
   margin: 5px;
   background: #fff;
 }
-
 .proj_elem p {
   padding: 5px;
   margin: 5px;
+  height: 130px;
   background: #fff;
   text-align: center;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
 }
 
 .proj_table {
@@ -100,21 +99,49 @@
 }
 
 .proj_buttons span {
-  width: 80px;
+  width: 60px;
   height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Arial;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .proj_url {
-  flex: 30%;
+  flex: 25%;
   display: flex;
   justify-content: flex-end;
 }
 
 .proj_filter {
   width: 25%;
+}
+@media all and (max-width: 1300px) {
+  .proj_footer {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .proj_buttons {
+    justify-content: center;
+  }
+  .proj_url {
+    flex: auto;
+    justify-content: center;
+    padding: 15px 0 0 0;
+  }
+}
+@media all and (max-width: 1024px) {
+  .proj {
+    flex-direction: column-reverse;
+  }
+  .proj_container {
+    width: 100%;
+  }
+  .proj_elem {
+    width: calc(100% - 20px);
+  }
+  .proj_filter {
+    width: 100%;
+  }
 }

@@ -30,6 +30,7 @@ class WhiteappAsset extends AssetBundle
         'css/views/Info.css',
     ];
     public $js = [
+        'js/main.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

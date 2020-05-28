@@ -9,21 +9,21 @@ use yii\web\AssetBundle;
  */
 class ProjectAsset extends AssetBundle
 {
-    
+
     public $sourcePath = __DIR__;
     // public $sourcePath = '@media';
     public $css = [
         'css/project.css',
     ];
     public $js = [
-        'js/project.js',
+        'js/project.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         // 'yii\bootstrap\BootstrapAsset',
     ];
     public $jsOptions = ['position' => \yii\web\View::POS_END];
-    
+
     public $publishOptions = ['forceCopy'=>true];
 
 }
