@@ -31,8 +31,8 @@ use yii\helpers\URL;
         <div class="news_footer">
             <div class="news_buttons">
                 <div class="news_ico pointer">
-            <div class="i_heart"></div>
-        </div>
+                    <div class="i_heart"></div>
+                </div>
             <span>
                 <?php
                     echo $news->likesCount;
