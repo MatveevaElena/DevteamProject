@@ -15,7 +15,7 @@ use yii\helpers\URL;
                 <?php
                   echo $news->dayDate;
                 ?>
-            </time> - 
+            </time> -
         <?php
             echo $news->Authors;
         ?>
@@ -46,10 +46,10 @@ use yii\helpers\URL;
                     echo $news['Views'];
                 ?>
             </span>
-        <div class="news_ico">
+        <!-- <div class="news_ico">
             <div class="i_comment"></div>
         </div>
-            <span>-</span>
+            <span>-</span> -->
         </div>
             <div class="news_url">
                 <?php
