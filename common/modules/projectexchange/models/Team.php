@@ -9,7 +9,6 @@ use Yii;
  *
  * @property int $ID
  * @property string|null $Name
- * @property int|null $TeamCol
  */
 class Team extends \yii\db\ActiveRecord
 {
@@ -27,8 +26,7 @@ class Team extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['TeamCol'], 'integer'],
-            [['Name'], 'string', 'max' => 45],
+            [['Name'], 'string'],
         ];
     }
 
@@ -40,7 +38,6 @@ class Team extends \yii\db\ActiveRecord
         return [
             'ID' => Yii::t('ML', 'ID'),
             'Name' => Yii::t('ML', 'Name'),
-            'TeamCol' => Yii::t('ML', 'Team Col'),
         ];
     }
 }
