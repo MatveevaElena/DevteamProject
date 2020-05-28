@@ -5,7 +5,7 @@ use frontend\assets\MediaAsset;
 ProjectAsset::register($this);
 $media = MediaAsset::register($this);
 
-// var_dump($media->baseUrl);die;
+$this->title = 'Проекты | Проектная платформа СамГТУ';
 ?>
 
 <section class="proj" >
@@ -16,7 +16,7 @@ $media = MediaAsset::register($this);
       ?>
       <div class="proj_elem">
         <h2><?= $value['Name'] ?></h2>
-        <p><?= $value->Description ? $value->Description : '&nbsp' ?></p>
+        <p><?= $value->Description ?></p>
         <div class="proj_table">
           <div class="proj_col"><?= Yii::t('ML','Type ID') ?></div>
           <div class="proj_col"><?= $value->projectType->Name ?></div>

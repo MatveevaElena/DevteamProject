@@ -6,7 +6,7 @@ body {
 }
 
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 	color: #000;
 }
 
@@ -15,7 +15,7 @@ span {
 }
 
 .container {
-	padding: 20px 5%;
+	margin: 20px 5%;
 	min-height: -webkit-calc(100vh - 287px);
 	min-height: -moz-calc(100vh - 287px);
 	min-height: calc(100vh - 287px);
@@ -148,7 +148,7 @@ button.type_2_rev:hover {
 	text-align: center;
 	padding: 10px 0;
 }
-.filter_container select, input {
+.filter_container select {
 	width: 100%;
 	color: #000;
 	-webkit-appearance: none;

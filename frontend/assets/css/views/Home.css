@@ -102,13 +102,13 @@
 	width: -webkit-calc(50% - 40px);
 	width: -moz-calc(50% - 40px);
 	width: calc(50% - 40px);
-	padding: 20px;
+	margin: 20px;
 }
 
 .home_add ul li {
 	text-align: center;
 	font-size: 20px;
-	padding: 10px 0;
+	margin: 10px 0;
 }
 
 .home_urls {

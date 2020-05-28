@@ -1,6 +1,6 @@
 /* Header Style */
 header {
-  width: 90%;
+  width: 100%;
   padding: 20px 5%;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ header nav a {
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
-  color: #fff;
+  color: #fff !important;
   white-space: nowrap;
   text-align: center;
 }
@@ -83,7 +83,7 @@ header nav a:hover {
 }
 
 .main_hdr_dscr {
-  width: 90%;
+  width: 100%;
   padding: 0 5%;
   flex: 1 1 100%;
   display: flex;

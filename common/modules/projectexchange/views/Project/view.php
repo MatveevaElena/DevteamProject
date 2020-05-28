@@ -7,125 +7,57 @@ use common\modules\projectexchange\assets\ProjectAsset;
 
 ProjectAsset::register($this);
 
+$this->title = $model->Name;
+
 ?>
-
-    <h1 class="project_header-view"><?= $model->Name ?></h1>
-    <br>
-    <div class="project_container">
-        <div class="project_container-left">
-            <div class="project_container-img">
-                <img src="/projectexchange/project/showimage?id=<?= $model->ID ?>" class="project_img" alt="Изображение проекта">
-            </div>
-        </div>
-        <div class="project_container-right">
-            <div class="project_container-desctiption">
-                <h2><?= Yii::t('ML', 'Description') ?></h2>
-                <!-- <p><?= $model->Description ?></p> -->
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis praesentium recusandae ea? Tempora hic quod, dignissimos quisquam consequatur ullam, recusandae molestias molestiae corrupti harum saepe repellendus, rerum dolore? Esse, vitae?</p><br>
-                <h2><?= Yii::t('ML', 'Type ID') ?></h2>
-                <p><?= $model->projectType->Name ?></p><br>
-                <h2><?= Yii::t('ML', 'Status ID') ?></h2>
-                <p><?= $model->projectStatus->Name ?></p><br>
-                <h2><?= Yii::t('ML','Implementation period') ?></h2>
-                <p><?= $model->implementationPeriod ?></p><br>
-                <h2><?=  Yii::t('ML','Tags') ?></h2>
-                <p><?= $model->tagsString ?></p>
-            </div>
-        </div>
+<div class="fullproj_img bs_out">
+  <div class="fullproj_bg">
+    <img src="/projectexchange/project/showimage?id=<?= $model->ID ?>" alt="<?= $model->Name ?>">
+  </div>
+  <div class="fullproj_content">
+    <h2><?= $model->Name ?></h2>
+    <div class="proj_table">
+      <div class="proj_col"><?= Yii::t('ML', 'Type ID') ?></div>
+      <div class="proj_col"><?= $model->projectType->Name ?></div>
+      <div class="proj_col"><?= Yii::t('ML', 'Status ID') ?></div>
+      <div class="proj_col"><?= $model->projectStatus->Name ?></div>
+      <div class="proj_col"><?= Yii::t('ML','Implementation period') ?></div>
+      <div class="proj_col"><?= $model->implementationPeriod ?></div>
     </div>
-    <h1 class="project_header-view">Команда проекта</h1>
-    <br>
-    <div class="project_team">
-        <?php foreach($memberDataProvider->getModels() as $index => $item){ ?>
-        <div class="project_team_item">
-            <div class="project_team_item-serial"><?= $index+1 ?></div>
-            <div class="project_team_item-fio"><?= $item->person->fio ?></div>
-            <div class="project_team_item-role"><?= $item->role->Name ?></div>
-            <div class="project_team_item-status"><?= $item->status->Name ?></div>
-        </div>
-        <?php } ?>
-    </div>
-    <br>
-    <div class="project_signup">
-        <button data-id="<?= $model->ID ?>" class="project_signup-button type_1_rev">Подать заявку на участие</button>
-    </div>
-
-<style>
-.project_header-view{
-    font-size: 2em;
-}
-.project_container{
-    /* background-color: lightblue; */
-    display: flex;
-    flex-wrap: none;
-    min-height: 300px;
-}
-.project_container-left{
-    display: flex;
-    width: 30%;
-}
-.project_container-right{
-    display: flex;
-    width: 70%;
-    padding-left: 10px;
-    box-sizing: border-box;
-}
-.project_container-img{
-    display: flex;
-}
-.project_img{
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-.project_container-description{
-
-}
-.project_signup{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.project_team{
-    /* background-color: lightcoral; */
-    display: flex;
-    flex-wrap: wrap;
-}
-.project_team_item{
-    display: flex;
-    width: 100%;
-}
-.project_team_item div{
-    outline: 1px solid black;
-    box-sizing: border-box;
-    padding: 5px;
-}
-.project_team_item-serial{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5%;
-}
-.project_team_item-fio{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    /* min-width: 200px; */
-    width: 45%;
-}
-.project_team_item-role{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* min-width: 200px; */
-    width: 25%;
-}
-.project_team_item-status{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* min-width: 200px; */
-    width: 25%;
-    /* background-color: aqua; */
-}
-</style>
+  </div>
+</div>
+<?php if (false) { ?>
+<div class="fullproj_container">
+  <h3>Администрирование</h3>
+  <p>Этот блок видно только руководителям проекта</p>
+  <button data-id="<?= $model->ID ?>" class="type_1_rev">Заявки на вступление</button>
+</div>
+<?php } ?>
+<div class="fullproj_container">
+  <h3><?= Yii::t('ML', 'Description') ?></h3>
+  <p><?= $model->Description ?></p>
+  <div class="fullproj_tags bs_out"><b><?=  Yii::t('ML','Tags') ?>:</b> <?= $model->tagsString ?></div>
+</div>
+<div class="fullproj_container">
+  <h3>Команда проекта</h3>
+  <?php foreach($memberDataProvider->getModels() as $index => $item){ ?>
+  <div class="fullproj_table">
+      <div class="fullproj_table_id"><?= $index+1 ?></div>
+      <div class="fullproj_table_col bs_out"><?= $item->person->fio ?></div>
+      <div class="fullproj_table_col bs_out"><?= $item->role->Name ?></div>
+      <div class="fullproj_table_col bs_out"><?= $item->status->Name ?></div>
+      <?php if (false) { ?>
+      <div class="fullproj_table_col bs_out">
+        <button data-id="<?= $model->ID ?>" class="type_1">Управление</button>
+      </div>
+      <?php } ?>
+  </div>
+  <?php } ?>
+</div>
+<?php if (true) { ?>
+<div class="fullproj_container">
+  <h3>Хочешь присоедениться?</h3>
+  <p>Подай завяку и жди решения руководителя</p>
+  <button data-id="<?= $model->ID ?>" class="project_signup-button type_1_rev">Подать заявку на участие</button>
+</div>
+<?php } ?>
