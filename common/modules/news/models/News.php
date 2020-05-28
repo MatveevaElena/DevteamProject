@@ -56,6 +56,13 @@ class News extends \yii\db\ActiveRecord
         return count($this->likes);
     }
 
+    public function increaseViewCount()
+    {
+        $this->Views = $this->Views+1;
+        return $this->save();
+    }
+    
+
     /**
      * @return \yii\db\Connection the database connection used by this AR class.
      */
