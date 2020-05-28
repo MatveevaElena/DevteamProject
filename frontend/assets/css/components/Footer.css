@@ -2,8 +2,8 @@
 footer {
   width: 90%;
   padding: 20px 5%;
-  background: #fff;
-  color: #000;
+  background: #273856;
+  color: #fff;
 }
 
 .footer_container {
@@ -20,6 +20,7 @@ footer {
 .footer_nav {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .footer_nav a {
@@ -27,7 +28,7 @@ footer {
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
-  color: #000;
+  color: #fff;
   white-space: nowrap;
   text-align: center;
   display: block;

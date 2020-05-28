@@ -36,10 +36,9 @@ $asset = WhiteappAsset::register($this);
   <div class="main_hdr_content">
     <!-- Header -->
     <header>
-      <h2>
-        <span>Самарский государственный</span><br>
-        технический университет
-      </h2>
+      <div class="header_logo">
+        <img src="<?= $asset->baseUrl ?>/img/logo.png" alt="Проектная плафторма СамГТУ">
+      </div>
       <nav>
         <a href="/" class="nav_elem an_2">Главная</a>
         <a href="/news" class="nav_elem an_2">Новости</a>
@@ -70,22 +69,20 @@ $asset = WhiteappAsset::register($this);
 <!-- Main Header -->
 <?php } else { ?>
 <!-- Header -->
-<header class="header_dark bs_out">
-  <h2>
-    <span>Самарский государственный</span><br>
-    технический университет
-  </h2>
+<header class="header_bg bs_out">
+  <div class="header_logo">
+    <img src="<?= $asset->baseUrl ?>/img/logo.png" alt="Проектная плафторма СамГТУ">
+  </div>
   <nav>
-    <a href="/" class="nav_elem_dark an_2">Главная</a>
-    <a href="/news" class="nav_elem_dark an_2">Новости</a>
-    <a href="/projects" class="nav_elem_dark an_2">Проекты</a>
-    <a href="/info" class="nav_elem_dark an_2">Информация</a>
-    <a href="/about" class="nav_elem_dark an_2">О сайте</a>
+    <a href="/" class="nav_elem an_2">Главная</a>
+    <a href="/news" class="nav_elem an_2">Новости</a>
+    <a href="/projects" class="nav_elem an_2">Проекты</a>
+    <a href="/info" class="nav_elem an_2">Информация</a>
+    <a href="/about" class="nav_elem an_2">О сайте</a>
   </nav>
   <div class="hdr_buttons">
-    <button class="type_1_rev" type="button">Вход</button>
-    <button class="type_1_rev" type="button">Регистрация</button>
-
+    <button class="type_1" type="button">Вход</button>
+    <button class="type_1" type="button">Регистрация</button>
   </div>
 </header>
 <!-- Header -->

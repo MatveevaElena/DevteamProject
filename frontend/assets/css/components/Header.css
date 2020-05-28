@@ -9,20 +9,22 @@ header {
 }
 
 .header_bg {
-  background: #fff;
+  background: #273856;
 }
-
-.header_fixed {
-  padding: 5px 5%;
-  position: fixed;
-  top: 0;
-  color: #000;
-}
-
 header h2 {
   white-space: nowrap;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.header_logo {
+  width: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.header_logo img {
+  width: 100%;
 }
 
 header nav {
@@ -44,13 +46,6 @@ header nav a {
 header nav a:hover {
   padding: 5px 10px 3px 10px;
   border-bottom: 2px solid #fff;
-}
-.nav_elem_dark {
-  color: #000;
-}
-
-.header_dark {
-  color: #000;
 }
 
 .hdr_buttons {
