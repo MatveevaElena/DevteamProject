@@ -52,8 +52,8 @@ a.type_1 {
 	cursor: pointer;
 	font-family: 'Montserrat';
 	outline: none;
-	border: 1px solid #000;
-	color: #000;
+	border: 1px solid #273856;
+	color: #273856;
 	margin: 5px;
 	padding: 5px;
 	text-transform: uppercase;
@@ -63,7 +63,7 @@ a.type_1 {
 }
 
 a.type_1:hover {
-	background: #000;
+	background: #273856;
 	color: #fff;
 }
 
@@ -90,8 +90,8 @@ button.type_1:hover {
 
 button.type_1_rev {
 	background: transparent;
-	border: 1px solid #000;
-	color: #000;
+	border: 1px solid #273856;
+	color: #273856;
 	margin: 5px;
 	padding: 5px 15px;
 	text-transform: uppercase;
@@ -99,7 +99,7 @@ button.type_1_rev {
 }
 
 button.type_1_rev:hover {
-	background: #000;
+	background: #273856;
 	color: #fff;
 }
 
@@ -121,8 +121,8 @@ button.type_2:hover {
 
 button.type_2_rev {
 	background: rgba(0, 0, 0, 0);
-	border: 1px solid #000;
-	color: #000;
+	border: 1px solid #273856;
+	color: #273856;
 	margin: 10px;
 	padding: 10px 20px;
 	text-transform: uppercase;
@@ -131,11 +131,12 @@ button.type_2_rev {
 }
 
 button.type_2_rev:hover {
-	background: #000;
+	background: #273856;
 	color: #fff;
 }
 
 /* Filters Style */
+
 .filter_elem {
 	width: 100%;
 	margin: 20px 0;
@@ -147,8 +148,7 @@ button.type_2_rev:hover {
 	text-align: center;
 	padding: 10px 0;
 }
-
-select, input {
+.filter_container select, input {
 	width: 100%;
 	color: #000;
 	-webkit-appearance: none;
@@ -206,6 +206,23 @@ select, input {
 	position: absolute;
 	pointer-events: none;
 }
+.filters_mobile {
+	display: none !important;
+}
+.filter_container {
+	display: block;
+}
+@media all and (max-width: 1024px) {
+	.filters_mobile {
+		display: block !important;
+	}
+	.filter_container {
+		display: none !important;
+	}
+	.filter_container_active {
+		display: block !important;
+	}
+}
 
 /* Pagination Style */
 .pagin_container {
@@ -249,7 +266,7 @@ select, input {
 	   -moz-box-pack: center;
 	        justify-content: center;
 	text-decoration: none;
-	color: #000;
+	color: #fff;
 }
 
 .pagin img {
@@ -273,7 +290,7 @@ select, input {
 
 .pagin > a {
 	width: 40px;
-	background-color: #fff;
+	background-color: #273856;
 }
 
 .pagin > a .pagin_nav {
@@ -321,7 +338,7 @@ select, input {
 	-webkit-flex-basis: 24px;
 	        flex-basis: 24px;
 	border-radius: 50%;
-	background-color: #fff;
+	background-color: #322a37;
 }
 
 .pagin_page_list {
@@ -338,7 +355,8 @@ select, input {
 	   -moz-box-pack: justify;
 	        justify-content: space-between;
 	overflow: hidden;
-	background-color: #fff;
+	background-color: #273856;
+	z-index: 2;
 }
 
 .pagin_page_list a {
@@ -352,5 +370,5 @@ select, input {
 	-webkit-flex-basis: 24px;
 	        flex-basis: 24px;
 	border-radius: 50%;
-	background-color: #fff;
+	background-color: #322a37;
 }
