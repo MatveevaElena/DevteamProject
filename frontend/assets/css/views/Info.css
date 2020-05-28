@@ -1,66 +1,86 @@
 /* Info Style */
 .info h2 {
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-    text-transform: uppercase;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .info_container {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.info_wrapper {
-    width: 50px;
-    transition: width 0.3s ease-out 0s;
-}
-
-.info_wrapper.in-viewport {
-    width: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .info_elem {
-    width: calc(30% - 30px);
-    margin: 15px;
-    height: 400px;
-    overflow: hidden;
+  width: calc(30% - 30px);
+  margin: 15px;
+  height: 400px;
+  overflow: hidden;
 }
 
 .info_bg {
-    width: 100%;
-    height: 400px;
+  width: 100%;
+  height: 400px;
 }
 
 .info_bg img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 .info_content {
-    width: 100%;
-    height: 400px;
-    margin: -400px 0 0 0;
-    position: relative;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #fff;
+  width: 100%;
+  height: 400px;
+  margin: -400px 0 0 0;
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
 }
 
 .info_tit {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .info_text {
+  text-align: center;
+  font-size: 16px;
+  padding: 40px;
+}
+
+@media all and (max-width: 1300px) {
+  .info_text {
     text-align: center;
     font-size: 16px;
-    padding: 40px;
+    padding: 10px;
+  }
+}
+@media all and (max-width: 1024px) {
+  .info_tit {
+    font-size: 16px;
+  }
+  .info_text {
+    font-size: 15px;
+  }
+  .info_elem {
+    width: calc(50% - 30px);
+    height: auto;
+  }
+}
+@media all and (max-width: 768px) {
+  .info_container {
+    padding: 0;
+  }
+  .info_elem {
+    width: calc(100% - 30px);
+  }
 }
