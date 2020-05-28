@@ -97,7 +97,7 @@
     align-items: center;
   }
   .news_url {
-    padding: 10px 0
+    padding: 10px 0;
     flex: 1 1 auto;
     width: 100%;
     justify-content: center;
