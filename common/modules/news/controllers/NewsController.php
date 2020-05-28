@@ -8,6 +8,8 @@ use common\modules\news\models\searches\NewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use common\components\helpers\Upload;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -69,8 +71,14 @@ class NewsController extends Controller
     {
         $model = new News();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+        if ($model->load(Yii::$app->request->post())) {
+            if(($fileInstence = UploadedFile:: getInstance($model, 'Img')))
+            { 
+                $model->Img = Upload::file($fileInstence, 'news', true);
+            }
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->ID]);
+            }
         }
 
         return $this->render('create', [
@@ -89,8 +97,14 @@ class NewsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+        if ($model->load(Yii::$app->request->post())) {
+            if(($fileInstence = UploadedFile:: getInstance($model, 'Img')))
+            { 
+                $model->Img = Upload::file($fileInstence, 'news', true);
+            }
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->ID]);
+            }
         }
 
         return $this->render('update', [
@@ -126,5 +140,25 @@ class NewsController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('ML', 'The requested page does not exist.'));
+    }
+
+    public function actionShowimage($id){
+        $news = News::findOne($id);
+        header('Content-type: image/jpeg; charset=windows-1251');
+        try{
+            $img = file_get_contents(Yii::getAlias('@uploads').'/'.$news->Img);
+        } catch (\Throwable $th) {
+            $img = file_get_contents(Yii::getAlias('@media').'/img/news.jpg');
+        }
+        if(!$img){
+            echo '';
+        }else{
+            try {
+                echo pack('H*', $img );
+            } catch (\Throwable $th) {
+                echo $img;
+            }
+            
+        }
     }
 }

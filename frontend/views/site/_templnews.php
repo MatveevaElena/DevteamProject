@@ -26,7 +26,7 @@ use yii\helpers\URL;
             ?>
         </p>
     <div class="news_img">
-        <img src="@/assets/img/sap.png" alt="Тут должно быть изображение, но почему-то оно не захотело загрузиться">
+        <img src="/news/news/showimage?id=<?= $news->ID ?>" alt="Тут должно быть изображение, но почему-то оно не захотело загрузиться">
     </div>
         <div class="news_footer">
             <div class="news_buttons">

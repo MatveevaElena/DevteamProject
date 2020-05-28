@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'Authors')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Img')->fileInput() ?>
 
     <?= $form->field($model, 'Views')->textInput() ?>
 
