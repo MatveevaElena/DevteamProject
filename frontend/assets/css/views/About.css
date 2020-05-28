@@ -32,6 +32,16 @@
   align-items: center;
   flex-direction: column;
 }
+@media all and (max-width: 768px) {
+  .about_team_elem {
+    width: calc(30% - 30px);
+  }
+}
+@media all and (max-width: 425px) {
+  .about_team_elem {
+    width: calc(100% - 30px);
+  }
+}
 
 .about_team_elem_img {
   width: 160px;
