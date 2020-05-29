@@ -104,12 +104,6 @@ $this->title = 'Проекты | Проектная платформа СамГ�
         <h4>Категории</h4>
         <div class="filter_category_select">
           <?= Html::dropDownList('StatusID',null,ArrayHelper::map(ProjectType::find()->asArray()->all(), 'ID', 'Name'),['prompt'=>'Все']) ?>
-          <!-- <select name="" id="">
-            <option value="">Все</option>
-            <option value="">Машиностроение</option>
-            <option value="">IT-технологии</option>
-            <option value="">Финансы</option>
-          </select> -->
         </div>
       </div>
       <div class="filter_elem">
@@ -126,11 +120,6 @@ $this->title = 'Проекты | Проектная платформа СамГ�
         <h4>Статус</h4>
         <div class="filter_category_select">
           <?= Html::dropDownList('StatusID',null,ArrayHelper::map(ProjectStatus::find()->asArray()->all(), 'ID', 'Name'),['prompt'=>'Все']) ?>
-          <!-- <select name="" id="">
-            <option value="">Все</option>
-            <option value="">Закончен</option>
-            <option value="">Разработка</option>
-          </select> -->
         </div>
       </div>
     </div>

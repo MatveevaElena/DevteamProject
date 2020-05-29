@@ -30,7 +30,7 @@ $asset = WhiteappAsset::register($this);
 <div class="main_hdr bs_out">
   <div class="main_hdr_bg">
     <video preload="auto" autoplay loop muted>
-      <!-- <source src="<?= $asset->baseUrl ?>/video/header_bg.mp4" type="video/mp4"></source> -->
+      <source src="<?= $asset->baseUrl ?>/video/header_bg.mp4" type="video/mp4"></source>
     </video>
   </div>
   <div class="main_hdr_content">
@@ -49,7 +49,6 @@ $asset = WhiteappAsset::register($this);
       <div class="hdr_buttons">
         <button class="type_1" type="button">Вход</button>
         <button class="type_1" type="button">Регистрация</button>
-
       </div>
     </header>
     <!-- Header -->
