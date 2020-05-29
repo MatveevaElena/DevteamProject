@@ -15,8 +15,8 @@ $this->title = 'Проекты | Проектная платформа СамГ�
         foreach($dataProvider->getModels() as $key => $value){
       ?>
       <div class="proj_elem">
-        <h2><?= $value['Name'] ?></h2>
-        <p><?= $value->Description ?></p>
+        <h2><?= mb_substr($value['Name'],0,35) ?></h2>
+        <p><?= mb_substr($value->Description,0,250) ?></p>
         <div class="proj_table">
           <div class="proj_col"><?= Yii::t('ML','Type ID') ?></div>
           <div class="proj_col"><?= $value->projectType->Name ?></div>
