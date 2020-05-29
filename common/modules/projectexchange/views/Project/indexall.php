@@ -1,7 +1,12 @@
 <?php
 
 use common\modules\projectexchange\assets\ProjectAsset;
+use common\modules\projectexchange\models\ProjectStatus;
+use common\modules\projectexchange\models\ProjectType;
 use frontend\assets\MediaAsset;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+
 ProjectAsset::register($this);
 $media = MediaAsset::register($this);
 
@@ -98,12 +103,13 @@ $this->title = 'Проекты | Проектная платформа СамГ�
       <div class="filter_elem">
         <h4>Категории</h4>
         <div class="filter_category_select">
-          <select name="" id="">
+          <?= Html::dropDownList('StatusID',null,ArrayHelper::map(ProjectType::find()->asArray()->all(), 'ID', 'Name'),['prompt'=>'Все']) ?>
+          <!-- <select name="" id="">
             <option value="">Все</option>
             <option value="">Машиностроение</option>
             <option value="">IT-технологии</option>
             <option value="">Финансы</option>
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="filter_elem">
@@ -119,11 +125,12 @@ $this->title = 'Проекты | Проектная платформа СамГ�
       <div class="filter_elem">
         <h4>Статус</h4>
         <div class="filter_category_select">
-          <select name="" id="">
+          <?= Html::dropDownList('StatusID',null,ArrayHelper::map(ProjectStatus::find()->asArray()->all(), 'ID', 'Name'),['prompt'=>'Все']) ?>
+          <!-- <select name="" id="">
             <option value="">Все</option>
             <option value="">Закончен</option>
             <option value="">Разработка</option>
-          </select>
+          </select> -->
         </div>
       </div>
     </div>

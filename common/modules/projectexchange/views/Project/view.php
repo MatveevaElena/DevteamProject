@@ -26,11 +26,11 @@ $this->title = $model->Name;
     </div>
   </div>
 </div>
-<?php if (false) { ?>
+<?php if (true) { ?>
 <div class="fullproj_container">
   <h3>Администрирование</h3>
   <p>Этот блок видно только руководителям проекта</p>
-  <button data-id="<?= $model->ID ?>" class="type_1_rev">Заявки на вступление</button>
+  <button data-id="<?= $model->ID ?>" class="project_requestentry-button type_1_rev">Заявки на вступление</button>
 </div>
 <?php } ?>
 <div class="fullproj_container">
@@ -48,7 +48,7 @@ $this->title = $model->Name;
       <div class="fullproj_table_col bs_out"><?= $item->status->Name ?></div>
       <?php if (false) { ?>
       <div class="fullproj_table_col bs_out">
-        <button data-id="<?= $model->ID ?>" class="type_1">Управление</button>
+        <button data-id="<?= $model->ID ?>" class="team_personlink_update-button type_1">Управление</button>
       </div>
       <?php } ?>
   </div>

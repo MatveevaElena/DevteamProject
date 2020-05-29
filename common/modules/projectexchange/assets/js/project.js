@@ -6,6 +6,9 @@ $(".view_project").click(function(){
 $(".project_signup-button").click(function(){
     location.href = '/projectexchange/requestentry/create?id='+this.getAttribute('data-id');
 })
+$(".team_personlink_update-button").click(function(){
+    location.href = '/projectexchange/teampersonlink/update?id='+this.getAttribute('data-id');
+})
 $(".requestentry_update-button").click(function(){
     location.href = '/projectexchange/requestentry/update?id='+this.getAttribute('data-id');
 })

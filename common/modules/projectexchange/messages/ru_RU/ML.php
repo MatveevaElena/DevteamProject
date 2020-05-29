@@ -73,6 +73,7 @@ return array_merge($ml, [
     'Implementation period'=>'Период реализации',
     'Are you sure you want to approve this item?' => 'Вы действительно хотите утвердить заявку?',
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить это?',
-    'Update Request Entry "{name}"' => 'Изменить заявку на участие в проекте "{name}"'
+    'Update Request Entry "{name}"' => 'Изменить заявку на участие в проекте "{name}"',
+    'Description' => 'Описание',
     ]);
 ?>
